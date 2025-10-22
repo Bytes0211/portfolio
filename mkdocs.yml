@@ -67,11 +67,6 @@ markdown_extensions:
 nav:
   - Home: index.md
   - About: about.md
-  - Examples:
-    - Admonitions: admonitions.md
-    - Code Examples: code-examples.md
-    - Content Tabs: content-tabs.md
-    - Diagrams: diagram-examples.md
   - Data Science:
     - Probabilty and Expected Value: prob_exp_val.ipynb
     - Distribution Fundementals: distributions_fundementals.ipynb
