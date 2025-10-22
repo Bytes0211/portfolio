@@ -1,0 +1,97 @@
+site_name: Portfolio
+site_url: https://sitename.example
+theme:
+  name: material
+  font:
+    text: Merriweather Sans 
+    code: Red Hat Mono
+  logo: assets/favicon.png
+  favicon: assets/favicon.ico
+  features:
+    # - navigation.tabs
+    - navigation.footer
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - toc.integrate
+    - content.code.annotate
+    - content.code.copy
+    - content.tabs.link
+    # - header.autohide
+  # Indigo is #4051B5FF
+  palette:
+    # Dark mode settings
+    - scheme: slate 
+      toggle:
+        icon: material/weather-night
+        name: Dark Mode 
+      primary: indigo
+      accent: blue
+    # Light mode settings
+    - scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: Light Mode 
+      primary: indigo
+      accent: blue
+
+plugins:
+  - mkdocs-jupyter:
+      allow_errors: true
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+markdown_extensions:
+    - attr_list
+    - pymdownx.emoji:
+        emoji_index: !!python/name:material.extensions.emoji.twemoji
+        emoji_generator: !!python/name:material.extensions.emoji.to_svg
+    - pymdownx.highlight:
+        anchor_linenums: true
+        line_spans: __span
+        pygments_lang_class: true
+    - pymdownx.inlinehilite
+    - pymdownx.snippets
+    - pymdownx.superfences:
+        custom_fences:
+          - name: mermaid
+            class: mermaid
+            format: !!python/name:pymdownx.superfences.fence_code_format
+    - pymdownx.tabbed:
+        alternate_style: true 
+    - admonition
+    - pymdownx.details
+    #- mdx_math
+
+nav:
+  - Home: index.md
+  - About: about.md
+  - Examples:
+    - Admonitions: admonitions.md
+    - Code Examples: code-examples.md
+    - Content Tabs: content-tabs.md
+    - Diagrams: diagram-examples.md
+  - Data Science:
+    - Probabilty and Expected Value: prob_exp_val.ipynb
+    - Distribution Fundementals: distributions_fundementals.ipynb
+
+extra:
+  social:
+    - icon: fontawesome/solid/globe-americas
+      link: https://example.com/about
+      name: About
+    - icon: fontawesome/solid/shield-halved
+      link: https://example.com/privacy
+      name: Privacy Policy
+    - icon: fontawesome/solid/envelope
+      link: https://example.com/contact
+      name: Contact
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/steven-cotton-7948157
+      name: LinkedIn
+    - icon: fontawesome/brands/bluesky
+      link: https://bsky.app/profile/stevenwcotton.bsky.social
+      name: Bluesky
+
+copyright: Copyright &copy; 2018 - 2025 Steven Cotton
