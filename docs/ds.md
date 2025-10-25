@@ -6,6 +6,3 @@ Data science is a multidisciplinary field that combines statistics, mathematics,
 
 - [Distribution Fundementals](distributions_fundementals.ipynb) - Distribution Basics
 - [Probability and Expected Value](prob_exp_val.ipynb) - Probalities, Expected Values and Applications
-
-
-
