@@ -305,3 +305,11 @@ AWS Manager is a comprehensive Python library that simplifies AWS service intera
 - **Developer Friendly**: Clean API, extensive documentation, and helper scripts
 
 The library is particularly useful for development and testing workflows, providing streamlined methods for common AWS tasks while handling authentication, pagination, and error management automatically. The dual-environment support allows developers to work entirely with local DynamoDB during development, then migrate to AWS with a single command when ready for production.
+
+## Repository
+
+[View on GitHub](https://github.com/Bytes0211/aws-manager)
+
+---
+
+[← Back to Cloud Computing](cloud-compute.md)

@@ -2,30 +2,66 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://sitename.example/</loc>
-         <lastmod>2025-10-25</lastmod>
+         <lastmod>2025-10-28</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/about/</loc>
-         <lastmod>2025-10-25</lastmod>
+         <lastmod>2025-10-28</lastmod>
+    </url>
+    <url>
+         <loc>https://sitename.example/aws-file-validator/</loc>
+         <lastmod>2025-10-28</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/aws-management/</loc>
-         <lastmod>2025-10-25</lastmod>
+         <lastmod>2025-10-28</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/cloud-compute/</loc>
-         <lastmod>2025-10-25</lastmod>
+         <lastmod>2025-10-28</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/distributions_fundementals/</loc>
-         <lastmod>2025-10-25</lastmod>
+         <lastmod>2025-10-28</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/ds/</loc>
-         <lastmod>2025-10-25</lastmod>
+         <lastmod>2025-10-28</lastmod>
+    </url>
+    <url>
+         <loc>https://sitename.example/heart-disease/</loc>
+         <lastmod>2025-10-28</lastmod>
+    </url>
+    <url>
+         <loc>https://sitename.example/hypothesis-testing/</loc>
+         <lastmod>2025-10-28</lastmod>
+    </url>
+    <url>
+         <loc>https://sitename.example/java/</loc>
+         <lastmod>2025-10-28</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/prob_exp_val/</loc>
-         <lastmod>2025-10-25</lastmod>
+         <lastmod>2025-10-28</lastmod>
+    </url>
+    <url>
+         <loc>https://sitename.example/terraform-aws-product-app/</loc>
+         <lastmod>2025-10-28</lastmod>
+    </url>
+    <url>
+         <loc>https://sitename.example/notebooks/01-intro-to-pvalue/</loc>
+         <lastmod>2025-10-28</lastmod>
+    </url>
+    <url>
+         <loc>https://sitename.example/notebooks/02-one-two-tail-test-diff-mean/</loc>
+         <lastmod>2025-10-28</lastmod>
+    </url>
+    <url>
+         <loc>https://sitename.example/notebooks/03-chi-squared/</loc>
+         <lastmod>2025-10-28</lastmod>
+    </url>
+    <url>
+         <loc>https://sitename.example/notebooks/04-regression-hypothesis/</loc>
+         <lastmod>2025-10-28</lastmod>
     </url>
 </urlset>
