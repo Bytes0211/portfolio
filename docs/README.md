@@ -4,11 +4,11 @@ A comprehensive collection of Jupyter notebooks exploring statistical hypothesis
 
 ## Overview
 
-This series of notebooks provides hands-on demonstrations of hypothesis testing techniques commonly used in data science and statistical analysis. Each notebook includes theoretical explanations, visual illustrations, and practical examples with real-world datasets.
+This project provides hands-on demonstrations of hypothesis testing techniques commonly used in data science and statistical analysis. Each notebook includes theoretical explanations, visual illustrations, and practical examples with real-world datasets.
 
 ## 📓 Notebooks
 
-### [1. Introduction to P-Value](notebooks/01-intro-to-pvalue.ipynb)
+### [1. Introduction to P-Value](01-intro-to-pvalue.ipynb)
 
 **Objective**: Understanding the premise of the p-value concept
 
@@ -27,7 +27,7 @@ This series of notebooks provides hands-on demonstrations of hypothesis testing 
 
 ---
 
-### [2. One-Tail and Two-Tail Tests for Difference in Means](notebooks/02-one-two-tail-test-diff-mean.ipynb)
+### [2. One-Tail and Two-Tail Tests for Difference in Means](02-one-two-tail-test-diff-mean.ipynb)
 
 **Objective**: Understanding directional vs. non-directional hypothesis tests for means
 
@@ -46,7 +46,7 @@ This series of notebooks provides hands-on demonstrations of hypothesis testing 
 
 ---
 
-### [3. One-Tail and Two-Tail Tests for Difference of Proportions](notebooks/03_one_two_tail_test_diff_props.ipynb)
+### [3. One-Tail and Two-Tail Tests for Difference of Proportions](03_one_two_tail_test_diff_props.ipynb)
 
 **Objective**: Testing differences between categorical response proportions
 
@@ -66,7 +66,7 @@ This series of notebooks provides hands-on demonstrations of hypothesis testing 
 
 ---
 
-### [4. Chi-Squared Test](notebooks/04-chi-squared.ipynb)
+### [4. Chi-Squared Test](04-chi-squared.ipynb)
 
 **Objective**: Testing relationships between categorical variables
 
@@ -85,7 +85,7 @@ This series of notebooks provides hands-on demonstrations of hypothesis testing 
 
 ---
 
-### [5. Hypothesis Testing in Regression](notebooks/05-regression-hypothesis.ipynb)
+### [5. Hypothesis Testing in Regression](05-regression-hypothesis.ipynb)
 
 **Objective**: Understanding hypothesis testing within regression analysis
 
@@ -112,6 +112,67 @@ This series of notebooks provides hands-on demonstrations of hypothesis testing 
 - Matplotlib/Seaborn - Data visualization
 - SciPy - Statistical functions
 - Statsmodels - Statistical modeling
+- Bokeh - Interactive visualizations
+
+## Getting Started
+
+### Prerequisites
+
+- Python 3.x
+- pip package manager
+- Virtual environment support
+
+### Installation
+
+1. **Clone the repository**:
+   ```bash
+   git clone <repository-url>
+   cd hypothesis-testing
+   ```
+
+2. **Set up virtual environment**:
+   ```bash
+   make setup
+   ```
+   This will prompt you for a virtual environment name (default: `.venv`) and install all dependencies.
+
+3. **Activate the environment**:
+   ```bash
+   make activate
+   ```
+
+4. **Launch Jupyter Notebook**:
+   ```bash
+   jupyter notebook
+   ```
+
+### Makefile Commands
+
+- `make setup` - Create virtual environment and install dependencies
+- `make activate` - Activate virtual environment and install/update dependencies
+- `make clean` - Remove build artifacts and cache files
+
+## Project Structure
+
+```
+hypothesis-testing/
+├── 01-intro-to-pvalue.ipynb                    # P-value fundamentals
+├── 02-one-two-tail-test-diff-mean.ipynb        # Testing means
+├── 03_one_two_tail_test_diff_props.ipynb       # Testing proportions
+├── 04-chi-squared.ipynb                         # Chi-squared tests
+├── 05-regression-hypothesis.ipynb               # Regression testing
+├── create_test.py                               # Test parameter configuration
+├── resources/                                   # Support modules and data
+│   ├── datum.py                                 # Data processing utilities
+│   ├── test.py                                  # Testing framework
+│   ├── glyph.py                                 # Visualization utilities
+│   ├── plot.py                                  # Plotting functions
+│   ├── cod_population.csv                       # Sample dataset
+│   └── salmon_population.csv                    # Sample dataset
+├── requirements.txt                             # Python dependencies
+├── Makefile                                     # Build automation
+└── README.md                                    # This file
+```
 
 ## Learning Path
 
@@ -173,27 +234,15 @@ Each notebook includes:
 - 📈 Visual representations of test statistics
 - 🎯 Graphical interpretations of critical regions
 - 📉 Regression diagnostic plots
-
-## Prerequisites
-
-**Required Knowledge**:
-- Basic statistics (mean, variance, standard deviation)
-- Understanding of probability distributions
-- Familiarity with Python and Jupyter notebooks
-
-**Setup**:
-```bash
-# Install required packages
-pip install numpy pandas matplotlib seaborn scipy statsmodels jupyter
-```
+- 🎨 Interactive Bokeh visualizations
 
 ## Usage
 
-### Running Locally
+### Running Notebooks Locally
 
 ```bash
-# Clone or download the notebooks
-cd hypothesis-testing
+# Activate virtual environment
+source .venv/bin/activate  # or your chosen venv name
 
 # Launch Jupyter
 jupyter notebook
@@ -201,55 +250,30 @@ jupyter notebook
 # Open any notebook to begin exploring
 ```
 
-### Interactive Exploration
+### Using the Test Framework
 
-Each notebook is designed to be:
-- **Self-contained**: Can be run independently
-- **Interactive**: Modify parameters to see different outcomes
-- **Educational**: Includes explanations and interpretations
-
-## Code Examples
-
-### Example: Basic P-Value Calculation
+The `create_test.py` script demonstrates how to configure and run hypothesis tests programmatically:
 
 ```python
-import numpy as np
-from scipy import stats
+import sys
+sys.path.insert(0, '..')
+from resources import test, datum
 
-# Sample data
-sample_mean = 52
-population_mean = 50
-std_dev = 10
-n = 30
+# Configure test parameters
+test_params = {
+    'cl': 0.95,              # Confidence level
+    'type': 'prop',          # Test type: 'prop', 'mean', etc.
+    'tail': 'lower',         # 'lower', 'upper', or 'two'
+    'n1': 100,               # Sample size
+    'p1': 0.30,              # Sample proportion
+    'null_hypo': 'H₀ description',
+    'alt_hypo': 'H₁ description',
+    'visual': True           # Generate visualizations
+}
 
-# Calculate z-score
-z_score = (sample_mean - population_mean) / (std_dev / np.sqrt(n))
-
-# Calculate p-value (two-tailed)
-p_value = 2 * (1 - stats.norm.cdf(abs(z_score)))
-
-print(f"Z-score: {z_score:.4f}")
-print(f"P-value: {p_value:.4f}")
-```
-
-### Example: Chi-Squared Test
-
-```python
-import pandas as pd
-from scipy.stats import chi2_contingency
-
-# Contingency table
-data = pd.DataFrame({
-    'Group A': [30, 20],
-    'Group B': [25, 25]
-})
-
-# Perform chi-squared test
-chi2, p_value, dof, expected = chi2_contingency(data)
-
-print(f"Chi-squared statistic: {chi2:.4f}")
-print(f"P-value: {p_value:.4f}")
-print(f"Degrees of freedom: {dof}")
+# Run the test
+test_obj = test.Test()
+test_obj.make_hypothesis_test(info=test_params)
 ```
 
 ## Learning Outcomes
@@ -259,21 +283,30 @@ After completing these notebooks, you will be able to:
 - ✅ Understand and interpret p-values
 - ✅ Choose appropriate hypothesis tests for different scenarios
 - ✅ Perform one-tailed and two-tailed tests
+- ✅ Test differences in means and proportions
 - ✅ Analyze categorical data with chi-squared tests
 - ✅ Interpret regression output and test coefficient significance
 - ✅ Make data-driven decisions using statistical evidence
 - ✅ Communicate statistical findings effectively
 
-## Additional Resources
+## Contributing
 
-- **Statistical Theory**: Background on probability distributions and sampling
-- **Python for Data Science**: pandas, NumPy, and visualization libraries
-- **Real-World Applications**: Case studies in various domains
+Contributions are welcome! Please feel free to submit issues or pull requests.
 
-## Repository
+## License
 
-[View on GitHub](https://github.com/Bytes0211/hypothesis-testing)
+This project is open source and available for educational purposes.
+
+## Author
+
+**S Cotton**
+
+## Acknowledgments
+
+- Statistical concepts based on standard hypothesis testing theory
+- Visualizations created using Bokeh, Matplotlib, and Seaborn
+- Sample datasets included for educational demonstration
 
 ---
 
-[← Back to Data Science](ds.md)
+**Note**: These notebooks are designed for educational purposes to help understand statistical hypothesis testing concepts. Always ensure you understand the assumptions and limitations of each test before applying them to real-world data.
