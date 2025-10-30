@@ -68,16 +68,31 @@ nav:
   - Home: index.md
   - About: about.md
   - Data Science:
-    - Statistical Foundations:
-      - Probabilty and Expected Value: prob_exp_val.ipynb
-      - Distribution Fundementals: distributions_fundementals.ipynb
+    - Statistical Distributions:
+      - Overview: distributions.md
+      - Fundamentals:
+        - Distribution Fundamentals: notebooks/dist-01-distribution-fundamentals.ipynb
+        - Basic Probability and Expected Value: notebooks/dist-02-basic-prob-and-exp-val.ipynb
+        - Standard Deviation and Variance: notebooks/dist-03-std-dev-and-var.ipynb
+        - Data Point to Standard Deviation: notebooks/dist-04-data-point-to-std-dev.ipynb
+      - Discrete Distributions:
+        - Binomial Distributions: notebooks/dist-05-binomial-distributions.ipynb
+        - Geometric Distributions: notebooks/dist-06-geometric-distributions.ipynb
+        - Poisson Distribution: notebooks/dist-07-poisson.ipynb
+      - Sampling and Transformations:
+        - Sample Distribution of Sample Mean: notebooks/dist-08-sample-distro-of-sample-mean.ipynb
+        - Combinations of Random Variables: notebooks/dist-09-combinations-of-random-vars.ipynb
+        - Transforming Random Variables: notebooks/dist-10-transforming-random-variables.ipynb
+      - T-Distribution:
+        - T-Distribution: notebooks/dist-11-t-distribution.ipynb
+        - Student T-Distribution: notebooks/dist-12-student-t-distribution.ipynb
     - Hypothesis Testing:
       - Overview: hypothesis-testing.md
-      - Introduction to P-Value: notebooks/01-intro-to-pvalue.ipynb
-      - One-Tail and Two-Tail Tests (Means): notebooks/02-one-two-tail-test-diff-mean.ipynb
-      - One-Tail and Two-Tail Tests (Proportions): notebooks/03_one_two_tail_test_diff_props.ipynb
-      - Chi-Squared Test: notebooks/04-chi-squared.ipynb
-      - Regression Hypothesis Testing: notebooks/05-regression-hypothesis.ipynb
+      - Introduction to P-Value: notebooks/ht-01-intro-to-pvalue.ipynb
+      - One-Tail and Two-Tail Tests (Means): notebooks/ht-02-one-two-tail-test-diff-mean.ipynb
+      - One-Tail and Two-Tail Tests (Proportions): notebooks/ht-03-one-two-tail-test-diff-props.ipynb
+      - Chi-Squared Test: notebooks/ht-04-chi-squared.ipynb
+      - Regression Hypothesis Testing: notebooks/ht-05-regression-hypothesis.ipynb
   - Data Analysis:
     - Heart Disease Analysis: heart-disease.ipynb
   - Cloud Computing: 
