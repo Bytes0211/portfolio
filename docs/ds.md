@@ -13,6 +13,7 @@ Data science is a multidisciplinary field that combines statistics, mathematics,
 
 - [Hypothesis Testing](hypothesis-testing.md) - Comprehensive guide to statistical hypothesis testing with interactive notebooks
   - [Introduction to P-Value](notebooks/01-intro-to-pvalue.ipynb)
-  - [One-Tail and Two-Tail Tests](notebooks/02-one-two-tail-test-diff-mean.ipynb)
-  - [Chi-Squared Test](notebooks/03-chi-squared.ipynb)
-  - [Regression Hypothesis Testing](notebooks/04-regression-hypothesis.ipynb)
+  - [One-Tail and Two-Tail Tests (Means)](notebooks/02-one-two-tail-test-diff-mean.ipynb)
+  - [One-Tail and Two-Tail Tests (Proportions)](notebooks/03_one_two_tail_test_diff_props.ipynb)
+  - [Chi-Squared Test](notebooks/04-chi-squared.ipynb)
+  - [Regression Hypothesis Testing](notebooks/05-regression-hypothesis.ipynb)
