@@ -9,7 +9,6 @@
 
 All of these projects that have been added in the last month originally resided in AWS CodeCommit. I decided to migrate to GitHub and do some cleanup along the way. It's been a lot of "Now how does that work?", "What the heck is that?", and "That's stupid!", but it's been kinda fun experience.
 
-
 ### AWS Manager ☁️
 
 A comprehensive Python library for managing AWS services (Lambda, S3, EC2, DynamoDB) with local development support and comprehensive testing.
@@ -72,19 +71,17 @@ Learn more about my background, skills, and interests
 
 ## 📝 Latest Updates
 
-### terraform-aws-product-app (Oct 29, 2025)
+### DynamoDB Inventory System (Oct 29, 2025)
 
-- Added comprehensive workflow diagrams using Mermaid (architecture-workflow.md)
-- Updated CHANGELOG.md with deployment milestones
-- Enhanced QUICK_REFERENCE.md for easier navigation
+- Initiated project for managing inventory using DynamoDB
 
-### hypothesis-testing (Oct 29, 2025)
+### hypothesis-testing (Oct 23, 2025)
 
 - Created SYNC_SUMMARY.md documenting synchronization process
 - Updated README.md with improved project documentation
 - Added create_test.py for automated test generation
 
-### aws-file-validator (Oct 27, 2025)
+### aws-file-validator (Oct 15, 2025)
 
 - Enhanced CsvValidatorTest.java with additional test coverage
 - Updated JsonValidatorTest.java for improved validation
@@ -92,4 +89,4 @@ Learn more about my background, skills, and interests
 
 ---
 
-*"Building tools that make developers' lives easier, one line of code at a time."*
+***"Building tools that make developers' lives easier, one line of code at a time."***
