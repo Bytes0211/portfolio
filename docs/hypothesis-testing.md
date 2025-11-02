@@ -8,7 +8,7 @@ This series of notebooks provides hands-on demonstrations of hypothesis testing 
 
 ## 📓 Notebooks
 
-### [1. Introduction to P-Value](notebooks/01-intro-to-pvalue.ipynb)
+### [1. Introduction to P-Value](notebooks/ht-01-intro-to-pvalue.ipynb)
 
 **Objective**: Understanding the premise of the p-value concept
 
@@ -27,7 +27,7 @@ This series of notebooks provides hands-on demonstrations of hypothesis testing 
 
 ---
 
-### [2. One-Tail and Two-Tail Tests for Difference in Means](notebooks/02-one-two-tail-test-diff-mean.ipynb)
+### [2. One-Tail and Two-Tail Tests for Difference in Means](notebooks/ht-02-one-two-tail-test-diff-mean.ipynb)
 
 **Objective**: Understanding directional vs. non-directional hypothesis tests for means
 
@@ -46,7 +46,7 @@ This series of notebooks provides hands-on demonstrations of hypothesis testing 
 
 ---
 
-### [3. One-Tail and Two-Tail Tests for Difference of Proportions](notebooks/03-one-two-tail-test-diff-props.ipynb)
+### [3. One-Tail and Two-Tail Tests for Difference of Proportions](notebooks/ht-03-one-two-tail-test-diff-props.ipynb)
 
 **Objective**: Testing differences between categorical response proportions
 
@@ -66,7 +66,7 @@ This series of notebooks provides hands-on demonstrations of hypothesis testing 
 
 ---
 
-### [4. Chi-Squared Test](notebooks/04-chi-squared.ipynb)
+### [4. Chi-Squared Test](notebooks/ht-04-chi-squared.ipynb)
 
 **Objective**: Testing relationships between categorical variables
 
@@ -85,7 +85,7 @@ This series of notebooks provides hands-on demonstrations of hypothesis testing 
 
 ---
 
-### [5. Hypothesis Testing in Regression](notebooks/05-regression-hypothesis.ipynb)
+### [5. Hypothesis Testing in Regression](notebooks/ht-05-regression-hypothesis.ipynb)
 
 **Objective**: Understanding hypothesis testing within regression analysis
 
@@ -214,11 +214,11 @@ For the standalone version with full setup automation, visit:
 portfolio/
 ├── docs/
 │   ├── notebooks/                               # Jupyter notebooks
-│   │   ├── 01-intro-to-pvalue.ipynb            # P-value fundamentals
-│   │   ├── 02-one-two-tail-test-diff-mean.ipynb # Testing means
-│   │   ├── 03-one-two-tail-test-diff-props.ipynb # Testing proportions
-│   │   ├── 04-chi-squared.ipynb                # Chi-squared tests
-│   │   └── 05-regression-hypothesis.ipynb      # Regression testing
+│   │   ├── ht-01-intro-to-pvalue.ipynb            # P-value fundamentals
+│   │   ├── ht-02-one-two-tail-test-diff-mean.ipynb # Testing means
+│   │   ├── ht-03-one-two-tail-test-diff-props.ipynb # Testing proportions
+│   │   ├── ht-04-chi-squared.ipynb                # Chi-squared tests
+│   │   └── ht-05-regression-hypothesis.ipynb      # Regression testing
 │   └── hypothesis-testing.md                    # This documentation
 ├── resources/                                   # Core hypothesis testing modules
 │   ├── datum.py                                 # Statistical calculations & data utilities

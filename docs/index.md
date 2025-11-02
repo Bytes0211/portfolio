@@ -25,6 +25,14 @@ A serverless Java application that validates file formats (CSV/JSON) using AWS L
 - **Features**: CSV/JSON Validation, Extensible Architecture, Local Testing
 - [View Project](aws-file-validator.md)
 
+### Scotton AWS Utils ⚙️
+
+A comprehensive Python package for AWS service operations with unified interface for S3, Lambda, EC2, IAM, and DynamoDB.
+
+- **Tech Stack**: Python, Boto3, pip package
+- **Features**: Multi-Service Support, Advanced DynamoDB, Transactions, Local Testing
+- [View Project](scotton-aws-utils.md)
+
 ### AWS Product Management App 🏭️
 
 A Complete Infrastructure as Code using Terraform to deploy a full-stack product management application on AWS.

@@ -98,6 +98,7 @@ nav:
   - Cloud Computing: 
     - AWS Management: aws-management.md
     - AWS File Validator: aws-file-validator.md
+    - Scotton AWS Utils: scotton-aws-utils.md
     - Terraform AWS Product App: terraform-aws-product-app.md
 
 extra:
