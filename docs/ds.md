@@ -4,6 +4,15 @@ Data science is a multidisciplinary field that combines statistics, mathematics,
 
 ## Available Pages
 
+### Machine Learning Projects
+
+- [Heart Disease Prediction](heart-disease.ipynb) - Complete ML pipeline using k-Nearest Neighbors classification
+  - **Features**: Data cleaning with median imputation, comprehensive EDA, feature engineering with label encoding and standardization
+  - **Model**: k-NN classifier with hyperparameter tuning (GridSearchCV)
+  - **Evaluation**: Confusion matrix, ROC curves, AUC scores, 10-fold cross-validation
+  - **Dataset**: 918 samples, 12 features (demographic, clinical, diagnostic)
+  - **Performance**: Multiple metrics including sensitivity, specificity, precision, F1-score
+
 ### Statistical Foundations
 
 - [Distribution Fundementals](distributions_fundementals.ipynb) - Distribution Basics

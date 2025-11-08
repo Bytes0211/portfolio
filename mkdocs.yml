@@ -93,9 +93,9 @@ nav:
       - One-Tail and Two-Tail Tests (Proportions): notebooks/ht-03-one-two-tail-test-diff-props.ipynb
       - Chi-Squared Test: notebooks/ht-04-chi-squared.ipynb
       - Regression Hypothesis Testing: notebooks/ht-05-regression-hypothesis.ipynb
-  - Data Analysis:
-    - Heart Disease Analysis: heart-disease.ipynb
-  - Cloud Computing: 
+  - Machine Learning:
+    - Heart Disease Prediction: heart-disease.ipynb
+  - Cloud Computing:
     - AWS Management: aws-management.md
     - AWS File Validator: aws-file-validator.md
     - Scotton AWS Utils: scotton-aws-utils.md

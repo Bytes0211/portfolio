@@ -9,6 +9,16 @@
 
 All of these projects that have been added in the last month originally resided in AWS CodeCommit. I decided to migrate to GitHub and do some cleanup along the way. It's been a lot of "Now how does that work?", "What the heck is that?", and "That's stupid!", but it's been kinda fun experience.
 
+### Heart Disease Prediction 🫀
+
+A comprehensive machine learning project demonstrating a complete ML pipeline for predicting heart disease using k-Nearest Neighbors classification.
+
+- **Tech Stack**: Python, pandas, scikit-learn, seaborn, matplotlib
+- **Features**: Data cleaning, EDA, feature engineering, hyperparameter tuning, comprehensive evaluation
+- **Model**: k-NN with GridSearchCV optimization (k=1-30, weights, distance metrics)
+- **Evaluation**: Confusion matrix, ROC curves, AUC, cross-validation
+- [View Project](heart-disease.ipynb)
+
 ### AWS Manager ☁️
 
 A comprehensive Python library for managing AWS services (Lambda, S3, EC2, DynamoDB) with local development support and comprehensive testing.
@@ -79,6 +89,14 @@ Learn more about my background, skills, and interests
 
 ## 📝 Latest Updates
 
+### Heart Disease Prediction (Nov 08, 2025)
+
+- Complete ML pipeline with k-NN classification
+- Comprehensive data cleaning with median imputation
+- EDA with correlation analysis and feature visualization
+- Hyperparameter tuning using GridSearchCV
+- Multi-metric evaluation (accuracy, precision, recall, F1, AUC, cross-validation)
+
 ### DynamoDB Inventory System (Oct 29, 2025)
 
 - Initiated project for managing inventory using DynamoDB
@@ -88,12 +106,6 @@ Learn more about my background, skills, and interests
 - Created SYNC_SUMMARY.md documenting synchronization process
 - Updated README.md with improved project documentation
 - Added create_test.py for automated test generation
-
-### aws-file-validator (Oct 15, 2025)
-
-- Enhanced CsvValidatorTest.java with additional test coverage
-- Updated JsonValidatorTest.java for improved validation
-- Expanded FileValidatorHandlerTest.java with edge cases
 
 ---
 
