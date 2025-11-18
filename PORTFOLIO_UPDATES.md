@@ -1,5 +1,54 @@
 # Portfolio Update Summary
 
+## Latest Update
+
+**Date**: 2025-11-14
+
+### DynamoDB Inventory System Added to Cloud Computing
+
+Successfully integrated the DynamoDB Inventory Management System project into the portfolio's Cloud Computing section.
+
+#### Project Highlights
+- **Advanced DynamoDB Features**: Single table design, GSI/LSI, transactions, batch operations
+- **Comprehensive Testing**: 20 unit tests with 78% code coverage using pytest and moto
+- **Entity Types**: 4 entity types (Product, Variant, Order, OrderItem) in single table
+- **Access Patterns**: 9 optimized query patterns for common operations
+- **Code Size**: ~1,400 lines of production code and tests
+
+#### Files Added
+- `docs/dynamodb-inventory-system.md` - Comprehensive 468-line documentation with:
+  - Detailed architecture diagrams and entity design
+  - Complete test coverage breakdown (20 tests across 5 test classes)
+  - Code examples for all major operations
+  - Usage examples for stock management, orders, queries, and batch operations
+  - Setup instructions for both local DynamoDB and AWS
+  - Performance considerations and learning outcomes
+
+#### Files Modified
+- `mkdocs.yml` - Added DynamoDB Inventory System to Cloud Computing navigation
+- `docs/cloud-compute.md` - Added project description to Cloud Computing overview
+- `README.md` - Updated with DynamoDB project in Cloud Computing section
+
+#### Documentation Features
+- **Architecture**: ASCII diagram showing single table design with GSI1/GSI2
+- **Test Coverage**: Detailed breakdown of all 20 unit tests organized by functionality
+- **Code Examples**: 8 comprehensive code snippets demonstrating key features
+- **Access Patterns**: Table showing 8 query patterns with strategies and indexes
+- **Statistics**: Key metrics including LOC, test coverage, and entity counts
+
+#### Key Concepts Demonstrated
+1. Single Table Design patterns for DynamoDB
+2. Global Secondary Index (GSI) strategy and implementation
+3. Transactional operations with ACID guarantees
+4. Conditional writes for data integrity
+5. Comprehensive unit testing with AWS service mocking
+6. Batch operations for performance optimization
+7. Query optimization techniques
+
+---
+
+## Previous Update
+
 **Date**: 2025-10-30
 
 ## Overview

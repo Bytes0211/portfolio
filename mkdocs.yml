@@ -67,6 +67,8 @@ markdown_extensions:
 nav:
   - Home: index.md
   - About: about.md
+  - Data Pipelines:
+    - AWS Data Lake Pipeline: basic-pipeline.md
   - Data Science:
     - Statistical Distributions:
       - Overview: distributions.md
@@ -100,6 +102,7 @@ nav:
     - AWS File Validator: aws-file-validator.md
     - Scotton AWS Utils: scotton-aws-utils.md
     - Terraform AWS Product App: terraform-aws-product-app.md
+    - DynamoDB Inventory System: dynamodb-inventory-system.md
 
 extra:
   social:

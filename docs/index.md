@@ -1,6 +1,6 @@
 # Steven Cotton
 
-**Software Developer | Cloud Engineer | Data Enthusiast**
+**Data Pipeline Engineer | Cloud Architect | Infrastructure as Code Specialist**
 
 > Home of passionate, thoughtful energy expressed through code
 > Projects are being updated frequently. Now that my employment has changed, I am moving from code commit to github.
@@ -8,6 +8,16 @@
 ## 🚀 Featured Projects
 
 All of these projects that have been added in the last month originally resided in AWS CodeCommit. I decided to migrate to GitHub and do some cleanup along the way. It's been a lot of "Now how does that work?", "What the heck is that?", and "That's stupid!", but it's been kinda fun experience.
+
+### AWS Data Lake Pipeline 🔄
+
+An event-driven **AWS Data Lake Pipeline** built with Infrastructure as Code principles, demonstrating production-ready architecture for data ingestion, transformation, and consumption.
+
+- **Tech Stack**: Terraform, AWS Lambda, S3, EventBridge, Pandas
+- **Features**: 3-layer data lake architecture, event-driven processing, automated testing
+- **Highlights**: Complete IaC with Terraform, serverless ETL, S3 event triggers
+- **Skills**: Data Engineering, Cloud Architecture, Python, Event-Driven Design
+- [View Project](basic-pipeline.md)
 
 ### Heart Disease Prediction 🫀
 
@@ -53,6 +63,15 @@ A Complete Infrastructure as Code using Terraform to deploy a full-stack product
 
 ## 📚 Documentation Hub
 
+### 🔄 Data Pipelines
+
+End-to-end data pipeline implementations with modern cloud-native technologies
+
+- Event-Driven Architecture
+- ETL/ELT Pipelines
+- Data Lake Design
+- Real-Time Processing
+
 ### ☁️ [Cloud Computing](cloud-compute.md)
 
 AWS and Terraform projects with practical implementations and educational resources
@@ -84,10 +103,19 @@ Learn more about my background, skills, and interests
 ## 🛠️ Tech Stack
 
 **Languages**: Python, Java, Bash  
-**Cloud**: AWS (Lambda, S3, EC2, DynamoDB), Terraform  
-**Tools**: Git, Docker, pytest  
+**Cloud & Infrastructure**: AWS (Lambda, S3, EventBridge, EC2, DynamoDB), Terraform (IaC)  
+**Data Engineering**: Pandas, Event-Driven Architecture, ETL Pipelines  
+**Tools**: Git, Docker, pytest, AWS CLI
 
 ## 📝 Latest Updates
+
+### AWS Data Lake Pipeline (Nov 18, 2025)
+
+- Complete event-driven data pipeline with Terraform IaC
+- Three-layer architecture: Ingestion, Storage, Processing
+- Serverless ETL with Lambda, S3, and EventBridge
+- Automated deployment and testing scripts
+- Production-ready security and monitoring
 
 ### Heart Disease Prediction (Nov 08, 2025)
 
