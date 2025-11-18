@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://sitename.example/hypothesis-testing/">
+        <link rel="canonical" href="https://sitename.example/basic-pipeline/">
       
       
-        <link rel="prev" href="../notebooks/dist-12-student-t-distribution/">
+        <link rel="prev" href="../about/">
       
       
-        <link rel="next" href="../notebooks/ht-01-intro-to-pvalue/">
+        <link rel="next" href="../distributions/">
       
       
       <link rel="icon" href="../assets/favicon.ico">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Overview - Portfolio</title>
+        <title>AWS Data Lake Pipeline - Portfolio</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hypothesis-testing" class="md-skip">
+        <a href="#aws-data-lake-pipeline-with-terraform" class="md-skip">
           Skip to content
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Overview
+              AWS Data Lake Pipeline
             
           </span>
         </div>
@@ -202,11 +202,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../basic-pipeline/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -222,8 +224,6 @@
   
   
   
-    
-  
   
     
     
@@ -231,12 +231,10 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
+      <li class="md-tabs__item">
         <a href="../distributions/" class="md-tabs__link">
           
   
@@ -374,77 +372,6 @@
       
   
   
-  
-  
-    
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    Data Pipelines
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            Data Pipelines
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../basic-pipeline/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    AWS Data Lake Pipeline
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
     
   
   
@@ -464,10 +391,264 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Data Pipelines
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Data Pipelines
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    AWS Data Lake Pipeline
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    AWS Data Lake Pipeline
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pipeline-layers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipeline Layers
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Key Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#infrastructure-as-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Infrastructure as Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-driven-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event-Driven Architecture
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Processing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Implementation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Implementation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws-services-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Services Used
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Flow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lambda-functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lambda Functions
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lambda Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Generator
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   
@@ -480,7 +661,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Data Science
@@ -1035,8 +1216,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1047,11 +1226,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
         
           
           <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
@@ -1067,7 +1246,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             Hypothesis Testing
@@ -1078,32 +1257,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Overview
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../hypothesis-testing/" class="md-nav__link">
         
   
   
@@ -1114,293 +1271,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#notebooks" class="md-nav__link">
-    <span class="md-ellipsis">
-      📓 Notebooks
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="📓 Notebooks">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-introduction-to-p-value" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. Introduction to P-Value
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-one-tail-and-two-tail-tests-for-difference-in-means" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. One-Tail and Two-Tail Tests for Difference in Means
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-one-tail-and-two-tail-tests-for-difference-of-proportions" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. One-Tail and Two-Tail Tests for Difference of Proportions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-chi-squared-test" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. Chi-Squared Test
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-hypothesis-testing-in-regression" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. Hypothesis Testing in Regression
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#technology-stack" class="md-nav__link">
-    <span class="md-ellipsis">
-      Technology Stack
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#learning-path" class="md-nav__link">
-    <span class="md-ellipsis">
-      Learning Path
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-statistical-concepts" class="md-nav__link">
-    <span class="md-ellipsis">
-      Key Statistical Concepts
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Key Statistical Concepts">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#hypothesis-testing-framework" class="md-nav__link">
-    <span class="md-ellipsis">
-      Hypothesis Testing Framework
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#common-tests-covered" class="md-nav__link">
-    <span class="md-ellipsis">
-      Common Tests Covered
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#practical-applications" class="md-nav__link">
-    <span class="md-ellipsis">
-      Practical Applications
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#visual-learning" class="md-nav__link">
-    <span class="md-ellipsis">
-      Visual Learning
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
-    <span class="md-ellipsis">
-      Getting Started
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Getting Started">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      Prerequisites
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installation
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#standalone-repository" class="md-nav__link">
-    <span class="md-ellipsis">
-      Standalone Repository
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      Project Structure
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      Usage
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#running-notebooks-locally" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running Notebooks Locally
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#using-the-test-framework" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using the Test Framework
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#learning-outcomes" class="md-nav__link">
-    <span class="md-ellipsis">
-      Learning Outcomes
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contributing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Contributing
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
-    <span class="md-ellipsis">
-      License
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#repository" class="md-nav__link">
-    <span class="md-ellipsis">
-      Repository
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#acknowledgments" class="md-nav__link">
-    <span class="md-ellipsis">
-      Acknowledgments
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1786,298 +1656,212 @@
 
 
 
-<h1 id="hypothesis-testing">Hypothesis Testing 📊</h1>
-<p>A comprehensive collection of Jupyter notebooks exploring statistical hypothesis testing concepts, methods, and practical applications using Python.</p>
-<h2 id="overview">Overview</h2>
-<p>This series of notebooks provides hands-on demonstrations of hypothesis testing techniques commonly used in data science and statistical analysis. Each notebook includes theoretical explanations, visual illustrations, and practical examples with real-world datasets.</p>
-<h2 id="notebooks">📓 Notebooks</h2>
-<h3 id="1-introduction-to-p-value"><a href="../notebooks/ht-01-intro-to-pvalue/">1. Introduction to P-Value</a></h3>
-<p><strong>Objective</strong>: Understanding the premise of the p-value concept</p>
-<p><strong>Topics Covered</strong>:
-- Concept of p-value in statistical testing
-- Normal distribution and probability
-- Visual interpretation of p-values
-- Relationship between p-values and statistical significance
-- Practical examples with visualizations</p>
-<p><strong>Key Concepts</strong>:
-- What is a p-value?
-- How to interpret p-values in hypothesis testing
-- Understanding significance levels (alpha)
-- Type I and Type II errors</p>
-<hr />
-<h3 id="2-one-tail-and-two-tail-tests-for-difference-in-means"><a href="../notebooks/ht-02-one-two-tail-test-diff-mean/">2. One-Tail and Two-Tail Tests for Difference in Means</a></h3>
-<p><strong>Objective</strong>: Understanding directional vs. non-directional hypothesis tests for means</p>
-<p><strong>Topics Covered</strong>:
-- One-tailed vs. two-tailed tests
-- Testing for differences in population means
-- When to use each type of test
-- Critical values and rejection regions
-- Practical examples comparing group means</p>
-<p><strong>Key Concepts</strong>:
-- Null hypothesis (H₀) vs. alternative hypothesis (H₁)
-- Left-tailed, right-tailed, and two-tailed tests
-- Z-tests and t-tests for mean differences
-- Interpreting test statistics</p>
-<hr />
-<h3 id="3-one-tail-and-two-tail-tests-for-difference-of-proportions"><a href="../notebooks/ht-03-one-two-tail-test-diff-props/">3. One-Tail and Two-Tail Tests for Difference of Proportions</a></h3>
-<p><strong>Objective</strong>: Testing differences between categorical response proportions</p>
-<p><strong>Topics Covered</strong>:
-- Hypothesis testing for two proportions
-- Two-tailed, upper-tail, and lower-tail tests for proportions
-- Combined sample proportion (p-hat)
-- Test statistic formula for difference of proportions
-- Criteria for using normal approximation (≥5 successes and failures)</p>
-<p><strong>Key Concepts</strong>:
-- Comparing population proportions (p₁ vs. p₂)
-- Pooled proportion estimate
-- Z-test for difference of proportions
-- Critical value and p-value interpretation
-- Practical example: comparing vehicle type proportions between states</p>
-<hr />
-<h3 id="4-chi-squared-test"><a href="../notebooks/ht-04-chi-squared/">4. Chi-Squared Test</a></h3>
-<p><strong>Objective</strong>: Testing relationships between categorical variables</p>
-<p><strong>Topics Covered</strong>:
-- Chi-squared test for independence
-- Contingency tables and observed vs. expected frequencies
-- Degrees of freedom in chi-squared tests
-- Goodness-of-fit tests
-- Applications in categorical data analysis</p>
-<p><strong>Key Concepts</strong>:
-- Testing independence between categorical variables
-- Chi-squared distribution
-- Calculating chi-squared statistic
-- Interpreting chi-squared test results</p>
-<hr />
-<h3 id="5-hypothesis-testing-in-regression"><a href="../notebooks/ht-05-regression-hypothesis/">5. Hypothesis Testing in Regression</a></h3>
-<p><strong>Objective</strong>: Understanding hypothesis testing within regression analysis</p>
-<p><strong>Topics Covered</strong>:
-- Testing significance of regression coefficients
-- F-test for overall model significance
-- t-tests for individual predictors
-- Confidence intervals for regression parameters
-- Model diagnostics and assumptions</p>
-<p><strong>Key Concepts</strong>:
-- Linear regression hypothesis testing
-- Testing β coefficients
-- R² and adjusted R²
-- P-values in regression output
-- Multiple regression considerations</p>
-<h2 id="technology-stack">Technology Stack</h2>
-<p><strong>Language</strong>: Python<br />
-<strong>Key Libraries</strong>:
-- NumPy - Numerical computations
-- Pandas - Data manipulation
-- Matplotlib/Seaborn - Data visualization
-- SciPy - Statistical functions
-- Statsmodels - Statistical modeling
-- Bokeh - Interactive visualizations</p>
-<h2 id="learning-path">Learning Path</h2>
-<p><strong>Recommended Order</strong>:
-1. Start with <strong>Introduction to P-Value</strong> to build foundational understanding
-2. Move to <strong>One-Tail and Two-Tail Tests (Means)</strong> to learn about directional testing for means
-3. Progress to <strong>One-Tail and Two-Tail Tests (Proportions)</strong> for categorical response variables
-4. Explore <strong>Chi-Squared Test</strong> for testing independence in categorical data
-5. Complete with <strong>Regression Hypothesis Testing</strong> for advanced applications</p>
-<h2 id="key-statistical-concepts">Key Statistical Concepts</h2>
-<h3 id="hypothesis-testing-framework">Hypothesis Testing Framework</h3>
-<ol>
-<li><strong>Formulate Hypotheses</strong></li>
-<li>Null hypothesis (H₀): No effect or no difference</li>
-<li>
-<p>Alternative hypothesis (H₁): Effect exists or difference exists</p>
-</li>
-<li>
-<p><strong>Choose Significance Level</strong></p>
-</li>
-<li>Typically α = 0.05 (5% significance level)</li>
-<li>
-<p>Represents probability of Type I error</p>
-</li>
-<li>
-<p><strong>Calculate Test Statistic</strong></p>
-</li>
-<li>Z-statistic, t-statistic, chi-squared statistic, F-statistic</li>
-<li>
-<p>Depends on the type of test and data</p>
-</li>
-<li>
-<p><strong>Determine P-Value</strong></p>
-</li>
-<li>Probability of observing results as extreme as actual results</li>
-<li>
-<p>If p-value &lt; α, reject null hypothesis</p>
-</li>
-<li>
-<p><strong>Draw Conclusion</strong></p>
-</li>
-<li>Reject or fail to reject null hypothesis</li>
-<li>Interpret results in context</li>
-</ol>
-<h3 id="common-tests-covered">Common Tests Covered</h3>
+<h1 id="aws-data-lake-pipeline-with-terraform">AWS Data Lake Pipeline with Terraform</h1>
+<h2 id="project-overview">Project Overview</h2>
+<p>An event-driven <strong>AWS Data Lake Pipeline</strong> built with Infrastructure as Code principles, demonstrating production-ready architecture for data ingestion, transformation, and consumption. This serverless pipeline processes shopping cart abandonment data through multiple stages using AWS services orchestrated by Terraform.</p>
+<h2 id="architecture">Architecture</h2>
+<p>The pipeline implements a three-layer data lake architecture:</p>
+<pre class="mermaid"><code>graph TB
+    A[Data Generator&lt;br/&gt;Lambda] --&gt;|Writes CSV| B[Raw S3 Bucket&lt;br/&gt;Ingestion Layer]
+    B --&gt;|S3 Event| C[Data Processor&lt;br/&gt;Lambda]
+    B --&gt;|EventBridge| D[Promotion App&lt;br/&gt;Lambda]
+    C --&gt;|Aggregated Data| E[Consumption S3 Bucket&lt;br/&gt;Storage Layer]
+    D --&gt;|Customer Analytics| E
+
+    style A fill:#4051B5,stroke:#333,stroke-width:2px,color:#fff
+    style C fill:#4051B5,stroke:#333,stroke-width:2px,color:#fff
+    style D fill:#4051B5,stroke:#333,stroke-width:2px,color:#fff
+    style B fill:#FF6B6B,stroke:#333,stroke-width:2px,color:#fff
+    style E fill:#51CF66,stroke:#333,stroke-width:2px,color:#fff</code></pre>
+<h3 id="pipeline-layers">Pipeline Layers</h3>
 <table>
 <thead>
 <tr>
-<th>Test Type</th>
-<th>Use Case</th>
-<th>Notebook</th>
+<th>Layer</th>
+<th>Component</th>
+<th>Technology</th>
+<th>Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Z-test / t-test</td>
-<td>Compare means</td>
-<td>#1, #2</td>
+<td><strong>Ingestion</strong></td>
+<td>Data Generator</td>
+<td>AWS Lambda + Faker</td>
+<td>Generates 1000 cart abandonment records</td>
 </tr>
 <tr>
-<td>Z-test (proportions)</td>
-<td>Compare proportions</td>
-<td>#3</td>
+<td><strong>Storage</strong></td>
+<td>Raw Zone</td>
+<td>Amazon S3</td>
+<td>Stores raw CSV data with versioning</td>
 </tr>
 <tr>
-<td>Chi-squared</td>
-<td>Categorical relationships</td>
-<td>#4</td>
+<td><strong>Processing</strong></td>
+<td>Data Processor</td>
+<td>Lambda + Pandas</td>
+<td>Aggregates by product_id</td>
 </tr>
 <tr>
-<td>F-test</td>
-<td>Regression significance</td>
-<td>#5</td>
+<td><strong>Processing</strong></td>
+<td>Promotion App</td>
+<td>Lambda + Pandas</td>
+<td>Groups by customer_id</td>
 </tr>
 <tr>
-<td>t-test (regression)</td>
-<td>Coefficient significance</td>
-<td>#5</td>
+<td><strong>Consumption</strong></td>
+<td>Consumption Zone</td>
+<td>Amazon S3</td>
+<td>Stores processed analytics</td>
 </tr>
 </tbody>
 </table>
-<h2 id="practical-applications">Practical Applications</h2>
-<p>These notebooks demonstrate hypothesis testing in contexts such as:</p>
+<h2 id="key-features">Key Features</h2>
+<h3 id="infrastructure-as-code">Infrastructure as Code</h3>
 <ul>
-<li><strong>Population Studies</strong>: Testing differences between fish populations (cod and salmon)</li>
-<li><strong>A/B Testing</strong>: Comparing two groups to determine statistical differences</li>
-<li><strong>Proportion Comparisons</strong>: Testing differences in categorical responses (e.g., vehicle type proportions between states)</li>
-<li><strong>Survey Analysis</strong>: Analyzing categorical data relationships</li>
-<li><strong>Predictive Modeling</strong>: Validating regression model assumptions</li>
+<li><strong>Complete Terraform Configuration</strong>: Modular organization with separate files for IAM, S3, Lambda, and EventBridge</li>
+<li><strong>Parameterized Deployment</strong>: Customizable variables for region, memory, timeout, and naming</li>
+<li><strong>Automated Provisioning</strong>: One-command deployment with <code>./deploy.sh</code></li>
 </ul>
-<h2 id="visual-learning">Visual Learning</h2>
-<p>Each notebook includes:
-- 📊 Distribution plots showing p-value regions
-- 📈 Visual representations of test statistics
-- 🎯 Graphical interpretations of critical regions
-- 📉 Regression diagnostic plots
-- 🎨 Interactive Bokeh visualizations</p>
-<h2 id="getting-started">Getting Started</h2>
-<h3 id="prerequisites">Prerequisites</h3>
+<h3 id="event-driven-architecture">Event-Driven Architecture</h3>
 <ul>
-<li>Python 3.x</li>
-<li>pip package manager</li>
-<li>Virtual environment support</li>
-<li>Jupyter Notebook or JupyterLab</li>
+<li><strong>S3 Event Notifications</strong>: Direct Lambda triggers for immediate processing</li>
+<li><strong>EventBridge Integration</strong>: Flexible event routing for complex workflows</li>
+<li><strong>Automatic Processing</strong>: Zero manual intervention required</li>
 </ul>
-<h3 id="installation">Installation</h3>
-<p>These notebooks are part of the portfolio project. To run them:</p>
+<h3 id="security-best-practices">Security Best Practices</h3>
+<ul>
+<li><strong>Least Privilege IAM</strong>: Separate roles for each Lambda function with minimal permissions</li>
+<li><strong>S3 Security</strong>: Public access blocking and versioning enabled</li>
+<li><strong>Audit Ready</strong>: CloudWatch logs with 7-day retention</li>
+</ul>
+<h3 id="data-processing">Data Processing</h3>
+<ul>
+<li><strong>Pandas-Based Transformations</strong>: Efficient data aggregation and analysis</li>
+<li><strong>Multiple Aggregations</strong>: Product-level and customer-level analytics</li>
+<li><strong>Lambda Layers</strong>: Shared dependencies (pandas, numpy, faker) packaged as layers</li>
+</ul>
+<h2 id="technical-implementation">Technical Implementation</h2>
+<h3 id="aws-services-used">AWS Services Used</h3>
+<ul>
+<li><strong>Amazon S3</strong> - Two buckets for raw and consumption zones</li>
+<li><strong>AWS Lambda</strong> - Three serverless functions (Python 3.11)</li>
+<li><strong>Amazon EventBridge</strong> - Event-driven orchestration</li>
+<li><strong>AWS IAM</strong> - Role-based access control</li>
+<li><strong>Amazon CloudWatch</strong> - Logging and monitoring</li>
+</ul>
+<h3 id="data-flow">Data Flow</h3>
 <ol>
-<li>
-<p><strong>Navigate to the notebooks directory</strong>:
-   <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>docs/notebooks
-</span></code></pre></div></p>
-</li>
-<li>
-<p><strong>Launch Jupyter Notebook</strong>:
-   <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>jupyter<span class="w"> </span>notebook
-</span></code></pre></div></p>
-</li>
-<li>
-<p><strong>Open any notebook to begin exploring</strong></p>
-</li>
+<li><strong>Data Generation</strong>: Lambda function generates fake shopping cart abandonment data using Faker library</li>
+<li><strong>Raw Storage</strong>: CSV file written to Raw S3 bucket (<code>cart_abandonment_data.csv</code>)</li>
+<li><strong>Event Triggering</strong>: S3 event notification and EventBridge rule trigger processing functions</li>
+<li><strong>Data Processing</strong>: </li>
+<li>Data Processor aggregates by product_id</li>
+<li>Promotion App analyzes top products per customer</li>
+<li><strong>Analytics Storage</strong>: Processed files written to Consumption bucket</li>
 </ol>
-<p><strong>Note</strong>: The notebooks use custom modules from the <code>resources/</code> directory. The path is configured within each notebook to import these modules correctly.</p>
-<h3 id="standalone-repository">Standalone Repository</h3>
-<p>For the standalone version with full setup automation, visit:
-- <a href="https://github.com/Bytes0211/hypothesis-testing">Hypothesis Testing Repository</a></p>
+<h3 id="lambda-functions">Lambda Functions</h3>
+<h4 id="data-generator">Data Generator</h4>
+<p>```python path=null start=null</p>
+<h1 id="generates-1000-cart-abandonment-records">Generates 1000 cart abandonment records</h1>
+<h1 id="libraries-boto3-faker-csv">Libraries: boto3, faker, csv</h1>
+<h1 id="output-cart_abandonment_datacsv-raw-bucket">Output: cart_abandonment_data.csv (Raw Bucket)</h1>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>#### Data Processor
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>```python path=null start=null
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a># Triggered by: S3 PUT events
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a># Processing: Aggregates data by product_id using pandas
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a># Output: cart_aggregated_data.csv (Consumption Bucket)
+</span></code></pre></div>
+<h4 id="promotion-app">Promotion App</h4>
+<p>```python path=null start=null</p>
+<h1 id="triggered-by-eventbridge-on-s3-object-created">Triggered by: EventBridge on S3 Object Created</h1>
+<h1 id="processing-groups-by-customer_id-finds-top-10-products">Processing: Groups by customer_id, finds top 10 products</h1>
+<h1 id="output-promotion_datacsv-consumption-bucket">Output: promotion_data.csv (Consumption Bucket)</h1>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>## Development Experience
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>### Automated Scripts
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>- **`build-lambda-layer.sh`** - Builds Lambda layer with Python dependencies
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>- **`deploy.sh`** - Complete deployment automation (build + terraform apply)
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>- **`test-pipeline.sh`** - End-to-end pipeline testing
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>- **`cleanup.sh`** - Infrastructure teardown and resource cleanup
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>### Testing
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>Comprehensive testing approach:
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>- Manual Lambda invocation via AWS CLI
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>- S3 bucket verification
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>- CloudWatch log monitoring
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>- End-to-end pipeline validation script
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>### Deployment Process
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>```bash path=null start=null
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a># 1. Build Lambda layer
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>./build-lambda-layer.sh
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a># 2. Deploy infrastructure
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>terraform init
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>terraform plan
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>terraform apply
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a># 3. Test pipeline
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>./test-pipeline.sh
+</span></code></pre></div>
 <h2 id="project-structure">Project Structure</h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>portfolio/
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>├── docs/
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>│   ├── notebooks/                               # Jupyter notebooks
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>│   │   ├── ht-01-intro-to-pvalue.ipynb            # P-value fundamentals
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>│   │   ├── ht-02-one-two-tail-test-diff-mean.ipynb # Testing means
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>│   │   ├── ht-03-one-two-tail-test-diff-props.ipynb # Testing proportions
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>│   │   ├── ht-04-chi-squared.ipynb                # Chi-squared tests
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>│   │   └── ht-05-regression-hypothesis.ipynb      # Regression testing
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>│   └── hypothesis-testing.md                    # This documentation
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>├── resources/                                   # Core hypothesis testing modules
-</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>│   ├── datum.py                                 # Statistical calculations &amp; data utilities
-</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>│   ├── test.py                                  # Hypothesis testing framework
-</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>│   ├── glyph.py                                 # Bokeh visualization wrapper
-</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>│   ├── plot.py                                  # Plotting helper functions
-</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>│   ├── cod_population.csv                       # Sample dataset (cod fish)
-</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>│   └── salmon_population.csv                    # Sample dataset (salmon fish)
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>└── ...
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>basic-pipeline/
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>├── main.tf                    # Provider configuration
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>├── variables.tf               # Input variables
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>├── outputs.tf                 # Output values
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>├── iam.tf                     # IAM roles and policies
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>├── s3.tf                      # S3 buckets and notifications
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>├── lambda.tf                  # Lambda functions and layers
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>├── eventbridge.tf             # EventBridge rules
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>├── lambda-data-generator.py   # Data generation logic
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>├── lambda-data-processor.py   # Aggregation by product
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>├── lambda-promotion-app.py    # Customer analytics
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>├── build-lambda-layer.sh      # Layer build script
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>├── deploy.sh                  # Deployment automation
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>├── test-pipeline.sh           # Testing script
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>└── cleanup.sh                 # Resource cleanup
 </span></code></pre></div>
-<h2 id="usage">Usage</h2>
-<h3 id="running-notebooks-locally">Running Notebooks Locally</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Navigate to the notebooks directory from the project root</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">cd</span><span class="w"> </span>docs/notebooks
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Launch Jupyter</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>jupyter<span class="w"> </span>notebook
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># Open any notebook to begin exploring</span>
-</span></code></pre></div>
-<h3 id="using-the-test-framework">Using the Test Framework</h3>
-<p>The notebooks demonstrate how to configure and run hypothesis tests programmatically:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;../..&#39;</span><span class="p">)</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">resources</span><span class="w"> </span><span class="kn">import</span> <span class="n">test</span><span class="p">,</span> <span class="n">datum</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># Configure test parameters</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="n">test_params</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="s1">&#39;cl&#39;</span><span class="p">:</span> <span class="mf">0.95</span><span class="p">,</span>              <span class="c1"># Confidence level</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;prop&#39;</span><span class="p">,</span>          <span class="c1"># Test type: &#39;prop&#39;, &#39;mean&#39;, etc.</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="s1">&#39;tail&#39;</span><span class="p">:</span> <span class="s1">&#39;lower&#39;</span><span class="p">,</span>         <span class="c1"># &#39;lower&#39;, &#39;upper&#39;, or &#39;two&#39;</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="s1">&#39;n1&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>               <span class="c1"># Sample size</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>    <span class="s1">&#39;p1&#39;</span><span class="p">:</span> <span class="mf">0.30</span><span class="p">,</span>              <span class="c1"># Sample proportion</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>    <span class="s1">&#39;null_hypo&#39;</span><span class="p">:</span> <span class="s1">&#39;H₀ description&#39;</span><span class="p">,</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>    <span class="s1">&#39;alt_hypo&#39;</span><span class="p">:</span> <span class="s1">&#39;H₁ description&#39;</span><span class="p">,</span>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>    <span class="s1">&#39;visual&#39;</span><span class="p">:</span> <span class="kc">True</span>           <span class="c1"># Generate visualizations</span>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="p">}</span>
-</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
-</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="c1"># Run the test</span>
-</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="n">test_obj</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">Test</span><span class="p">()</span>
-</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="n">test_obj</span><span class="o">.</span><span class="n">make_hypothesis_test</span><span class="p">(</span><span class="n">info</span><span class="o">=</span><span class="n">test_params</span><span class="p">)</span>
-</span></code></pre></div>
-<h2 id="learning-outcomes">Learning Outcomes</h2>
-<p>After completing these notebooks, you will be able to:</p>
+<h2 id="key-achievements">Key Achievements</h2>
+<p>✅ <strong>Production-Ready Infrastructure</strong>: Complete IaC implementation with Terraform<br />
+✅ <strong>Event-Driven Design</strong>: Fully automated processing pipeline<br />
+✅ <strong>Security Hardened</strong>: Least privilege IAM, S3 versioning, public access blocking<br />
+✅ <strong>Well Documented</strong>: Comprehensive README, quickstart guide, and project summary<br />
+✅ <strong>Developer Friendly</strong>: One-command deployment and automated testing<br />
+✅ <strong>Cost Optimized</strong>: Serverless architecture (~$0.02-0.15/month for dev workload)  </p>
+<h2 id="skills-demonstrated">Skills Demonstrated</h2>
 <ul>
-<li>✅ Understand and interpret p-values</li>
-<li>✅ Choose appropriate hypothesis tests for different scenarios</li>
-<li>✅ Perform one-tailed and two-tailed tests</li>
-<li>✅ Test differences in means and proportions</li>
-<li>✅ Analyze categorical data with chi-squared tests</li>
-<li>✅ Interpret regression output and test coefficient significance</li>
-<li>✅ Make data-driven decisions using statistical evidence</li>
-<li>✅ Communicate statistical findings effectively</li>
+<li><strong>Cloud Engineering</strong>: AWS architecture and service integration</li>
+<li><strong>Infrastructure as Code</strong>: Terraform configuration and state management</li>
+<li><strong>Data Engineering</strong>: ETL pipeline design and implementation</li>
+<li><strong>Event-Driven Architecture</strong>: S3 events and EventBridge orchestration</li>
+<li><strong>Python Development</strong>: Lambda functions with pandas for data processing</li>
+<li><strong>DevOps Practices</strong>: Automation scripts, testing, and deployment workflows</li>
+<li><strong>Security</strong>: IAM policies, S3 security, and CloudWatch monitoring</li>
 </ul>
-<h2 id="contributing">Contributing</h2>
-<p>Contributions are welcome! Please see <a href="https://github.com/Bytes0211/hypothesis-testing/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a> for guidelines on:
-- Reporting issues
-- Submitting changes
-- Code style guidelines
-- Adding new notebooks</p>
-<h2 id="license">License</h2>
-<p>This project is licensed under the MIT License - see the <a href="https://github.com/Bytes0211/hypothesis-testing/blob/main/LICENSE">LICENSE</a> file for details.</p>
-<h2 id="repository">Repository</h2>
-<p><a href="https://github.com/Bytes0211/hypothesis-testing">View on GitHub</a></p>
-<h2 id="acknowledgments">Acknowledgments</h2>
+<h2 id="future-enhancements">Future Enhancements</h2>
+<p>Potential improvements for expanded functionality:
+- AWS Glue integration for data cataloging
+- Amazon Athena for SQL-based queries
+- Step Functions for complex orchestration
+- Data quality validation layer
+- SNS notifications for pipeline monitoring
+- Multi-region deployment with CloudFormation Stack Sets</p>
+<h2 id="links">Links</h2>
 <ul>
-<li>Statistical concepts based on standard hypothesis testing theory</li>
-<li>Visualizations created using Bokeh, Matplotlib, and Seaborn</li>
-<li>Sample datasets included for educational demonstration</li>
+<li><strong>GitHub Repository</strong>: <a href="#">View Source Code</a> <!-- Update with actual repo URL --></li>
+<li><strong>Terraform Configuration</strong>: Infrastructure as Code implementation</li>
+<li><strong>AWS Architecture Diagram</strong>: Complete system design</li>
+</ul>
+<h2 id="cost-performance">Cost &amp; Performance</h2>
+<ul>
+<li><strong>Monthly Cost</strong>: ~$0.02-0.15 (development/testing workload)</li>
+<li><strong>Lambda Execution</strong>: Within free tier for typical usage</li>
+<li><strong>Processing Time</strong>: 5-10 seconds end-to-end</li>
+<li><strong>Scalability</strong>: Serverless auto-scaling for production workloads</li>
 </ul>
 <hr />
-<p><strong>Note</strong>: These notebooks are designed for educational purposes to help understand statistical hypothesis testing concepts. Always ensure you understand the assumptions and limitations of each test before applying them to real-world data.</p>
-<hr />
-<p><a href="../ds/">← Back to Data Science</a></p>
+<p><em>This project demonstrates enterprise-ready data pipeline development with modern cloud-native technologies and Infrastructure as Code best practices.</em></p>
 
 
 
@@ -2115,7 +1899,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../notebooks/dist-12-student-t-distribution/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Student T-Distribution">
+          <a href="../about/" class="md-footer__link md-footer__link--prev" aria-label="Previous: About">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2125,20 +1909,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Student T-Distribution
+                About
               </div>
             </div>
           </a>
         
         
           
-          <a href="../notebooks/ht-01-intro-to-pvalue/" class="md-footer__link md-footer__link--next" aria-label="Next: Introduction to P-Value">
+          <a href="../distributions/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Introduction to P-Value
+                Overview
               </div>
             </div>
             <div class="md-footer__button md-icon">
