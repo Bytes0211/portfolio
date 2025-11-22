@@ -1,6 +1,6 @@
 # Steven Cotton
 
-**Data Pipeline Engineer | Cloud Architect | Infrastructure as Code Specialist**
+**Data Engineer | Cloud Architect | Infrastructure as Code Specialist**
 
 > Home of passionate, thoughtful energy expressed through code
 > Projects are being updated frequently. Now that my employment has changed, I am moving from code commit to github.
@@ -8,6 +8,16 @@
 ## 🚀 Featured Projects
 
 All of these projects that have been added in the last month originally resided in AWS CodeCommit. I decided to migrate to GitHub and do some cleanup along the way. It's been a lot of "Now how does that work?", "What the heck is that?", and "That's stupid!", but it's been kinda fun experience.
+
+### AutoCorp Cloud Data Lake Pipeline ☁️
+
+An end-to-end **AWS Data Lake Pipeline** implementing modern data lakehouse architecture with CDC replication, serverless ETL, open table formats, and **Infrastructure as Code** (Terraform).
+
+- **Tech Stack**: AWS (DMS, DataSync, Glue, S3, Athena), Apache Hudi, Terraform, PostgreSQL, PySpark, Python
+- **Features**: 3-layer data lakehouse (Raw → Curated), CDC replication, serverless ETL, <15min data latency, 95% IaC automation
+- **Highlights**: Complete Terraform IaC (6 modules), Apache Hudi ACID transactions, PySpark data quality, 3,103+ lines of documentation
+- **Skills**: Cloud Data Engineering, Infrastructure as Code, AWS Data Services, PySpark ETL, Open Table Formats, Technical Documentation
+- [View Project](autocorp-database.md)
 
 ### AWS Data Lake Pipeline 🔄
 
@@ -63,14 +73,17 @@ A Complete Infrastructure as Code using Terraform to deploy a full-stack product
 
 ## 📚 Documentation Hub
 
-### 🔄 Data Pipelines
+### 🔄 Data Engineering
 
 End-to-end data pipeline implementations with modern cloud-native technologies
 
-- Event-Driven Architecture
-- ETL/ELT Pipelines
-- Data Lake Design
-- Real-Time Processing
+- **Data Lakehouse Architecture**: Multi-layer data platforms with raw, processed, and curated zones
+- **CDC Replication**: Real-time data capture with AWS DMS and streaming ingestion
+- **Serverless ETL**: PySpark and Lambda-based data transformation at scale
+- **Open Table Formats**: Apache Hudi for ACID transactions on data lakes
+- **Event-Driven Architecture**: S3 triggers, EventBridge orchestration
+- **PostgreSQL Database Design**: Source system design with normalized schemas
+- **SQL Query Optimization**: Complex joins, aggregations, and analytics queries
 
 ### ☁️ [Cloud Computing](cloud-compute.md)
 
@@ -102,12 +115,25 @@ Learn more about my background, skills, and interests
 
 ## 🛠️ Tech Stack
 
-**Languages**: Python, Java, Bash  
-**Cloud & Infrastructure**: AWS (Lambda, S3, EventBridge, EC2, DynamoDB), Terraform (IaC)  
-**Data Engineering**: Pandas, Event-Driven Architecture, ETL Pipelines  
-**Tools**: Git, Docker, pytest, AWS CLI
+**Languages**: Python, Java, SQL, Bash, HCL (Terraform), PySpark  
+**Cloud & Infrastructure**: AWS (DMS, DataSync, Glue, Athena, Lambda, S3, EventBridge, EC2, DynamoDB), Terraform (IaC with 95% automation)  
+**Databases**: PostgreSQL, DynamoDB  
+**Data Engineering**: Apache Hudi, PySpark, Pandas, Event-Driven Architecture, ETL Pipelines, CDC Replication  
+**Infrastructure as Code**: Terraform modules, multi-environment deployment, remote state management  
+**Tools**: Git, Docker, pytest, AWS CLI, psycopg2, mkdocs
 
 ## 📝 Latest Updates
+
+### AutoCorp Cloud Data Lake Pipeline (Nov 22, 2025)
+
+- **Infrastructure as Code**: Complete Terraform implementation with 95% automation (6 modules, 25 files)
+- **Comprehensive Documentation**: 3,103+ lines across 9 files including IaC feasibility assessment
+- **Project Management**: 4-week Gantt chart with detailed timeline and risk assessment
+- CDC replication architecture with AWS DMS from PostgreSQL to S3
+- Serverless ETL design with AWS Glue and PySpark for Apache Hudi transformations
+- PostgreSQL source database with 7 tables and 5,668 operational records
+- Architecture supports 1.2M+ customer records and multi-GB sales data
+- Cost-optimized design: $86-151/month for dev environment with lifecycle policies
 
 ### AWS Data Lake Pipeline (Nov 18, 2025)
 

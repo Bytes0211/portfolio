@@ -4,7 +4,7 @@ A comprehensive collection of Jupyter notebooks exploring statistical hypothesis
 
 ## Overview
 
-This series of notebooks provides hands-on demonstrations of hypothesis testing techniques commonly used in data science and statistical analysis. Each notebook includes theoretical explanations, visual illustrations, and practical examples with real-world datasets.
+This series of notebooks provides hands-on demonstrations of hypothesis testing techniques commonly used in statistical analysis. Each notebook includes theoretical explanations, visual illustrations, and practical examples with real-world datasets.
 
 ## 📓 Notebooks
 

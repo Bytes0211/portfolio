@@ -67,7 +67,8 @@ markdown_extensions:
 nav:
   - Home: index.md
   - About: about.md
-  - Data Pipelines:
+  - Data Engineering:
+    - AutoCorp Cloud Data Lake Pipeline: autocorp-database.md
     - AWS Data Lake Pipeline: basic-pipeline.md
   - Data Science:
     - Statistical Distributions:

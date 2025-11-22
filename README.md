@@ -1,6 +1,10 @@
 # Portfolio
 
-A comprehensive portfolio showcasing data science, machine learning, and cloud computing projects.
+A comprehensive portfolio showcasing data engineering, cloud computing, machine learning, and statistical analysis projects.
+
+## 🔄 Data Engineering
+- AutoCorp Cloud Data Lake Pipeline - End-to-end AWS data lakehouse with **Terraform IaC (95% automation)**, DMS (CDC), Glue ETL, Apache Hudi, and Athena
+- AWS Data Lake Pipeline - Event-driven AWS pipeline with Terraform, Lambda, S3, and EventBridge
 
 ## 📊 Data Science
 - Statistical Distributions - 12 interactive notebooks covering probability distributions, sampling, and transformations

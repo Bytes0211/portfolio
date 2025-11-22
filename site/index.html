@@ -206,11 +206,11 @@
     
     
       <li class="md-tabs__item">
-        <a href="basic-pipeline/" class="md-tabs__link">
+        <a href="autocorp-database/" class="md-tabs__link">
           
   
   
-  Data Pipelines
+  Data Engineering
 
         </a>
       </li>
@@ -389,6 +389,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#autocorp-cloud-data-lake-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      AutoCorp Cloud Data Lake Pipeline ☁️
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#aws-data-lake-pipeline" class="md-nav__link">
     <span class="md-ellipsis">
       AWS Data Lake Pipeline 🔄
@@ -458,9 +467,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#data-pipelines" class="md-nav__link">
+  <a href="#data-engineering" class="md-nav__link">
     <span class="md-ellipsis">
-      🔄 Data Pipelines
+      🔄 Data Engineering
     </span>
   </a>
   
@@ -525,6 +534,15 @@
   
     <nav class="md-nav" aria-label="📝 Latest Updates">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#autocorp-cloud-data-lake-pipeline-nov-22-2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      AutoCorp Cloud Data Lake Pipeline (Nov 22, 2025)
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#aws-data-lake-pipeline-nov-18-2025" class="md-nav__link">
@@ -623,7 +641,7 @@
   
   
   <span class="md-ellipsis">
-    Data Pipelines
+    Data Engineering
     
   </span>
   
@@ -634,9 +652,32 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            Data Pipelines
+            Data Engineering
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="autocorp-database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AutoCorp Cloud Data Lake Pipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1698,13 +1739,22 @@
 
 
 <h1 id="steven-cotton">Steven Cotton</h1>
-<p><strong>Data Pipeline Engineer | Cloud Architect | Infrastructure as Code Specialist</strong></p>
+<p><strong>Data Engineer | Cloud Architect | Infrastructure as Code Specialist</strong></p>
 <blockquote>
 <p>Home of passionate, thoughtful energy expressed through code
 Projects are being updated frequently. Now that my employment has changed, I am moving from code commit to github.</p>
 </blockquote>
 <h2 id="featured-projects">🚀 Featured Projects</h2>
 <p>All of these projects that have been added in the last month originally resided in AWS CodeCommit. I decided to migrate to GitHub and do some cleanup along the way. It's been a lot of "Now how does that work?", "What the heck is that?", and "That's stupid!", but it's been kinda fun experience.</p>
+<h3 id="autocorp-cloud-data-lake-pipeline">AutoCorp Cloud Data Lake Pipeline ☁️</h3>
+<p>An end-to-end <strong>AWS Data Lake Pipeline</strong> implementing modern data lakehouse architecture with CDC replication, serverless ETL, open table formats, and <strong>Infrastructure as Code</strong> (Terraform).</p>
+<ul>
+<li><strong>Tech Stack</strong>: AWS (DMS, DataSync, Glue, S3, Athena), Apache Hudi, Terraform, PostgreSQL, PySpark, Python</li>
+<li><strong>Features</strong>: 3-layer data lakehouse (Raw → Curated), CDC replication, serverless ETL, &lt;15min data latency, 95% IaC automation</li>
+<li><strong>Highlights</strong>: Complete Terraform IaC (6 modules), Apache Hudi ACID transactions, PySpark data quality, 3,103+ lines of documentation</li>
+<li><strong>Skills</strong>: Cloud Data Engineering, Infrastructure as Code, AWS Data Services, PySpark ETL, Open Table Formats, Technical Documentation</li>
+<li><a href="autocorp-database/">View Project</a></li>
+</ul>
 <h3 id="aws-data-lake-pipeline">AWS Data Lake Pipeline 🔄</h3>
 <p>An event-driven <strong>AWS Data Lake Pipeline</strong> built with Infrastructure as Code principles, demonstrating production-ready architecture for data ingestion, transformation, and consumption.</p>
 <ul>
@@ -1752,13 +1802,16 @@ Projects are being updated frequently. Now that my employment has changed, I am 
 <li><a href="terraform-aws-product-app/">View Project</a></li>
 </ul>
 <h2 id="documentation-hub">📚 Documentation Hub</h2>
-<h3 id="data-pipelines">🔄 Data Pipelines</h3>
+<h3 id="data-engineering">🔄 Data Engineering</h3>
 <p>End-to-end data pipeline implementations with modern cloud-native technologies</p>
 <ul>
-<li>Event-Driven Architecture</li>
-<li>ETL/ELT Pipelines</li>
-<li>Data Lake Design</li>
-<li>Real-Time Processing</li>
+<li><strong>Data Lakehouse Architecture</strong>: Multi-layer data platforms with raw, processed, and curated zones</li>
+<li><strong>CDC Replication</strong>: Real-time data capture with AWS DMS and streaming ingestion</li>
+<li><strong>Serverless ETL</strong>: PySpark and Lambda-based data transformation at scale</li>
+<li><strong>Open Table Formats</strong>: Apache Hudi for ACID transactions on data lakes</li>
+<li><strong>Event-Driven Architecture</strong>: S3 triggers, EventBridge orchestration</li>
+<li><strong>PostgreSQL Database Design</strong>: Source system design with normalized schemas</li>
+<li><strong>SQL Query Optimization</strong>: Complex joins, aggregations, and analytics queries</li>
 </ul>
 <h3 id="cloud-computing">☁️ <a href="cloud-compute/">Cloud Computing</a></h3>
 <p>AWS and Terraform projects with practical implementations and educational resources</p>
@@ -1784,11 +1837,24 @@ Projects are being updated frequently. Now that my employment has changed, I am 
 <h3 id="about">👤 <a href="about/">About</a></h3>
 <p>Learn more about my background, skills, and interests</p>
 <h2 id="tech-stack">🛠️ Tech Stack</h2>
-<p><strong>Languages</strong>: Python, Java, Bash<br />
-<strong>Cloud &amp; Infrastructure</strong>: AWS (Lambda, S3, EventBridge, EC2, DynamoDB), Terraform (IaC)<br />
-<strong>Data Engineering</strong>: Pandas, Event-Driven Architecture, ETL Pipelines<br />
-<strong>Tools</strong>: Git, Docker, pytest, AWS CLI</p>
+<p><strong>Languages</strong>: Python, Java, SQL, Bash, HCL (Terraform), PySpark<br />
+<strong>Cloud &amp; Infrastructure</strong>: AWS (DMS, DataSync, Glue, Athena, Lambda, S3, EventBridge, EC2, DynamoDB), Terraform (IaC with 95% automation)<br />
+<strong>Databases</strong>: PostgreSQL, DynamoDB<br />
+<strong>Data Engineering</strong>: Apache Hudi, PySpark, Pandas, Event-Driven Architecture, ETL Pipelines, CDC Replication<br />
+<strong>Infrastructure as Code</strong>: Terraform modules, multi-environment deployment, remote state management<br />
+<strong>Tools</strong>: Git, Docker, pytest, AWS CLI, psycopg2, mkdocs</p>
 <h2 id="latest-updates">📝 Latest Updates</h2>
+<h3 id="autocorp-cloud-data-lake-pipeline-nov-22-2025">AutoCorp Cloud Data Lake Pipeline (Nov 22, 2025)</h3>
+<ul>
+<li><strong>Infrastructure as Code</strong>: Complete Terraform implementation with 95% automation (6 modules, 25 files)</li>
+<li><strong>Comprehensive Documentation</strong>: 3,103+ lines across 9 files including IaC feasibility assessment</li>
+<li><strong>Project Management</strong>: 4-week Gantt chart with detailed timeline and risk assessment</li>
+<li>CDC replication architecture with AWS DMS from PostgreSQL to S3</li>
+<li>Serverless ETL design with AWS Glue and PySpark for Apache Hudi transformations</li>
+<li>PostgreSQL source database with 7 tables and 5,668 operational records</li>
+<li>Architecture supports 1.2M+ customer records and multi-GB sales data</li>
+<li>Cost-optimized design: $86-151/month for dev environment with lifecycle policies</li>
+</ul>
 <h3 id="aws-data-lake-pipeline-nov-18-2025">AWS Data Lake Pipeline (Nov 18, 2025)</h3>
 <ul>
 <li>Complete event-driven data pipeline with Terraform IaC</li>
