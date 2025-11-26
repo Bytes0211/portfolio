@@ -108,14 +108,14 @@ nav:
 extra:
   social:
     - icon: fontawesome/solid/globe-americas
-      link: https://example.com/about
+      link: /about/
       name: About
     - icon: fontawesome/solid/shield-halved
-      link: https://example.com/privacy
+      link: https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement
       name: Privacy Policy
     - icon: fontawesome/solid/envelope
-      link: https://example.com/contact
-      name: Contact
+      link: mailto:stevenwcotton@gmail.com
+      name: Email
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/steven-cotton-7948157
       name: LinkedIn
