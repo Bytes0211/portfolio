@@ -2,150 +2,150 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://sitename.example/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/about/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/autocorp-database/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/aws-file-validator/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/aws-management/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/basic-pipeline/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/cloud-compute/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/distributions/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/distributions_fundementals/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/ds/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/dynamodb-inventory-system/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/heart-disease/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/hypothesis-testing/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/java/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/prob_exp_val/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/scotton-aws-utils/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/terraform-aws-product-app/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/notebooks/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/notebooks/CORRECTIONS_LOG/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/notebooks/dist-01-distribution-fundamentals/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/notebooks/dist-02-basic-prob-and-exp-val/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/notebooks/dist-03-std-dev-and-var/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/notebooks/dist-04-data-point-to-std-dev/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/notebooks/dist-05-binomial-distributions/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/notebooks/dist-06-geometric-distributions/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/notebooks/dist-07-poisson/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/notebooks/dist-08-sample-distro-of-sample-mean/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/notebooks/dist-09-combinations-of-random-vars/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/notebooks/dist-10-transforming-random-variables/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/notebooks/dist-11-t-distribution/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/notebooks/dist-12-student-t-distribution/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/notebooks/ht-01-intro-to-pvalue/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/notebooks/ht-02-one-two-tail-test-diff-mean/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/notebooks/ht-03-one-two-tail-test-diff-props/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/notebooks/ht-04-chi-squared/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/notebooks/ht-05-regression-hypothesis/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
     <url>
          <loc>https://sitename.example/notebooks/test_datum/</loc>
-         <lastmod>2025-11-22</lastmod>
+         <lastmod>2025-11-26</lastmod>
     </url>
 </urlset>

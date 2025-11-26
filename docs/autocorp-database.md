@@ -8,9 +8,10 @@ AutoCorp is a comprehensive cloud-based data platform that extends from operatio
 
 **Tech Stack**: AWS (DMS, DataSync, Glue, S3, Athena), Apache Hudi, Terraform, PostgreSQL, PySpark, Python  
 **Architecture**: 3-layer data lakehouse (Raw → Processed → Curated)  
-**Data Volume**: 5,668 operational records, 1.2M customer records (CSV), multi-GB sales data  
+**Data Volume**: 5,668 operational records, 791K+ test orders with data quality testing, 1.2M customer records  
 **Data Latency**: <15 minutes end-to-end (source to queryable)  
-**Infrastructure as Code**: Terraform with 95% automation (6 modules, 25 files)
+**Infrastructure as Code**: Terraform with 95% automation (6 modules, 25 files)  
+**Data Quality Testing**: 19 configurable parameters, validation manifest generation
 
 ## 🏗️ Infrastructure as Code Implementation
 
@@ -24,19 +25,23 @@ The entire AWS infrastructure is deployed using **Terraform with 95% automation 
 - **Cost-Optimized**: S3 lifecycle policies, right-sized instances ($86-151/month for dev)
 
 **Module Status:**
-- ✅ S3 Module (READY): Data lake buckets, lifecycle policies, encryption
-- ✅ IAM Module (READY): Service roles with least privilege
-- ✅ Secrets Module (READY): Secure PostgreSQL credential storage
-- ⚠️ Glue Module (BASIC): Catalog and crawlers, ETL jobs pending
+- ✅ S3 Module (DEPLOYED): Data lake buckets, lifecycle policies, encryption
+- ✅ IAM Module (DEPLOYED): Service roles with least privilege
+- ✅ Secrets Module (DEPLOYED): Secure PostgreSQL credential storage
+- ✅ Glue Module (DEPLOYED): Catalog, crawlers, 7 ETL jobs with Hudi
 - 📝 DMS Module (TODO): Database replication configuration
 - 📝 DataSync Module (TODO): File sync tasks
 
 **Comprehensive Documentation:**
-- **3,103+ lines** of technical documentation
+- **4,670+ lines** of technical documentation (13 files)
+- Developer's Journal - Phase 2 (911 lines)
+- Developer approach with complete architecture (890+ lines)
 - IaC Feasibility Assessment (588 lines)
+- Phase 1 Deployment Complete (495 lines)
+- Data Quality Testing guide (326 lines)
 - Project Gantt Chart with 4-week timeline (307 lines)
 - Terraform deployment guide (297 lines)
-- Developer approach with complete architecture (854 lines)
+- Data Quality Quick Reference (136 lines)
 
 ## ☁️ Cloud Data Platform Architecture
 
@@ -77,7 +82,6 @@ This project showcases a production-grade AWS data platform with the following l
 ├─────────────────────┤
 │ PostgreSQL DB       │──────► AWS DMS ──────────┐
 │ - 7 tables          │      (CDC Replication)    │
-│ - 5,668 total rows  │                           │
 └─────────────────────┘                           │
                                                   │
 ┌─────────────────────┐                           ▼
@@ -166,6 +170,50 @@ df_clean.write \
 - **Partitioning Strategy**: Date-based partitions for optimal query performance
 - **Compression**: Parquet format with SNAPPY compression for storage efficiency
 - **Scalability**: Architecture handles multi-GB file sizes and millions of records
+
+### Data Quality Testing Framework
+
+Comprehensive ETL pipeline testing infrastructure for validating AWS DataSync → Glue Crawler → Data Catalog workflows:
+
+**Test Data Generation:**
+- `generate_sales_orders_csv.py` creates 791,532 orders with configurable data quality issues
+- 19 hyperparameters control injection of various data quality problems
+- Validation manifest (JSON) documents expected vs. actual issue tracking
+
+**Testing Categories:**
+
+1. **Missing/Null Values (6 parameters):**
+   - Customer IDs, order dates, tax, invoice numbers, payment methods, subtotals
+   - Tests ETL null handling and Glue Crawler schema inference with sparse data
+
+2. **Invalid Data Formats (4 parameters):**
+   - Malformed dates ("2024-13-45", "invalid-date")
+   - Whitespace in IDs, formatted numbers ("1,234.56"), currency symbols ("$123.45")
+   - Tests data cleansing and type conversion
+
+3. **Edge Cases (5 parameters):**
+   - Duplicate order IDs (primary key violations)
+   - Negative amounts, out-of-range dates, zero quantities
+   - Tests constraint enforcement and business rule validation
+
+**Key Validations:**
+- Schema inference with high null rates
+- Type detection (STRING vs. DOUBLE vs. TIMESTAMP)
+- Duplicate detection and handling
+- Invalid data rejection or cleansing
+- Pipeline robustness under degraded data quality
+
+**Testing Workflow:**
+```python
+# Generate test data with configurable DQ issues
+python generate_sales_orders_csv.py
+
+# Output: 3 CSV files + validation manifest
+# - sales_orders.csv (791,532 rows with DQ issues)
+# - sales_order_parts.csv
+# - sales_order_services.csv
+# - data_validation_manifest.json (expected issue counts)
+```
 
 ## 🗄️ Source Database System (PostgreSQL)
 
@@ -384,8 +432,11 @@ VALUES (1, '48392017', 30, 45.00, 90.00, 135.00);
 - View definitions for reporting
 
 ### Python Scripts
-- `upload_customers.py` - Random customer data loader
-- `generate_sales_orders.py` - Sample transaction generator
+- `upload_customers.py` - Random customer data loader with progress reporting
+- `generate_sales_orders_csv.py` - Advanced test data generator with 19 data quality parameters
+  - 791,532 orders with configurable missing values, invalid formats, and edge cases
+  - Validation manifest generation for ETL testing
+  - Tests AWS DataSync → Glue Crawler → Data Catalog pipeline robustness
 
 ## 🚀 Setup & Usage
 
@@ -451,6 +502,13 @@ psql -U scotton -d autocorp -c "
 - Large-scale CSV file handling (multi-GB)
 - Partitioning strategies for query optimization
 
+**Data Quality & Testing**
+- Comprehensive ETL testing framework with 19 configurable parameters
+- Validation manifest generation for expected vs. actual issue tracking
+- Missing value injection, invalid format testing, edge case simulation
+- Pipeline robustness testing for AWS Glue workflows
+- Test data generation for realistic data quality scenarios
+
 **Database Design**
 - Relational schema design and normalization
 - Junction tables for many-to-many relationships
@@ -471,11 +529,12 @@ psql -U scotton -d autocorp -c "
 - Progress reporting and logging
 
 **Documentation & Project Management**
-- Comprehensive technical documentation (3,103+ lines)
+- Comprehensive technical documentation (3,759+ lines across 12 files)
 - Architecture decision records (ADRs)
 - Project timeline with Gantt charts
 - Risk assessment and mitigation strategies
 - Implementation roadmap with 4-week plan
+- Data quality testing documentation (462 lines)
 
 ## 📊 Data Statistics
 
@@ -490,38 +549,65 @@ psql -U scotton -d autocorp -c "
 - **Geographic distribution**: 59 states represented
 
 **Documentation:**
-- **Total documentation**: 3,103+ lines across 9 files
-- **Technical depth**: 850-line developer approach document
+- **Total documentation**: 3,759+ lines across 12 files
+- **Technical depth**: 890+ line developer approach document
 - **IaC coverage**: 95% automation with Terraform
 - **Project planning**: 4-week Gantt chart with 307 lines
+- **Data quality testing**: 462 lines across 2 comprehensive guides
+
+**Test Data Volume:**
+- **Sales orders**: 791,532 generated with configurable data quality issues
+- **Data quality parameters**: 19 configurable hyperparameters
+- **Expected issues**: ~11,000-12,000 intentional DQ problems for testing
+- **Test categories**: Missing values, invalid formats, edge cases
+- **Validation manifest**: JSON tracking for expected vs. actual DQ metrics
 
 ## 🎯 Project Status
 
-**Current Phase**: Infrastructure Foundation (Phase 1 - 80% Complete)
+**Current Phase**: Glue & Data Catalog (Phase 2 - 60% Complete) 🔄
 
-**Completed (Nov 22, 2025)**:
+**Phase 1 - Infrastructure Foundation (Nov 22, 2025)** ✅:
 - ✅ PostgreSQL source database with 7 tables (5,668 records operational)
-- ✅ Complete database schema design with normalized structure
-- ✅ Python ETL scripts for data loading (upload_customers.py, generate_sales_orders.py)
-- ✅ Comprehensive data lakehouse architecture design (850-line document)
-- ✅ AWS service selection and component design
-- ✅ PySpark ETL job templates for Apache Hudi transformations
-- ✅ **Terraform IaC structure created** (6 modules, 25 files)
-- ✅ **IaC feasibility assessment** (95% automation confirmed, 588 lines)
-- ✅ **Project timeline with Gantt chart** (4-week plan, 307 lines)
-- ✅ **Comprehensive documentation** (3,103+ lines across 9 files)
+- ✅ Complete Terraform IaC deployment (35 AWS resources)
+  - S3 data lake with lifecycle policies
+  - IAM roles (Glue, DMS, DataSync)
+  - Secrets Manager for credentials
+  - Glue Data Catalog database
+  - 2 Glue Crawlers (raw-database, raw-csv)
+- ✅ Remote state management (S3 + DynamoDB)
+- ✅ Complete infrastructure documentation (495 lines)
 
-**In Progress**:
-- 🔄 Terraform module implementation (S3, IAM, Secrets ready)
-- ⏸️ AWS account access for infrastructure deployment
+**Phase 2 - Glue ETL with Hudi (Nov 26, 2025)** 🔄:
+- ✅ **7 Production PySpark ETL scripts** (535 lines total)
+  - sales_order, customers, auto_parts, service
+  - service_parts, sales_order_parts, sales_order_services
+- ✅ **7 AWS Glue jobs deployed** via Terraform
+  - Glue 4.0 with Apache Hudi connector
+  - G.1X workers (2 per job)
+  - Job bookmarking and CloudWatch logging enabled
+- ✅ **First Hudi table created successfully** (auto_parts)
+  - 400 records → 3.5 MB (57 Parquet files)
+  - Merge-on-Read table format
+  - Vendor-based partitioning
+- ✅ **Test data exported** (2,733 records in Parquet format)
+- ✅ **Developer's Journal** (911 lines documenting Phase 2 work)
+- ⏸️ Remaining ETL job testing
+- ⏸️ Glue workflow automation
+- ⏸️ Data quality rules implementation
 
-**Next Steps (4-Week Timeline)**:
-1. **Week 1**: Deploy Phase 1 infrastructure via Terraform (S3, IAM, Secrets)
-2. **Week 2**: Implement Glue ETL jobs with Apache Hudi
-3. **Week 3**: Configure DMS replication (CDC) and DataSync (CSV files)
-4. **Week 4**: Deploy Athena, optimize queries, complete documentation
+**Phase 3 - DMS & DataSync (Week 3)** ⏸️:
+- Configure DMS replication (CDC) from PostgreSQL
+- Deploy DataSync for CSV file transfers
+- Test end-to-end data flow
 
-**Target Completion**: December 13, 2025
+**Phase 4 - Analytics Layer (Week 4)** ⏸️:
+- Deploy Athena workgroups
+- Optimize queries and test time-travel
+- Complete documentation
+
+**Progress**: 35% overall (7 of 20 days complete)  
+**Target Completion**: December 13, 2025  
+**Status**: On Track ✅
 
 ## 🔗 Repository
 

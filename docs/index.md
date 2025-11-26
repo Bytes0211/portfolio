@@ -7,7 +7,7 @@
 
 ## 🚀 Featured Projects
 
-All of these projects that have been added in the last month originally resided in AWS CodeCommit. I decided to migrate to GitHub and do some cleanup along the way. It's been a lot of "Now how does that work?", "What the heck is that?", and "That's stupid!", but it's been kinda fun experience.
+Most of these projects originally resided in AWS CodeCommit. I decided to migrate to GitHub and so I did some cleanup along the way. It's been a lot of "Now how does that work?", "What the heck is that?", and "That's stupid!", but it's been kinda fun experience. 
 
 ### AutoCorp Cloud Data Lake Pipeline ☁️
 
@@ -124,16 +124,17 @@ Learn more about my background, skills, and interests
 
 ## 📝 Latest Updates
 
-### AutoCorp Cloud Data Lake Pipeline (Nov 22, 2025)
+### AutoCorp Cloud Data Lake Pipeline (Nov 26, 2025)
 
-- **Infrastructure as Code**: Complete Terraform implementation with 95% automation (6 modules, 25 files)
-- **Comprehensive Documentation**: 3,103+ lines across 9 files including IaC feasibility assessment
-- **Project Management**: 4-week Gantt chart with detailed timeline and risk assessment
-- CDC replication architecture with AWS DMS from PostgreSQL to S3
-- Serverless ETL design with AWS Glue and PySpark for Apache Hudi transformations
-- PostgreSQL source database with 7 tables and 5,668 operational records
-- Architecture supports 1.2M+ customer records and multi-GB sales data
-- Cost-optimized design: $86-151/month for dev environment with lifecycle policies
+**Phase 2 - Glue ETL with Apache Hudi Complete** (60% project progress):
+- **7 Production PySpark ETL Jobs Deployed**: 535 lines of PySpark code with Hudi integration
+- **First Hudi Table Created**: 400 records → 3.5 MB (57 Parquet files) with vendor partitioning
+- **AWS Glue 4.0**: 7 serverless ETL jobs with job bookmarking and CloudWatch logging
+- **Developer's Journal**: 911-line detailed technical log documenting Phase 2 implementation
+- **35 AWS Resources Deployed**: Complete infrastructure via Terraform (S3, IAM, Glue, Secrets)
+- **Comprehensive Documentation**: 4,670+ lines across 13 files
+- **IaC Automation**: 95% coverage with Terraform (6 modules, 25 files)
+- **Project Timeline**: On track for Dec 13 completion (35% complete, 7 of 20 days)
 
 ### AWS Data Lake Pipeline (Nov 18, 2025)
 

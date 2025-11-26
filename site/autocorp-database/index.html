@@ -567,6 +567,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#data-quality-testing-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Quality Testing Framework
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1976,9 +1985,10 @@
 <p>AutoCorp is a comprehensive cloud-based data platform that extends from operational database to data lake, data warehouse, and analytics. The system implements AWS-native data lakehouse architecture enabling scalable analytics, real-time querying, and business intelligence across auto parts sales and service data.</p>
 <p><strong>Tech Stack</strong>: AWS (DMS, DataSync, Glue, S3, Athena), Apache Hudi, Terraform, PostgreSQL, PySpark, Python<br />
 <strong>Architecture</strong>: 3-layer data lakehouse (Raw → Processed → Curated)<br />
-<strong>Data Volume</strong>: 5,668 operational records, 1.2M customer records (CSV), multi-GB sales data<br />
+<strong>Data Volume</strong>: 5,668 operational records, 791K+ test orders with data quality testing, 1.2M customer records<br />
 <strong>Data Latency</strong>: &lt;15 minutes end-to-end (source to queryable)<br />
-<strong>Infrastructure as Code</strong>: Terraform with 95% automation (6 modules, 25 files)</p>
+<strong>Infrastructure as Code</strong>: Terraform with 95% automation (6 modules, 25 files)<br />
+<strong>Data Quality Testing</strong>: 19 configurable parameters, validation manifest generation</p>
 <h2 id="infrastructure-as-code-implementation">🏗️ Infrastructure as Code Implementation</h2>
 <p>The entire AWS infrastructure is deployed using <strong>Terraform with 95% automation coverage</strong>, demonstrating modern Infrastructure as Code practices:</p>
 <p><strong>Terraform Structure:</strong>
@@ -1988,18 +1998,22 @@
 - <strong>25 Files</strong>: Complete infrastructure definition with ~800 lines of HCL
 - <strong>Cost-Optimized</strong>: S3 lifecycle policies, right-sized instances ($86-151/month for dev)</p>
 <p><strong>Module Status:</strong>
-- ✅ S3 Module (READY): Data lake buckets, lifecycle policies, encryption
-- ✅ IAM Module (READY): Service roles with least privilege
-- ✅ Secrets Module (READY): Secure PostgreSQL credential storage
-- ⚠️ Glue Module (BASIC): Catalog and crawlers, ETL jobs pending
+- ✅ S3 Module (DEPLOYED): Data lake buckets, lifecycle policies, encryption
+- ✅ IAM Module (DEPLOYED): Service roles with least privilege
+- ✅ Secrets Module (DEPLOYED): Secure PostgreSQL credential storage
+- ✅ Glue Module (DEPLOYED): Catalog, crawlers, 7 ETL jobs with Hudi
 - 📝 DMS Module (TODO): Database replication configuration
 - 📝 DataSync Module (TODO): File sync tasks</p>
 <p><strong>Comprehensive Documentation:</strong>
-- <strong>3,103+ lines</strong> of technical documentation
+- <strong>4,670+ lines</strong> of technical documentation (13 files)
+- Developer's Journal - Phase 2 (911 lines)
+- Developer approach with complete architecture (890+ lines)
 - IaC Feasibility Assessment (588 lines)
+- Phase 1 Deployment Complete (495 lines)
+- Data Quality Testing guide (326 lines)
 - Project Gantt Chart with 4-week timeline (307 lines)
 - Terraform deployment guide (297 lines)
-- Developer approach with complete architecture (854 lines)</p>
+- Data Quality Quick Reference (136 lines)</p>
 <h2 id="cloud-data-platform-architecture">☁️ Cloud Data Platform Architecture</h2>
 <h3 id="modern-data-lakehouse-implementation">Modern Data Lakehouse Implementation</h3>
 <p>This project showcases a production-grade AWS data platform with the following layers:</p>
@@ -2028,37 +2042,36 @@
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├─────────────────────┤
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│ PostgreSQL DB       │──────► AWS DMS ──────────┐
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│ - 7 tables          │      (CDC Replication)    │
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>│ - 5,668 total rows  │                           │
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>└─────────────────────┘                           │
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>                                                  │
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>┌─────────────────────┐                           ▼
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>│ CSV Files           │              ┌────────────────────────┐
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>├─────────────────────┤              │   S3 Data Lake         │
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│ customers.csv       │──► DataSync ─►   (Raw Zone)           │
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│ sales_orders.csv    │              │ - /raw/database/       │
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>└─────────────────────┘              │ - /raw/csv/            │
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>                                     └────────────────────────┘
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>                                                  │
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>                                                  ▼
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>                                     ┌────────────────────────┐
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>                                     │   AWS Glue             │
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>                                     │ - Crawler (catalog)    │
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>                                     │ - ETL Jobs (clean)     │
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>                                     │ - Data Quality Rules   │
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>                                     └────────────────────────┘
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>                                                  │
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>                                                  ▼
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>                                     ┌────────────────────────┐
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>                                     │   S3 Data Lake         │
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>                                     │   (Curated Zone)       │
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>                                     │ - Apache Hudi tables   │
-</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>                                     └────────────────────────┘
-</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>                                                  │
-</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>                                                  ▼
-</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>                                     ┌────────────────────────┐
-</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>                                     │   AWS Athena           │
-</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>                                     │   (Query Engine)       │
-</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>                                     └────────────────────────┘
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>└─────────────────────┘                           │
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>                                                  │
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>┌─────────────────────┐                           ▼
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│ CSV Files           │              ┌────────────────────────┐
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>├─────────────────────┤              │   S3 Data Lake         │
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│ customers.csv       │──► DataSync ─►   (Raw Zone)           │
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│ sales_orders.csv    │              │ - /raw/database/       │
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>└─────────────────────┘              │ - /raw/csv/            │
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>                                     └────────────────────────┘
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>                                                  │
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>                                                  ▼
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>                                     ┌────────────────────────┐
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>                                     │   AWS Glue             │
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>                                     │ - Crawler (catalog)    │
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>                                     │ - ETL Jobs (clean)     │
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>                                     │ - Data Quality Rules   │
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>                                     └────────────────────────┘
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>                                                  │
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>                                                  ▼
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>                                     ┌────────────────────────┐
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>                                     │   S3 Data Lake         │
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>                                     │   (Curated Zone)       │
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>                                     │ - Apache Hudi tables   │
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>                                     └────────────────────────┘
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>                                                  │
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>                                                  ▼
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>                                     ┌────────────────────────┐
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>                                     │   AWS Athena           │
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>                                     │   (Query Engine)       │
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>                                     └────────────────────────┘
 </span></code></pre></div>
 <h2 id="key-technical-achievements">🚀 Key Technical Achievements</h2>
 <h3 id="cdc-replication-real-time-data">CDC Replication &amp; Real-Time Data</h3>
@@ -2116,6 +2129,50 @@
 <li><strong>Compression</strong>: Parquet format with SNAPPY compression for storage efficiency</li>
 <li><strong>Scalability</strong>: Architecture handles multi-GB file sizes and millions of records</li>
 </ul>
+<h3 id="data-quality-testing-framework">Data Quality Testing Framework</h3>
+<p>Comprehensive ETL pipeline testing infrastructure for validating AWS DataSync → Glue Crawler → Data Catalog workflows:</p>
+<p><strong>Test Data Generation:</strong>
+- <code>generate_sales_orders_csv.py</code> creates 791,532 orders with configurable data quality issues
+- 19 hyperparameters control injection of various data quality problems
+- Validation manifest (JSON) documents expected vs. actual issue tracking</p>
+<p><strong>Testing Categories:</strong></p>
+<ol>
+<li><strong>Missing/Null Values (6 parameters):</strong></li>
+<li>Customer IDs, order dates, tax, invoice numbers, payment methods, subtotals</li>
+<li>
+<p>Tests ETL null handling and Glue Crawler schema inference with sparse data</p>
+</li>
+<li>
+<p><strong>Invalid Data Formats (4 parameters):</strong></p>
+</li>
+<li>Malformed dates ("2024-13-45", "invalid-date")</li>
+<li>Whitespace in IDs, formatted numbers ("1,234.56"), currency symbols ("$123.45")</li>
+<li>
+<p>Tests data cleansing and type conversion</p>
+</li>
+<li>
+<p><strong>Edge Cases (5 parameters):</strong></p>
+</li>
+<li>Duplicate order IDs (primary key violations)</li>
+<li>Negative amounts, out-of-range dates, zero quantities</li>
+<li>Tests constraint enforcement and business rule validation</li>
+</ol>
+<p><strong>Key Validations:</strong>
+- Schema inference with high null rates
+- Type detection (STRING vs. DOUBLE vs. TIMESTAMP)
+- Duplicate detection and handling
+- Invalid data rejection or cleansing
+- Pipeline robustness under degraded data quality</p>
+<p><strong>Testing Workflow:</strong>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Generate test data with configurable DQ issues</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">python</span> <span class="n">generate_sales_orders_csv</span><span class="o">.</span><span class="n">py</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Output: 3 CSV files + validation manifest</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># - sales_orders.csv (791,532 rows with DQ issues)</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># - sales_order_parts.csv</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># - sales_order_services.csv</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1"># - data_validation_manifest.json (expected issue counts)</span>
+</span></code></pre></div></p>
 <h2 id="source-database-system-postgresql">🗄️ Source Database System (PostgreSQL)</h2>
 <p>The pipeline begins with a production PostgreSQL database that serves as the operational data source:</p>
 <p><strong>Database</strong>: <code>autocorp</code><br />
@@ -2158,25 +2215,25 @@
 <h2 id="technical-highlights">💡 Technical Highlights</h2>
 <h3 id="database-design-patterns">Database Design Patterns</h3>
 <p><strong>Junction Table Implementation</strong>
-<div class="language-sql highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">service_parts</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="err">├──</span><span class="w"> </span><span class="n">serviceid</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">service</span><span class="p">)</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="err">├──</span><span class="w"> </span><span class="n">sku</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">auto_parts</span><span class="p">)</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="err">└──</span><span class="w"> </span><span class="n">quantity</span><span class="w"> </span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">service_parts</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="err">├──</span><span class="w"> </span><span class="n">serviceid</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">service</span><span class="p">)</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="err">├──</span><span class="w"> </span><span class="n">sku</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">auto_parts</span><span class="p">)</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="err">└──</span><span class="w"> </span><span class="n">quantity</span><span class="w"> </span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 </span></code></pre></div>
 Enables many-to-many relationships between services and parts with quantity metadata.</p>
 <p><strong>Flexible Order System</strong>
-<div class="language-sql highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">sales_order</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="err">├──</span><span class="w"> </span><span class="n">order_id</span><span class="w"> </span><span class="p">(</span><span class="n">PK</span><span class="p">)</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="err">├──</span><span class="w"> </span><span class="n">customer_id</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">customers</span><span class="p">)</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="err">├──</span><span class="w"> </span><span class="n">order_type</span><span class="w"> </span><span class="p">(</span><span class="n">Parts</span><span class="o">|</span><span class="n">Service</span><span class="o">|</span><span class="n">Mixed</span><span class="p">)</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="err">├──</span><span class="w"> </span><span class="n">payment_method</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="err">└──</span><span class="w"> </span><span class="n">total_amount</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">sales_order_parts</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">..</span><span class="o">*</span><span class="p">)</span><span class="w">     </span><span class="n">sales_order_services</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">..</span><span class="o">*</span><span class="p">)</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="err">├──</span><span class="w"> </span><span class="n">order_id</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="p">)</span><span class="w">            </span><span class="err">├──</span><span class="w"> </span><span class="n">order_id</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="p">)</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="err">├──</span><span class="w"> </span><span class="n">sku</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="p">)</span><span class="w">                 </span><span class="err">├──</span><span class="w"> </span><span class="n">serviceid</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="p">)</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="err">├──</span><span class="w"> </span><span class="n">quantity</span><span class="w">                 </span><span class="err">├──</span><span class="w"> </span><span class="n">labor_minutes</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="err">└──</span><span class="w"> </span><span class="n">line_total</span><span class="w">               </span><span class="err">└──</span><span class="w"> </span><span class="n">line_total</span>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">sales_order</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="err">├──</span><span class="w"> </span><span class="n">order_id</span><span class="w"> </span><span class="p">(</span><span class="n">PK</span><span class="p">)</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="err">├──</span><span class="w"> </span><span class="n">customer_id</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">customers</span><span class="p">)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="err">├──</span><span class="w"> </span><span class="n">order_type</span><span class="w"> </span><span class="p">(</span><span class="n">Parts</span><span class="o">|</span><span class="n">Service</span><span class="o">|</span><span class="n">Mixed</span><span class="p">)</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="err">├──</span><span class="w"> </span><span class="n">payment_method</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="err">└──</span><span class="w"> </span><span class="n">total_amount</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">sales_order_parts</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">..</span><span class="o">*</span><span class="p">)</span><span class="w">     </span><span class="n">sales_order_services</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">..</span><span class="o">*</span><span class="p">)</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="err">├──</span><span class="w"> </span><span class="n">order_id</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="p">)</span><span class="w">            </span><span class="err">├──</span><span class="w"> </span><span class="n">order_id</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="p">)</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="err">├──</span><span class="w"> </span><span class="n">sku</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="p">)</span><span class="w">                 </span><span class="err">├──</span><span class="w"> </span><span class="n">serviceid</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="p">)</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="err">├──</span><span class="w"> </span><span class="n">quantity</span><span class="w">                 </span><span class="err">├──</span><span class="w"> </span><span class="n">labor_minutes</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="err">└──</span><span class="w"> </span><span class="n">line_total</span><span class="w">               </span><span class="err">└──</span><span class="w"> </span><span class="n">line_total</span>
 </span></code></pre></div></p>
 <h3 id="sql-capabilities-demonstrated">SQL Capabilities Demonstrated</h3>
 <p><strong>Complex Joins</strong>
@@ -2233,44 +2290,44 @@ Enables many-to-many relationships between services and parts with quantity meta
 </ul>
 <h2 id="example-queries">📈 Example Queries</h2>
 <h3 id="get-service-with-required-parts">Get Service with Required Parts</h3>
-<div class="language-sql highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">SELECT</span><span class="w"> </span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">service</span><span class="p">,</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">category</span><span class="p">,</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">labor_cost</span><span class="p">,</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="n">sp</span><span class="p">.</span><span class="n">sku</span><span class="p">,</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="n">sp</span><span class="p">.</span><span class="n">quantity</span><span class="p">,</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="n">ap</span><span class="p">.</span><span class="n">description</span><span class="p">,</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="n">ap</span><span class="p">.</span><span class="n">price</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="k">FROM</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">s</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="k">JOIN</span><span class="w"> </span><span class="n">service_parts</span><span class="w"> </span><span class="n">sp</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">serviceid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sp</span><span class="p">.</span><span class="n">serviceid</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="k">JOIN</span><span class="w"> </span><span class="n">auto_parts</span><span class="w"> </span><span class="n">ap</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">sp</span><span class="p">.</span><span class="n">sku</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ap</span><span class="p">.</span><span class="n">sku</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">serviceid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;48392017&#39;</span><span class="p">;</span>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">SELECT</span><span class="w"> </span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">service</span><span class="p">,</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">category</span><span class="p">,</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">labor_cost</span><span class="p">,</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="n">sp</span><span class="p">.</span><span class="n">sku</span><span class="p">,</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="n">sp</span><span class="p">.</span><span class="n">quantity</span><span class="p">,</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="n">ap</span><span class="p">.</span><span class="n">description</span><span class="p">,</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="n">ap</span><span class="p">.</span><span class="n">price</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="k">FROM</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">s</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="k">JOIN</span><span class="w"> </span><span class="n">service_parts</span><span class="w"> </span><span class="n">sp</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">serviceid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sp</span><span class="p">.</span><span class="n">serviceid</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="k">JOIN</span><span class="w"> </span><span class="n">auto_parts</span><span class="w"> </span><span class="n">ap</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">sp</span><span class="p">.</span><span class="n">sku</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ap</span><span class="p">.</span><span class="n">sku</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">serviceid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;48392017&#39;</span><span class="p">;</span>
 </span></code></pre></div>
 <h3 id="analyze-service-complexity">Analyze Service Complexity</h3>
-<div class="language-sql highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">SELECT</span><span class="w"> </span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">serviceid</span><span class="p">,</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">service</span><span class="p">,</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">category</span><span class="p">,</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="n">sp</span><span class="p">.</span><span class="n">sku</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">parts_count</span><span class="p">,</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">sp</span><span class="p">.</span><span class="n">quantity</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total_parts_needed</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="k">FROM</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">s</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">service_parts</span><span class="w"> </span><span class="n">sp</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">serviceid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sp</span><span class="p">.</span><span class="n">serviceid</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">serviceid</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">service</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">category</span>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">parts_count</span><span class="w"> </span><span class="k">DESC</span>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">SELECT</span><span class="w"> </span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">serviceid</span><span class="p">,</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">service</span><span class="p">,</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">category</span><span class="p">,</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="n">sp</span><span class="p">.</span><span class="n">sku</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">parts_count</span><span class="p">,</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">sp</span><span class="p">.</span><span class="n">quantity</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total_parts_needed</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="k">FROM</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">s</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">service_parts</span><span class="w"> </span><span class="n">sp</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">serviceid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sp</span><span class="p">.</span><span class="n">serviceid</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">serviceid</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">service</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">category</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">parts_count</span><span class="w"> </span><span class="k">DESC</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 </span></code></pre></div>
 <h3 id="create-complete-order">Create Complete Order</h3>
-<div class="language-sql highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">-- Insert order header</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">sales_order</span><span class="w"> </span><span class="p">(</span><span class="n">customer_id</span><span class="p">,</span><span class="w"> </span><span class="n">order_date</span><span class="p">,</span><span class="w"> </span><span class="n">invoice_number</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">                         </span><span class="n">payment_method</span><span class="p">,</span><span class="w"> </span><span class="n">total_amount</span><span class="p">,</span><span class="w"> </span><span class="n">order_type</span><span class="p">)</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;INV-2025-001&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Credit Card&#39;</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">        </span><span class="mi">145</span><span class="p">.</span><span class="mi">80</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Service&#39;</span><span class="p">)</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="n">RETURNING</span><span class="w"> </span><span class="n">order_id</span><span class="p">;</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="c1">-- Insert service line item</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">sales_order_services</span><span class="w"> </span><span class="p">(</span><span class="n">order_id</span><span class="p">,</span><span class="w"> </span><span class="n">serviceid</span><span class="p">,</span><span class="w"> </span><span class="n">labor_minutes</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">                                   </span><span class="n">labor_cost</span><span class="p">,</span><span class="w"> </span><span class="n">parts_cost</span><span class="p">,</span><span class="w"> </span><span class="n">line_total</span><span class="p">)</span>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;48392017&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">45</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="mi">135</span><span class="p">.</span><span class="mi">00</span><span class="p">);</span>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">-- Insert order header</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">sales_order</span><span class="w"> </span><span class="p">(</span><span class="n">customer_id</span><span class="p">,</span><span class="w"> </span><span class="n">order_date</span><span class="p">,</span><span class="w"> </span><span class="n">invoice_number</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">                         </span><span class="n">payment_method</span><span class="p">,</span><span class="w"> </span><span class="n">total_amount</span><span class="p">,</span><span class="w"> </span><span class="n">order_type</span><span class="p">)</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;INV-2025-001&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Credit Card&#39;</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">        </span><span class="mi">145</span><span class="p">.</span><span class="mi">80</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Service&#39;</span><span class="p">)</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">RETURNING</span><span class="w"> </span><span class="n">order_id</span><span class="p">;</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="c1">-- Insert service line item</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">sales_order_services</span><span class="w"> </span><span class="p">(</span><span class="n">order_id</span><span class="p">,</span><span class="w"> </span><span class="n">serviceid</span><span class="p">,</span><span class="w"> </span><span class="n">labor_minutes</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">                                   </span><span class="n">labor_cost</span><span class="p">,</span><span class="w"> </span><span class="n">parts_cost</span><span class="p">,</span><span class="w"> </span><span class="n">line_total</span><span class="p">)</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;48392017&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">45</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="mi">135</span><span class="p">.</span><span class="mi">00</span><span class="p">);</span>
 </span></code></pre></div>
 <h2 id="project-files">📦 Project Files</h2>
 <h3 id="comprehensive-documentation-3103-lines">Comprehensive Documentation (3,103+ lines)</h3>
@@ -2300,8 +2357,11 @@ Enables many-to-many relationships between services and parts with quantity meta
 </ul>
 <h3 id="python-scripts">Python Scripts</h3>
 <ul>
-<li><code>upload_customers.py</code> - Random customer data loader</li>
-<li><code>generate_sales_orders.py</code> - Sample transaction generator</li>
+<li><code>upload_customers.py</code> - Random customer data loader with progress reporting</li>
+<li><code>generate_sales_orders_csv.py</code> - Advanced test data generator with 19 data quality parameters</li>
+<li>791,532 orders with configurable missing values, invalid formats, and edge cases</li>
+<li>Validation manifest generation for ETL testing</li>
+<li>Tests AWS DataSync → Glue Crawler → Data Catalog pipeline robustness</li>
 </ul>
 <h2 id="setup-usage">🚀 Setup &amp; Usage</h2>
 <h3 id="prerequisites">Prerequisites</h3>
@@ -2311,25 +2371,25 @@ Enables many-to-many relationships between services and parts with quantity meta
 <li>Database <code>autocorp</code> created</li>
 </ul>
 <h3 id="quick-start">Quick Start</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># 1. Create virtual environment</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>.venv/bin/pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1"># 2. Create database tables</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>psql<span class="w"> </span>-U<span class="w"> </span>scotton<span class="w"> </span>-d<span class="w"> </span>autocorp<span class="w"> </span>-f<span class="w"> </span>create_auto_parts_table.sql
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>psql<span class="w"> </span>-U<span class="w"> </span>scotton<span class="w"> </span>-d<span class="w"> </span>autocorp<span class="w"> </span>-f<span class="w"> </span>create_service_table.sql
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>psql<span class="w"> </span>-U<span class="w"> </span>scotton<span class="w"> </span>-d<span class="w"> </span>autocorp<span class="w"> </span>-f<span class="w"> </span>create_sales_system.sql
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="c1"># 3. Load data</span>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>.venv/bin/python<span class="w"> </span>upload_customers.py
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># 1. Create virtual environment</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>.venv/bin/pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1"># 2. Create database tables</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>psql<span class="w"> </span>-U<span class="w"> </span>scotton<span class="w"> </span>-d<span class="w"> </span>autocorp<span class="w"> </span>-f<span class="w"> </span>create_auto_parts_table.sql
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>psql<span class="w"> </span>-U<span class="w"> </span>scotton<span class="w"> </span>-d<span class="w"> </span>autocorp<span class="w"> </span>-f<span class="w"> </span>create_service_table.sql
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>psql<span class="w"> </span>-U<span class="w"> </span>scotton<span class="w"> </span>-d<span class="w"> </span>autocorp<span class="w"> </span>-f<span class="w"> </span>create_sales_system.sql
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="c1"># 3. Load data</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>.venv/bin/python<span class="w"> </span>upload_customers.py
 </span></code></pre></div>
 <h3 id="database-status-check">Database Status Check</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>psql<span class="w"> </span>-U<span class="w"> </span>scotton<span class="w"> </span>-d<span class="w"> </span>autocorp<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="s2">  SELECT &#39;auto_parts&#39; as table_name, COUNT(*) FROM auto_parts </span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="s2">  UNION ALL SELECT &#39;customers&#39;, COUNT(*) FROM customers </span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="s2">  UNION ALL SELECT &#39;service&#39;, COUNT(*) FROM service </span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="s2">  UNION ALL SELECT &#39;service_parts&#39;, COUNT(*) FROM service_parts</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="s2">  ORDER BY table_name;&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>psql<span class="w"> </span>-U<span class="w"> </span>scotton<span class="w"> </span>-d<span class="w"> </span>autocorp<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="s2">  SELECT &#39;auto_parts&#39; as table_name, COUNT(*) FROM auto_parts </span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="s2">  UNION ALL SELECT &#39;customers&#39;, COUNT(*) FROM customers </span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="s2">  UNION ALL SELECT &#39;service&#39;, COUNT(*) FROM service </span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="s2">  UNION ALL SELECT &#39;service_parts&#39;, COUNT(*) FROM service_parts</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="s2">  ORDER BY table_name;&quot;</span>
 </span></code></pre></div>
 <h2 id="skills-demonstrated">💼 Skills Demonstrated</h2>
 <p><strong>Cloud Data Engineering</strong>
@@ -2356,6 +2416,12 @@ Enables many-to-many relationships between services and parts with quantity meta
 - Incremental processing with Hudi upserts
 - Large-scale CSV file handling (multi-GB)
 - Partitioning strategies for query optimization</p>
+<p><strong>Data Quality &amp; Testing</strong>
+- Comprehensive ETL testing framework with 19 configurable parameters
+- Validation manifest generation for expected vs. actual issue tracking
+- Missing value injection, invalid format testing, edge case simulation
+- Pipeline robustness testing for AWS Glue workflows
+- Test data generation for realistic data quality scenarios</p>
 <p><strong>Database Design</strong>
 - Relational schema design and normalization
 - Junction tables for many-to-many relationships
@@ -2373,11 +2439,12 @@ Enables many-to-many relationships between services and parts with quantity meta
 - Error handling and rollbacks
 - Progress reporting and logging</p>
 <p><strong>Documentation &amp; Project Management</strong>
-- Comprehensive technical documentation (3,103+ lines)
+- Comprehensive technical documentation (3,759+ lines across 12 files)
 - Architecture decision records (ADRs)
 - Project timeline with Gantt charts
 - Risk assessment and mitigation strategies
-- Implementation roadmap with 4-week plan</p>
+- Implementation roadmap with 4-week plan
+- Data quality testing documentation (462 lines)</p>
 <h2 id="data-statistics">📊 Data Statistics</h2>
 <p><strong>Operational Database:</strong>
 - <strong>Total records</strong>: 5,668 across all tables
@@ -2389,32 +2456,57 @@ Enables many-to-many relationships between services and parts with quantity meta
 - <strong>Most complex service</strong>: 27 parts required
 - <strong>Geographic distribution</strong>: 59 states represented</p>
 <p><strong>Documentation:</strong>
-- <strong>Total documentation</strong>: 3,103+ lines across 9 files
-- <strong>Technical depth</strong>: 850-line developer approach document
+- <strong>Total documentation</strong>: 3,759+ lines across 12 files
+- <strong>Technical depth</strong>: 890+ line developer approach document
 - <strong>IaC coverage</strong>: 95% automation with Terraform
-- <strong>Project planning</strong>: 4-week Gantt chart with 307 lines</p>
+- <strong>Project planning</strong>: 4-week Gantt chart with 307 lines
+- <strong>Data quality testing</strong>: 462 lines across 2 comprehensive guides</p>
+<p><strong>Test Data Volume:</strong>
+- <strong>Sales orders</strong>: 791,532 generated with configurable data quality issues
+- <strong>Data quality parameters</strong>: 19 configurable hyperparameters
+- <strong>Expected issues</strong>: ~11,000-12,000 intentional DQ problems for testing
+- <strong>Test categories</strong>: Missing values, invalid formats, edge cases
+- <strong>Validation manifest</strong>: JSON tracking for expected vs. actual DQ metrics</p>
 <h2 id="project-status">🎯 Project Status</h2>
-<p><strong>Current Phase</strong>: Infrastructure Foundation (Phase 1 - 80% Complete)</p>
-<p><strong>Completed (Nov 22, 2025)</strong>:
+<p><strong>Current Phase</strong>: Glue &amp; Data Catalog (Phase 2 - 60% Complete) 🔄</p>
+<p><strong>Phase 1 - Infrastructure Foundation (Nov 22, 2025)</strong> ✅:
 - ✅ PostgreSQL source database with 7 tables (5,668 records operational)
-- ✅ Complete database schema design with normalized structure
-- ✅ Python ETL scripts for data loading (upload_customers.py, generate_sales_orders.py)
-- ✅ Comprehensive data lakehouse architecture design (850-line document)
-- ✅ AWS service selection and component design
-- ✅ PySpark ETL job templates for Apache Hudi transformations
-- ✅ <strong>Terraform IaC structure created</strong> (6 modules, 25 files)
-- ✅ <strong>IaC feasibility assessment</strong> (95% automation confirmed, 588 lines)
-- ✅ <strong>Project timeline with Gantt chart</strong> (4-week plan, 307 lines)
-- ✅ <strong>Comprehensive documentation</strong> (3,103+ lines across 9 files)</p>
-<p><strong>In Progress</strong>:
-- 🔄 Terraform module implementation (S3, IAM, Secrets ready)
-- ⏸️ AWS account access for infrastructure deployment</p>
-<p><strong>Next Steps (4-Week Timeline)</strong>:
-1. <strong>Week 1</strong>: Deploy Phase 1 infrastructure via Terraform (S3, IAM, Secrets)
-2. <strong>Week 2</strong>: Implement Glue ETL jobs with Apache Hudi
-3. <strong>Week 3</strong>: Configure DMS replication (CDC) and DataSync (CSV files)
-4. <strong>Week 4</strong>: Deploy Athena, optimize queries, complete documentation</p>
-<p><strong>Target Completion</strong>: December 13, 2025</p>
+- ✅ Complete Terraform IaC deployment (35 AWS resources)
+  - S3 data lake with lifecycle policies
+  - IAM roles (Glue, DMS, DataSync)
+  - Secrets Manager for credentials
+  - Glue Data Catalog database
+  - 2 Glue Crawlers (raw-database, raw-csv)
+- ✅ Remote state management (S3 + DynamoDB)
+- ✅ Complete infrastructure documentation (495 lines)</p>
+<p><strong>Phase 2 - Glue ETL with Hudi (Nov 26, 2025)</strong> 🔄:
+- ✅ <strong>7 Production PySpark ETL scripts</strong> (535 lines total)
+  - sales_order, customers, auto_parts, service
+  - service_parts, sales_order_parts, sales_order_services
+- ✅ <strong>7 AWS Glue jobs deployed</strong> via Terraform
+  - Glue 4.0 with Apache Hudi connector
+  - G.1X workers (2 per job)
+  - Job bookmarking and CloudWatch logging enabled
+- ✅ <strong>First Hudi table created successfully</strong> (auto_parts)
+  - 400 records → 3.5 MB (57 Parquet files)
+  - Merge-on-Read table format
+  - Vendor-based partitioning
+- ✅ <strong>Test data exported</strong> (2,733 records in Parquet format)
+- ✅ <strong>Developer's Journal</strong> (911 lines documenting Phase 2 work)
+- ⏸️ Remaining ETL job testing
+- ⏸️ Glue workflow automation
+- ⏸️ Data quality rules implementation</p>
+<p><strong>Phase 3 - DMS &amp; DataSync (Week 3)</strong> ⏸️:
+- Configure DMS replication (CDC) from PostgreSQL
+- Deploy DataSync for CSV file transfers
+- Test end-to-end data flow</p>
+<p><strong>Phase 4 - Analytics Layer (Week 4)</strong> ⏸️:
+- Deploy Athena workgroups
+- Optimize queries and test time-travel
+- Complete documentation</p>
+<p><strong>Progress</strong>: 35% overall (7 of 20 days complete)<br />
+<strong>Target Completion</strong>: December 13, 2025<br />
+<strong>Status</strong>: On Track ✅</p>
 <h2 id="repository">🔗 Repository</h2>
 <p><a href="https://github.com/Bytes0211/autocorp">View AutoCorp Project on GitHub</a></p>
 <hr />
