@@ -124,17 +124,20 @@ Learn more about my background, skills, and interests
 
 ## 📝 Latest Updates
 
-### AutoCorp Cloud Data Lake Pipeline (Nov 26, 2025)
+### AutoCorp Cloud Data Lake Pipeline (Dec 4, 2025)
 
-**Phase 2 - Glue ETL with Apache Hudi Complete** (60% project progress):
+**Phase 2 - Glue ETL with Apache Hudi Nearly Complete** (85% Phase 2 progress, 43% overall):
 - **7 Production PySpark ETL Jobs Deployed**: 535 lines of PySpark code with Hudi integration
-- **First Hudi Table Created**: 400 records → 3.5 MB (57 Parquet files) with vendor partitioning
+- **All ETL Scripts Uploaded**: 7 scripts deployed to S3 via Terraform automation
+- **2 Glue Crawlers Operational**: Automated schema discovery for raw zones
+- **First Hudi Table Validated**: auto_parts (400 records → 3.5 MB, 57 Parquet files)
 - **AWS Glue 4.0**: 7 serverless ETL jobs with job bookmarking and CloudWatch logging
 - **Developer's Journal**: 911-line detailed technical log documenting Phase 2 implementation
 - **35 AWS Resources Deployed**: Complete infrastructure via Terraform (S3, IAM, Glue, Secrets)
 - **Comprehensive Documentation**: 4,670+ lines across 13 files
 - **IaC Automation**: 95% coverage with Terraform (6 modules, 25 files)
-- **Project Timeline**: On track for Dec 13 completion (35% complete, 7 of 20 days)
+- **Project Timeline**: Ahead of schedule for Dec 13 completion (43% complete, 8.5 of 20 days)
+- **Remaining Tasks**: Glue workflows/triggers, end-to-end pipeline testing
 
 ### AWS Data Lake Pipeline (Nov 18, 2025)
 

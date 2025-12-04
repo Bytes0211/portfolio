@@ -564,7 +564,7 @@ psql -U scotton -d autocorp -c "
 
 ## 🎯 Project Status
 
-**Current Phase**: Glue & Data Catalog (Phase 2 - 60% Complete) 🔄
+**Current Phase**: Glue & Data Catalog (Phase 2 - 85% Complete) 🔄
 
 **Phase 1 - Infrastructure Foundation (Nov 22, 2025)** ✅:
 - ✅ PostgreSQL source database with 7 tables (5,668 records operational)
@@ -577,7 +577,7 @@ psql -U scotton -d autocorp -c "
 - ✅ Remote state management (S3 + DynamoDB)
 - ✅ Complete infrastructure documentation (495 lines)
 
-**Phase 2 - Glue ETL with Hudi (Nov 26, 2025)** 🔄:
+**Phase 2 - Glue ETL with Hudi (Dec 4, 2025)** 🔄:
 - ✅ **7 Production PySpark ETL scripts** (535 lines total)
   - sales_order, customers, auto_parts, service
   - service_parts, sales_order_parts, sales_order_services
@@ -585,15 +585,17 @@ psql -U scotton -d autocorp -c "
   - Glue 4.0 with Apache Hudi connector
   - G.1X workers (2 per job)
   - Job bookmarking and CloudWatch logging enabled
+- ✅ **All ETL scripts uploaded to S3**
+- ✅ **2 Glue Crawlers deployed and operational**
 - ✅ **First Hudi table created successfully** (auto_parts)
   - 400 records → 3.5 MB (57 Parquet files)
   - Merge-on-Read table format
   - Vendor-based partitioning
 - ✅ **Test data exported** (2,733 records in Parquet format)
 - ✅ **Developer's Journal** (911 lines documenting Phase 2 work)
-- ⏸️ Remaining ETL job testing
-- ⏸️ Glue workflow automation
-- ⏸️ Data quality rules implementation
+- 🔄 Remaining ETL job testing (in progress)
+- ⏸️ Glue workflow automation (pending)
+- 🔄 Data quality rules implementation (in progress)
 
 **Phase 3 - DMS & DataSync (Week 3)** ⏸️:
 - Configure DMS replication (CDC) from PostgreSQL
@@ -605,9 +607,9 @@ psql -U scotton -d autocorp -c "
 - Optimize queries and test time-travel
 - Complete documentation
 
-**Progress**: 35% overall (7 of 20 days complete)  
+**Progress**: 43% overall (8.5 of 20 days complete)  
 **Target Completion**: December 13, 2025  
-**Status**: On Track ✅
+**Status**: Ahead of Schedule ✅
 
 ## 🔗 Repository
 
