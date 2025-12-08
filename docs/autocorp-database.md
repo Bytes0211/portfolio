@@ -8,10 +8,10 @@ AutoCorp is a comprehensive cloud-based data platform that extends from operatio
 
 **Tech Stack**: AWS (DMS, DataSync, Glue, S3, Athena), Apache Hudi, Terraform, PostgreSQL, PySpark, Python  
 **Architecture**: 3-layer data lakehouse (Raw → Processed → Curated)  
-**Data Volume**: 5,668 operational records, 791K+ test orders with data quality testing, 1.2M customer records  
+**Data Volume**: 1.6M operational records (PostgreSQL), 792K unique orders in CSV (7.27M rows), 1.19M total unique orders
 **Data Latency**: <15 minutes end-to-end (source to queryable)  
 **Infrastructure as Code**: Terraform with 95% automation (6 modules, 25 files)  
-**Data Quality Testing**: 19 configurable parameters, validation manifest generation
+**Data Quality Testing**: Intentional CSV duplicates demonstrate Hudi upsert deduplication (invoice_number as record key)
 
 ## 🏗️ Infrastructure as Code Implementation
 
@@ -166,54 +166,47 @@ df_clean.write \
 ```
 
 ### Large-Scale Data Handling
-- **CSV Processing**: 1.2M customer records efficiently transferred via DataSync
+- **PostgreSQL Data**: 397,146 orders (1.6M total rows) for DMS CDC testing
+- **CSV Processing**: 791,532 unique orders (1.86M rows with intentional duplicates, 7.27M total)
 - **Partitioning Strategy**: Date-based partitions for optimal query performance
 - **Compression**: Parquet format with SNAPPY compression for storage efficiency
-- **Scalability**: Architecture handles multi-GB file sizes and millions of records
+- **Scalability**: Architecture handles multi-GB file sizes and 1.19M unique orders
+- **Data Quality**: CSV duplicates demonstrate Hudi deduplication capabilities
 
 ### Data Quality Testing Framework
 
-Comprehensive ETL pipeline testing infrastructure for validating AWS DataSync → Glue Crawler → Data Catalog workflows:
+Real-world data quality issue simulation demonstrating ETL deduplication capabilities:
 
-**Test Data Generation:**
-- `generate_sales_orders_csv.py` creates 791,532 orders with configurable data quality issues
-- 19 hyperparameters control injection of various data quality problems
-- Validation manifest (JSON) documents expected vs. actual issue tracking
+**Duplicate Record Handling:**
+- **CSV files contain intentional duplicates**: 791,532 unique orders appearing as 1,864,774 total rows
+- **Simulates real-world scenario**: Source systems often have duplicate records from multiple extracts
+- **Demonstrates Hudi upserts**: invoice_number used as record key for automatic deduplication
+- **Skills showcase**: Handling messy data at scale using Apache Hudi's ACID capabilities
 
-**Testing Categories:**
-
-1. **Missing/Null Values (6 parameters):**
-   - Customer IDs, order dates, tax, invoice numbers, payment methods, subtotals
-   - Tests ETL null handling and Glue Crawler schema inference with sparse data
-
-2. **Invalid Data Formats (4 parameters):**
-   - Malformed dates ("2024-13-45", "invalid-date")
-   - Whitespace in IDs, formatted numbers ("1,234.56"), currency symbols ("$123.45")
-   - Tests data cleansing and type conversion
-
-3. **Edge Cases (5 parameters):**
-   - Duplicate order IDs (primary key violations)
-   - Negative amounts, out-of-range dates, zero quantities
-   - Tests constraint enforcement and business rule validation
-
-**Key Validations:**
-- Schema inference with high null rates
-- Type detection (STRING vs. DOUBLE vs. TIMESTAMP)
-- Duplicate detection and handling
-- Invalid data rejection or cleansing
-- Pipeline robustness under degraded data quality
-
-**Testing Workflow:**
+**Implementation Strategy:**
 ```python
-# Generate test data with configurable DQ issues
-python generate_sales_orders_csv.py
+# Hudi configuration for deduplication
+hudi_options = {
+    'hoodie.table.name': 'sales_order',
+    'hoodie.datasource.write.recordkey.field': 'invoice_number',  # Primary key
+    'hoodie.datasource.write.precombine.field': 'order_date',     # For conflict resolution
+    'hoodie.datasource.write.operation': 'upsert',                # Automatic deduplication
+}
 
-# Output: 3 CSV files + validation manifest
-# - sales_orders.csv (791,532 rows with DQ issues)
-# - sales_order_parts.csv
-# - sales_order_services.csv
-# - data_validation_manifest.json (expected issue counts)
+# Hudi automatically handles duplicates during write
+df.write.format("hudi").options(**hudi_options).save(output_path)
 ```
+
+**Why This Approach:**
+- **Real-world relevance**: Production pipelines frequently encounter duplicates
+- **Defensive programming**: Shows understanding of data quality issues
+- **Hudi value demonstration**: Highlights why Hudi was chosen over plain Parquet
+- **Interview talking point**: Concrete example of handling data quality at scale
+
+**Data Volume:**
+- PostgreSQL: 397,146 orders (for DMS CDC testing)
+- CSV files: 791,532 unique orders, 1,864,774 total rows (2.35x duplication rate)
+- Combined: 1,188,678 total unique orders across both sources
 
 ## 🗄️ Source Database System (PostgreSQL)
 
@@ -221,7 +214,7 @@ The pipeline begins with a production PostgreSQL database that serves as the ope
 
 **Database**: `autocorp`  
 **Total Tables**: 7  
-**Data Volume**: 5,668 records across all tables (4 operational tables loaded)
+**Data Volume**: 1,605,804 records across all tables (PostgreSQL operational database)
 
 ## 🏗️ Database Architecture
 
@@ -433,10 +426,11 @@ VALUES (1, '48392017', 30, 45.00, 90.00, 135.00);
 
 ### Python Scripts
 - `upload_customers.py` - Random customer data loader with progress reporting
-- `generate_sales_orders_csv.py` - Advanced test data generator with 19 data quality parameters
-  - 791,532 orders with configurable missing values, invalid formats, and edge cases
-  - Validation manifest generation for ETL testing
-  - Tests AWS DataSync → Glue Crawler → Data Catalog pipeline robustness
+- `generate_sales_orders.py` - Production-scale data generator
+  - PostgreSQL: 397,146 orders for DMS CDC testing
+  - CSV: 791,532 unique orders (1.86M rows with intentional duplicates)
+  - Demonstrates hybrid data sources (streaming + batch)
+  - Data quality feature: CSV duplicates for Hudi deduplication testing
 
 ## 🚀 Setup & Usage
 
@@ -503,11 +497,11 @@ psql -U scotton -d autocorp -c "
 - Partitioning strategies for query optimization
 
 **Data Quality & Testing**
-- Comprehensive ETL testing framework with 19 configurable parameters
-- Validation manifest generation for expected vs. actual issue tracking
-- Missing value injection, invalid format testing, edge case simulation
-- Pipeline robustness testing for AWS Glue workflows
-- Test data generation for realistic data quality scenarios
+- Real-world duplicate record handling with Hudi upserts
+- CSV duplicates (2.35x rate) demonstrate ETL deduplication at scale
+- invoice_number as Hudi record key for automatic duplicate removal
+- Simulates production data quality issues
+- Showcases Apache Hudi's ACID capabilities on data lakes
 
 **Database Design**
 - Relational schema design and normalization
@@ -538,8 +532,11 @@ psql -U scotton -d autocorp -c "
 
 ## 📊 Data Statistics
 
-**Operational Database:**
-- **Total records**: 5,668 across all tables
+**Operational Database (PostgreSQL):**
+- **Total records**: 1,605,804 across all tables
+- **Sales orders**: 397,146 orders
+- **Parts line items**: 853,591 rows
+- **Service line items**: 355,067 rows
 - **Parts catalog**: 400 parts
 - **Service catalog**: 110 services across 11 categories
 - **Service-parts mappings**: 1,074 relationships
@@ -556,16 +553,19 @@ psql -U scotton -d autocorp -c "
 - **Data quality testing**: 462 lines across 2 comprehensive guides
 - **Implementation journal**: 911 lines documenting Phase 2
 
-**Test Data Volume:**
-- **Sales orders**: 791,532 generated with configurable data quality issues
-- **Data quality parameters**: 19 configurable hyperparameters
-- **Expected issues**: ~11,000-12,000 intentional DQ problems for testing
-- **Test categories**: Missing values, invalid formats, edge cases
-- **Validation manifest**: JSON tracking for expected vs. actual DQ metrics
+**CSV Test Data (For DataSync):**
+- **Unique orders**: 791,532 unique orders
+- **Total rows with duplicates**: 1,864,774 rows (sales_orders.csv)
+- **Parts line items**: 4,877,041 rows
+- **Service line items**: 529,488 rows
+- **Total CSV data**: 7,271,303 rows across 3 files
+- **Duplication rate**: 2.35x (intentional for ETL testing)
+- **Data quality feature**: Demonstrates Hudi upsert deduplication
+- **Combined dataset**: 1,188,678 total unique orders (PostgreSQL + CSV)
 
 ## 🎯 Project Status
 
-**Current Phase**: Phase 2 Complete - Ready for Phase 3 (50% Overall) ✅
+**Current Phase**: Phase 2.5 Complete - Ready for Phase 3 (55% Overall) ✅
 
 **Phase 1 - Infrastructure Foundation (Nov 22, 2025)** ✅ 100%:
 - ✅ PostgreSQL source database with 7 tables (5,668 records operational)
@@ -598,13 +598,15 @@ psql -U scotton -d autocorp -c "
 - ✅ **Test data processed** (2,733 records via Hudi)
 - ✅ **Developer's Journal** (911 lines documenting Phase 2 implementation)
 
-**Phase 2.5 - Data Preparation (Dec 7-8, 2025)** ⏸️ 0%:
-- 📝 **Generate 1M sales orders** for Phase 3 testing
-  - 300K orders in PostgreSQL (for DMS CDC testing)
-  - 700K orders in CSV files (for DataSync batch testing)
-- 📝 Demonstrates **hybrid architecture** (streaming + batch ingestion)
-- 📝 Updated `generate_sales_orders.py` with dual-target support
-- 📝 Validates data before Phase 3 deployment
+**Phase 2.5 - Data Preparation (Dec 7, 2025)** ✅ 100%:
+- ✅ **Generated 1.19M unique orders** for Phase 3 testing
+  - PostgreSQL: 397,146 orders (1.6M total rows) for DMS CDC testing
+  - CSV files: 791,532 unique orders (1.86M rows with intentional duplicates, 7.27M total)
+- ✅ Demonstrates **hybrid architecture** (streaming + batch ingestion)
+- ✅ **Data quality testing feature**: CSV duplicates showcase Hudi deduplication
+  - invoice_number as record key for automatic duplicate removal
+  - Simulates real-world data issues (2.35x duplication rate)
+- ✅ All data validated and ready for Phase 3 deployment
 
 **Phase 3 - DMS & DataSync (Dec 9-13, 2025)** ⏸️ 0%:
 - Configure PostgreSQL logical replication
@@ -622,7 +624,7 @@ psql -U scotton -d autocorp -c "
 - Test time-travel and incremental queries
 - Finalize documentation and create CloudWatch dashboards
 
-**Progress**: 50% overall (10 of 20 days complete)  
+**Progress**: 55% overall (11 of 20 days complete)  
 **Target Completion**: December 20, 2025  
 **Status**: On Track ✅
 

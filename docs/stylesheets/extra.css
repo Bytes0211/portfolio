@@ -1,0 +1,19 @@
+/* Make mobile navigation sidebar more readable with solid background */
+.md-sidebar--primary {
+    background-color: var(--md-default-bg-color) !important;
+}
+
+/* For dark mode, ensure solid background */
+[data-md-color-scheme="slate"] .md-sidebar--primary {
+    background-color: #1e1e1e !important;
+}
+
+/* For light mode, ensure solid background */
+[data-md-color-scheme="default"] .md-sidebar--primary {
+    background-color: #ffffff !important;
+}
+
+/* Add slight shadow for better separation */
+.md-sidebar--primary {
+    box-shadow: 0 0 .4rem rgba(0,0,0,.1), 0 .4rem .8rem rgba(0,0,0,.2);
+}

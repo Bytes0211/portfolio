@@ -39,6 +39,9 @@ plugins:
   - mkdocs-jupyter:
       allow_errors: true
 
+extra_css:
+  - stylesheets/extra.css
+
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
