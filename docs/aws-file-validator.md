@@ -1,5 +1,7 @@
 # AWS File Validator Lambda
 
+**Last Updated:** October 27, 2025
+
 A Java project that validates file formats (CSV/JSON) using AWS Lambda and uploads validated files to S3.
 
 ## Overview

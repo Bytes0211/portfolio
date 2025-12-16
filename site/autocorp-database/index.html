@@ -48,6 +48,8 @@
       
     
     
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1985,35 +1987,47 @@
 <p>AutoCorp is a comprehensive cloud-based data platform that extends from operational database to data lake, data warehouse, and analytics. The system implements AWS-native data lakehouse architecture enabling scalable analytics, real-time querying, and business intelligence across auto parts sales and service data.</p>
 <p><strong>Tech Stack</strong>: AWS (DMS, DataSync, Glue, S3, Athena), Apache Hudi, Terraform, PostgreSQL, PySpark, Python<br />
 <strong>Architecture</strong>: 3-layer data lakehouse (Raw → Processed → Curated)<br />
-<strong>Data Volume</strong>: 5,668 operational records, 791K+ test orders with data quality testing, 1.2M customer records<br />
+<strong>Data Volume</strong>: 1.6M operational records (PostgreSQL), 792K unique orders in CSV (7.27M rows), 1.19M total unique orders
 <strong>Data Latency</strong>: &lt;15 minutes end-to-end (source to queryable)<br />
-<strong>Infrastructure as Code</strong>: Terraform with 95% automation (6 modules, 25 files)<br />
-<strong>Data Quality Testing</strong>: 19 configurable parameters, validation manifest generation</p>
+<strong>Infrastructure as Code</strong>: Terraform with 95% automation (7 modules, 44 resources defined)
+<strong>ETL Jobs</strong>: 10 total (7 operational + 3 analytics denormalized tables)
+<strong>Data Quality Testing</strong>: Intentional CSV duplicates demonstrate Hudi upsert deduplication (invoice_number as record key)
+<strong>Project Status</strong>: Phase 3 Complete (IaC) | Phase 4 Analytics In Progress (80% overall)</p>
 <h2 id="infrastructure-as-code-implementation">🏗️ Infrastructure as Code Implementation</h2>
 <p>The entire AWS infrastructure is deployed using <strong>Terraform with 95% automation coverage</strong>, demonstrating modern Infrastructure as Code practices:</p>
 <p><strong>Terraform Structure:</strong>
-- <strong>6 Reusable Modules</strong>: S3, IAM, Secrets Manager, Glue, DMS, DataSync
-- <strong>Multi-Environment Support</strong>: dev/staging/prod configurations
+- <strong>7 Reusable Modules</strong>: S3, IAM, Secrets Manager, Glue, DMS, DataSync (skeleton)
+- <strong>Multi-Environment Support</strong>: dev/staging/prod configurations<br />
 - <strong>Remote State Management</strong>: S3 + DynamoDB state locking
-- <strong>25 Files</strong>: Complete infrastructure definition with ~800 lines of HCL
-- <strong>Cost-Optimized</strong>: S3 lifecycle policies, right-sized instances ($86-151/month for dev)</p>
-<p><strong>Module Status:</strong>
+- <strong>Infrastructure Resources</strong>: 44 total (35 deployed + 9 DMS defined)
+- <strong>Code Metrics</strong>: ~1,800+ lines of Terraform + PySpark across all modules
+- <strong>Cost-Optimized</strong>: S3 lifecycle policies, right-sized instances (~$1/month current, $125/month if DMS deployed)</p>
+<p><strong>Module Status (as of December 16, 2025):</strong>
 - ✅ S3 Module (DEPLOYED): Data lake buckets, lifecycle policies, encryption
 - ✅ IAM Module (DEPLOYED): Service roles with least privilege
 - ✅ Secrets Module (DEPLOYED): Secure PostgreSQL credential storage
-- ✅ Glue Module (DEPLOYED): Catalog, crawlers, 7 ETL jobs with Hudi
-- 📝 DMS Module (TODO): Database replication configuration
-- 📝 DataSync Module (TODO): File sync tasks</p>
+- ✅ Glue Module (DEPLOYED): Catalog, crawlers, 10 ETL jobs (7 operational + 3 analytics)
+- ✅ DMS Module (IaC COMPLETE): 361 lines, ready for deployment
+  - Replication instance (dms.t3.medium)
+  - Source endpoint (PostgreSQL with Secrets Manager integration)
+  - Target endpoint (S3 Parquet with SNAPPY compression)
+  - Table mappings (7 tables with pg_ prefix transformation)
+  - Full load + CDC tasks defined
+- 📝 DataSync Module (DOCUMENTED): Production deployment guide (11KB), S3 CLI for dev</p>
 <p><strong>Comprehensive Documentation:</strong>
-- <strong>4,670+ lines</strong> of technical documentation (13 files)
-- Developer's Journal - Phase 2 (911 lines)
+- <strong>5,200+ lines</strong> of technical documentation (16 files)
+- Developer's Journal - Updated through Phase 3 (2,515 lines)
 - Developer approach with complete architecture (890+ lines)
 - IaC Feasibility Assessment (588 lines)
 - Phase 1 Deployment Complete (495 lines)
-- Data Quality Testing guide (326 lines)
-- Project Gantt Chart with 4-week timeline (307 lines)
+- Interview Questions &amp; Answers (2,430 lines - comprehensive prep guide)
+- Data Quality Testing guide (665 lines - merged and enhanced)
+- Project Status with Gantt Chart (380+ lines)
 - Terraform deployment guide (297 lines)
-- Data Quality Quick Reference (136 lines)</p>
+- Data Quality Quick Reference (136 lines)
+- Process Flow Diagrams (596 lines - 10 Mermaid diagrams)
+- AWS Sanity Checks guide (594 lines)
+- Cost Management guide (486 lines)</p>
 <h2 id="cloud-data-platform-architecture">☁️ Cloud Data Platform Architecture</h2>
 <h3 id="modern-data-lakehouse-implementation">Modern Data Lakehouse Implementation</h3>
 <p>This project showcases a production-grade AWS data platform with the following layers:</p>
@@ -2124,60 +2138,46 @@
 </span></code></pre></div></p>
 <h3 id="large-scale-data-handling">Large-Scale Data Handling</h3>
 <ul>
-<li><strong>CSV Processing</strong>: 1.2M customer records efficiently transferred via DataSync</li>
+<li><strong>PostgreSQL Data</strong>: 397,146 orders (1.6M total rows) for DMS CDC testing</li>
+<li><strong>CSV Processing</strong>: 791,532 unique orders (1.86M rows with intentional duplicates, 7.27M total)</li>
 <li><strong>Partitioning Strategy</strong>: Date-based partitions for optimal query performance</li>
 <li><strong>Compression</strong>: Parquet format with SNAPPY compression for storage efficiency</li>
-<li><strong>Scalability</strong>: Architecture handles multi-GB file sizes and millions of records</li>
+<li><strong>Scalability</strong>: Architecture handles multi-GB file sizes and 1.19M unique orders</li>
+<li><strong>Data Quality</strong>: CSV duplicates demonstrate Hudi deduplication capabilities</li>
 </ul>
 <h3 id="data-quality-testing-framework">Data Quality Testing Framework</h3>
-<p>Comprehensive ETL pipeline testing infrastructure for validating AWS DataSync → Glue Crawler → Data Catalog workflows:</p>
-<p><strong>Test Data Generation:</strong>
-- <code>generate_sales_orders_csv.py</code> creates 791,532 orders with configurable data quality issues
-- 19 hyperparameters control injection of various data quality problems
-- Validation manifest (JSON) documents expected vs. actual issue tracking</p>
-<p><strong>Testing Categories:</strong></p>
-<ol>
-<li><strong>Missing/Null Values (6 parameters):</strong></li>
-<li>Customer IDs, order dates, tax, invoice numbers, payment methods, subtotals</li>
-<li>
-<p>Tests ETL null handling and Glue Crawler schema inference with sparse data</p>
-</li>
-<li>
-<p><strong>Invalid Data Formats (4 parameters):</strong></p>
-</li>
-<li>Malformed dates ("2024-13-45", "invalid-date")</li>
-<li>Whitespace in IDs, formatted numbers ("1,234.56"), currency symbols ("$123.45")</li>
-<li>
-<p>Tests data cleansing and type conversion</p>
-</li>
-<li>
-<p><strong>Edge Cases (5 parameters):</strong></p>
-</li>
-<li>Duplicate order IDs (primary key violations)</li>
-<li>Negative amounts, out-of-range dates, zero quantities</li>
-<li>Tests constraint enforcement and business rule validation</li>
-</ol>
-<p><strong>Key Validations:</strong>
-- Schema inference with high null rates
-- Type detection (STRING vs. DOUBLE vs. TIMESTAMP)
-- Duplicate detection and handling
-- Invalid data rejection or cleansing
-- Pipeline robustness under degraded data quality</p>
-<p><strong>Testing Workflow:</strong>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Generate test data with configurable DQ issues</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">python</span> <span class="n">generate_sales_orders_csv</span><span class="o">.</span><span class="n">py</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Output: 3 CSV files + validation manifest</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c1"># - sales_orders.csv (791,532 rows with DQ issues)</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># - sales_order_parts.csv</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1"># - sales_order_services.csv</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1"># - data_validation_manifest.json (expected issue counts)</span>
+<p>Real-world data quality issue simulation demonstrating ETL deduplication capabilities:</p>
+<p><strong>Duplicate Record Handling:</strong>
+- <strong>CSV files contain intentional duplicates</strong>: 791,532 unique orders appearing as 1,864,774 total rows
+- <strong>Simulates real-world scenario</strong>: Source systems often have duplicate records from multiple extracts
+- <strong>Demonstrates Hudi upserts</strong>: invoice_number used as record key for automatic deduplication
+- <strong>Skills showcase</strong>: Handling messy data at scale using Apache Hudi's ACID capabilities</p>
+<p><strong>Implementation Strategy:</strong>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Hudi configuration for deduplication</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">hudi_options</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="s1">&#39;hoodie.table.name&#39;</span><span class="p">:</span> <span class="s1">&#39;sales_order&#39;</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="s1">&#39;hoodie.datasource.write.recordkey.field&#39;</span><span class="p">:</span> <span class="s1">&#39;invoice_number&#39;</span><span class="p">,</span>  <span class="c1"># Primary key</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="s1">&#39;hoodie.datasource.write.precombine.field&#39;</span><span class="p">:</span> <span class="s1">&#39;order_date&#39;</span><span class="p">,</span>     <span class="c1"># For conflict resolution</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="s1">&#39;hoodie.datasource.write.operation&#39;</span><span class="p">:</span> <span class="s1">&#39;upsert&#39;</span><span class="p">,</span>                <span class="c1"># Automatic deduplication</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># Hudi automatically handles duplicates during write</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">df</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;hudi&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">options</span><span class="p">(</span><span class="o">**</span><span class="n">hudi_options</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">output_path</span><span class="p">)</span>
 </span></code></pre></div></p>
+<p><strong>Why This Approach:</strong>
+- <strong>Real-world relevance</strong>: Production pipelines frequently encounter duplicates
+- <strong>Defensive programming</strong>: Shows understanding of data quality issues
+- <strong>Hudi value demonstration</strong>: Highlights why Hudi was chosen over plain Parquet
+- <strong>Interview talking point</strong>: Concrete example of handling data quality at scale</p>
+<p><strong>Data Volume:</strong>
+- PostgreSQL: 397,146 orders (for DMS CDC testing)
+- CSV files: 791,532 unique orders, 1,864,774 total rows (2.35x duplication rate)
+- Combined: 1,188,678 total unique orders across both sources</p>
 <h2 id="source-database-system-postgresql">🗄️ Source Database System (PostgreSQL)</h2>
 <p>The pipeline begins with a production PostgreSQL database that serves as the operational data source:</p>
 <p><strong>Database</strong>: <code>autocorp</code><br />
 <strong>Total Tables</strong>: 7<br />
-<strong>Data Volume</strong>: 5,668 records across all tables (4 operational tables loaded)</p>
+<strong>Data Volume</strong>: 1,605,804 records across all tables (PostgreSQL operational database)</p>
 <h2 id="database-architecture">🏗️ Database Architecture</h2>
 <h3 id="schema-design">Schema Design</h3>
 <p>The system implements a normalized relational design with the following core components:</p>
@@ -2358,10 +2358,11 @@ Enables many-to-many relationships between services and parts with quantity meta
 <h3 id="python-scripts">Python Scripts</h3>
 <ul>
 <li><code>upload_customers.py</code> - Random customer data loader with progress reporting</li>
-<li><code>generate_sales_orders_csv.py</code> - Advanced test data generator with 19 data quality parameters</li>
-<li>791,532 orders with configurable missing values, invalid formats, and edge cases</li>
-<li>Validation manifest generation for ETL testing</li>
-<li>Tests AWS DataSync → Glue Crawler → Data Catalog pipeline robustness</li>
+<li><code>generate_sales_orders.py</code> - Production-scale data generator</li>
+<li>PostgreSQL: 397,146 orders for DMS CDC testing</li>
+<li>CSV: 791,532 unique orders (1.86M rows with intentional duplicates)</li>
+<li>Demonstrates hybrid data sources (streaming + batch)</li>
+<li>Data quality feature: CSV duplicates for Hudi deduplication testing</li>
 </ul>
 <h2 id="setup-usage">🚀 Setup &amp; Usage</h2>
 <h3 id="prerequisites">Prerequisites</h3>
@@ -2417,11 +2418,11 @@ Enables many-to-many relationships between services and parts with quantity meta
 - Large-scale CSV file handling (multi-GB)
 - Partitioning strategies for query optimization</p>
 <p><strong>Data Quality &amp; Testing</strong>
-- Comprehensive ETL testing framework with 19 configurable parameters
-- Validation manifest generation for expected vs. actual issue tracking
-- Missing value injection, invalid format testing, edge case simulation
-- Pipeline robustness testing for AWS Glue workflows
-- Test data generation for realistic data quality scenarios</p>
+- Real-world duplicate record handling with Hudi upserts
+- CSV duplicates (2.35x rate) demonstrate ETL deduplication at scale
+- invoice_number as Hudi record key for automatic duplicate removal
+- Simulates production data quality issues
+- Showcases Apache Hudi's ACID capabilities on data lakes</p>
 <p><strong>Database Design</strong>
 - Relational schema design and normalization
 - Junction tables for many-to-many relationships
@@ -2439,15 +2440,18 @@ Enables many-to-many relationships between services and parts with quantity meta
 - Error handling and rollbacks
 - Progress reporting and logging</p>
 <p><strong>Documentation &amp; Project Management</strong>
-- Comprehensive technical documentation (3,759+ lines across 12 files)
+- Comprehensive technical documentation (4,670+ lines across 13 files)
 - Architecture decision records (ADRs)
 - Project timeline with Gantt charts
 - Risk assessment and mitigation strategies
 - Implementation roadmap with 4-week plan
 - Data quality testing documentation (462 lines)</p>
 <h2 id="data-statistics">📊 Data Statistics</h2>
-<p><strong>Operational Database:</strong>
-- <strong>Total records</strong>: 5,668 across all tables
+<p><strong>Operational Database (PostgreSQL):</strong>
+- <strong>Total records</strong>: 1,605,804 across all tables
+- <strong>Sales orders</strong>: 397,146 orders
+- <strong>Parts line items</strong>: 853,591 rows
+- <strong>Service line items</strong>: 355,067 rows
 - <strong>Parts catalog</strong>: 400 parts
 - <strong>Service catalog</strong>: 110 services across 11 categories
 - <strong>Service-parts mappings</strong>: 1,074 relationships
@@ -2456,20 +2460,24 @@ Enables many-to-many relationships between services and parts with quantity meta
 - <strong>Most complex service</strong>: 27 parts required
 - <strong>Geographic distribution</strong>: 59 states represented</p>
 <p><strong>Documentation:</strong>
-- <strong>Total documentation</strong>: 3,759+ lines across 12 files
+- <strong>Total documentation</strong>: 4,670+ lines across 13 files
 - <strong>Technical depth</strong>: 890+ line developer approach document
 - <strong>IaC coverage</strong>: 95% automation with Terraform
-- <strong>Project planning</strong>: 4-week Gantt chart with 307 lines
-- <strong>Data quality testing</strong>: 462 lines across 2 comprehensive guides</p>
-<p><strong>Test Data Volume:</strong>
-- <strong>Sales orders</strong>: 791,532 generated with configurable data quality issues
-- <strong>Data quality parameters</strong>: 19 configurable hyperparameters
-- <strong>Expected issues</strong>: ~11,000-12,000 intentional DQ problems for testing
-- <strong>Test categories</strong>: Missing values, invalid formats, edge cases
-- <strong>Validation manifest</strong>: JSON tracking for expected vs. actual DQ metrics</p>
+- <strong>Project planning</strong>: 4-week Gantt chart with 380 lines
+- <strong>Data quality testing</strong>: 462 lines across 2 comprehensive guides
+- <strong>Implementation journal</strong>: 911 lines documenting Phase 2</p>
+<p><strong>CSV Test Data (For DataSync):</strong>
+- <strong>Unique orders</strong>: 791,532 unique orders
+- <strong>Total rows with duplicates</strong>: 1,864,774 rows (sales_orders.csv)
+- <strong>Parts line items</strong>: 4,877,041 rows
+- <strong>Service line items</strong>: 529,488 rows
+- <strong>Total CSV data</strong>: 7,271,303 rows across 3 files
+- <strong>Duplication rate</strong>: 2.35x (intentional for ETL testing)
+- <strong>Data quality feature</strong>: Demonstrates Hudi upsert deduplication
+- <strong>Combined dataset</strong>: 1,188,678 total unique orders (PostgreSQL + CSV)</p>
 <h2 id="project-status">🎯 Project Status</h2>
-<p><strong>Current Phase</strong>: Glue &amp; Data Catalog (Phase 2 - 85% Complete) 🔄</p>
-<p><strong>Phase 1 - Infrastructure Foundation (Nov 22, 2025)</strong> ✅:
+<p><strong>Current Phase</strong>: Phase 3 Complete (IaC) | Phase 4 Analytics In Progress (80% Overall) ✅</p>
+<p><strong>Phase 1 - Infrastructure Foundation (Nov 22, 2025)</strong> ✅ 100%:
 - ✅ PostgreSQL source database with 7 tables (5,668 records operational)
 - ✅ Complete Terraform IaC deployment (35 AWS resources)
   - S3 data lake with lifecycle policies
@@ -2479,7 +2487,7 @@ Enables many-to-many relationships between services and parts with quantity meta
   - 2 Glue Crawlers (raw-database, raw-csv)
 - ✅ Remote state management (S3 + DynamoDB)
 - ✅ Complete infrastructure documentation (495 lines)</p>
-<p><strong>Phase 2 - Glue ETL with Hudi (Dec 4, 2025)</strong> 🔄:
+<p><strong>Phase 2 - Glue ETL with Apache Hudi (Dec 7, 2025)</strong> ✅ 100%:
 - ✅ <strong>7 Production PySpark ETL scripts</strong> (535 lines total)
   - sales_order, customers, auto_parts, service
   - service_parts, sales_order_parts, sales_order_services
@@ -2487,28 +2495,58 @@ Enables many-to-many relationships between services and parts with quantity meta
   - Glue 4.0 with Apache Hudi connector
   - G.1X workers (2 per job)
   - Job bookmarking and CloudWatch logging enabled
-- ✅ <strong>All ETL scripts uploaded to S3</strong>
-- ✅ <strong>2 Glue Crawlers deployed and operational</strong>
-- ✅ <strong>First Hudi table created successfully</strong> (auto_parts)
-  - 400 records → 3.5 MB (57 Parquet files)
-  - Merge-on-Read table format
-  - Vendor-based partitioning
-- ✅ <strong>Test data exported</strong> (2,733 records in Parquet format)
-- ✅ <strong>Developer's Journal</strong> (911 lines documenting Phase 2 work)
-- 🔄 Remaining ETL job testing (in progress)
-- ⏸️ Glue workflow automation (pending)
-- 🔄 Data quality rules implementation (in progress)</p>
-<p><strong>Phase 3 - DMS &amp; DataSync (Week 3)</strong> ⏸️:
-- Configure DMS replication (CDC) from PostgreSQL
-- Deploy DataSync for CSV file transfers
-- Test end-to-end data flow</p>
-<p><strong>Phase 4 - Analytics Layer (Week 4)</strong> ⏸️:
-- Deploy Athena workgroups
-- Optimize queries and test time-travel
-- Complete documentation</p>
-<p><strong>Progress</strong>: 43% overall (8.5 of 20 days complete)<br />
-<strong>Target Completion</strong>: December 13, 2025<br />
-<strong>Status</strong>: Ahead of Schedule ✅</p>
+- ✅ <strong>All 7 Hudi tables tested and validated</strong>
+  - auto_parts (400 records)
+  - customers (1,149 records)
+  - service (110 records)
+  - service_parts (1,074 records)
+  - 3 sales tables ready for 1M orders
+- ✅ <strong>2 Glue Crawlers operational</strong> (raw-database, raw-csv)
+- ✅ <strong>35+ Data quality validation rules</strong> implemented across all ETL jobs
+- ✅ <strong>End-to-end pipeline testing complete</strong> (&lt;15 minute latency validated)
+- ✅ <strong>Test data processed</strong> (2,733 records via Hudi)
+- ✅ <strong>Developer's Journal</strong> (911 lines documenting Phase 2 implementation)</p>
+<p><strong>Phase 2.5 - Data Preparation (Dec 7, 2025)</strong> ✅ 100%:
+- ✅ <strong>Generated 1.19M unique orders</strong> for Phase 3 testing
+  - PostgreSQL: 397,146 orders (1.6M total rows) for DMS CDC testing
+  - CSV files: 791,532 unique orders (1.86M rows with intentional duplicates, 7.27M total)
+- ✅ Demonstrates <strong>hybrid architecture</strong> (streaming + batch ingestion)
+- ✅ <strong>Data quality testing feature</strong>: CSV duplicates showcase Hudi deduplication
+  - invoice_number as record key for automatic duplicate removal
+  - Simulates real-world data issues (2.35x duplication rate)
+- ✅ All data validated and ready for Phase 3 deployment</p>
+<p><strong>Phase 3 - DMS Infrastructure as Code (Dec 7-16, 2025)</strong> ✅ 100% (IaC):
+- ✅ PostgreSQL logical replication configured (wal_level=logical)
+- ✅ <strong>DMS Terraform module complete</strong> (361 lines across 3 files)
+  - Replication instance: dms.t3.medium with 50GB storage
+  - Source endpoint: PostgreSQL with Secrets Manager integration
+  - Target endpoint: S3 with Parquet format and SNAPPY compression
+  - Table mappings: 7 tables with pg_ prefix transformation
+  - Full load + CDC tasks defined
+- ✅ <strong>DataSync documented</strong> (11KB production deployment guide)
+  - Comprehensive agent setup and configuration
+  - Hybrid approach: S3 CLI for dev, DataSync for production
+- ✅ Ready for one-command deployment: <code>terraform apply -target=module.dms</code>
+- 📝 <strong>Deployment decision</strong>: IaC complete, actual deployment deferred (cost optimization: $125/month)</p>
+<p><strong>Phase 4 - Analytics &amp; Query Layer (Dec 16-20, 2025)</strong> 🟡 20%:
+- ✅ <strong>3 Analytics ETL scripts created</strong> (435 lines PySpark)
+  - analytics_sales_order_fact_etl.py (145 lines) - Sales fact table
+  - analytics_sales_order_line_items_etl.py (162 lines) - Denormalized line items
+  - analytics_service_parts_catalog_etl.py (128 lines) - Service catalog view
+- ⏸️ Configure Athena workgroups and table definitions (in progress)
+- ⏸️ Test queries on Hudi tables
+- ⏸️ Optimize query performance (&lt;30s target)
+- ⏸️ Test time-travel and incremental queries
+- ⏸️ Finalize documentation and create CloudWatch dashboards</p>
+<p><strong>Progress</strong>: 80% overall (16 of 20 days complete)<br />
+<strong>Target Completion</strong>: December 20, 2025<br />
+<strong>Status</strong>: On Track ✅</p>
+<p><strong>Key Achievements:</strong>
+- 🏆 <strong>1,800+ lines</strong> of Terraform + PySpark code written
+- 🏆 <strong>44 AWS resources</strong> defined (35 deployed + 9 DMS pending)
+- 🏆 <strong>10 ETL jobs</strong> implemented (7 operational + 3 analytics)
+- 🏆 <strong>5,200+ lines</strong> of comprehensive documentation
+- 🏆 <strong>Cost-optimized</strong>: ~$1/month current infrastructure</p>
 <h2 id="repository">🔗 Repository</h2>
 <p><a href="https://github.com/Bytes0211/autocorp">View AutoCorp Project on GitHub</a></p>
 <hr />

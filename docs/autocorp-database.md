@@ -1,5 +1,9 @@
 # AutoCorp Cloud Data Lake Pipeline
 
+**Last Updated:** December 16, 2025  
+**Project Status:** Phase 3 Complete (IaC) | Phase 4 Analytics In Progress (80% overall)  
+**Duration:** 4 weeks (Nov 18 - Dec 20, 2025)
+
 An end-to-end **AWS Data Lake Pipeline** implementing modern data lakehouse architecture with CDC replication, serverless ETL, and open table formats. This project demonstrates enterprise-scale data engineering capabilities beyond traditional database management.
 
 ## 🎯 Project Overview
@@ -10,38 +14,50 @@ AutoCorp is a comprehensive cloud-based data platform that extends from operatio
 **Architecture**: 3-layer data lakehouse (Raw → Processed → Curated)  
 **Data Volume**: 1.6M operational records (PostgreSQL), 792K unique orders in CSV (7.27M rows), 1.19M total unique orders
 **Data Latency**: <15 minutes end-to-end (source to queryable)  
-**Infrastructure as Code**: Terraform with 95% automation (6 modules, 25 files)  
+**Infrastructure as Code**: Terraform with 95% automation (7 modules, 44 resources defined)
+**ETL Jobs**: 10 total (7 operational + 3 analytics denormalized tables)
 **Data Quality Testing**: Intentional CSV duplicates demonstrate Hudi upsert deduplication (invoice_number as record key)
+**Project Status**: Phase 3 Complete (IaC) | Phase 4 Analytics In Progress (80% overall)
 
 ## 🏗️ Infrastructure as Code Implementation
 
 The entire AWS infrastructure is deployed using **Terraform with 95% automation coverage**, demonstrating modern Infrastructure as Code practices:
 
 **Terraform Structure:**
-- **6 Reusable Modules**: S3, IAM, Secrets Manager, Glue, DMS, DataSync
-- **Multi-Environment Support**: dev/staging/prod configurations
+- **7 Reusable Modules**: S3, IAM, Secrets Manager, Glue, DMS, DataSync (skeleton)
+- **Multi-Environment Support**: dev/staging/prod configurations  
 - **Remote State Management**: S3 + DynamoDB state locking
-- **25 Files**: Complete infrastructure definition with ~800 lines of HCL
-- **Cost-Optimized**: S3 lifecycle policies, right-sized instances ($86-151/month for dev)
+- **Infrastructure Resources**: 44 total (35 deployed + 9 DMS defined)
+- **Code Metrics**: ~1,800+ lines of Terraform + PySpark across all modules
+- **Cost-Optimized**: S3 lifecycle policies, right-sized instances (~$1/month current, $125/month if DMS deployed)
 
-**Module Status:**
+**Module Status (as of December 16, 2025):**
 - ✅ S3 Module (DEPLOYED): Data lake buckets, lifecycle policies, encryption
 - ✅ IAM Module (DEPLOYED): Service roles with least privilege
 - ✅ Secrets Module (DEPLOYED): Secure PostgreSQL credential storage
-- ✅ Glue Module (DEPLOYED): Catalog, crawlers, 7 ETL jobs with Hudi
-- 📝 DMS Module (TODO): Database replication configuration
-- 📝 DataSync Module (TODO): File sync tasks
+- ✅ Glue Module (DEPLOYED): Catalog, crawlers, 10 ETL jobs (7 operational + 3 analytics)
+- ✅ DMS Module (IaC COMPLETE): 361 lines, ready for deployment
+  - Replication instance (dms.t3.medium)
+  - Source endpoint (PostgreSQL with Secrets Manager integration)
+  - Target endpoint (S3 Parquet with SNAPPY compression)
+  - Table mappings (7 tables with pg_ prefix transformation)
+  - Full load + CDC tasks defined
+- 📝 DataSync Module (DOCUMENTED): Production deployment guide (11KB), S3 CLI for dev
 
 **Comprehensive Documentation:**
-- **4,670+ lines** of technical documentation (13 files)
-- Developer's Journal - Phase 2 (911 lines)
+- **5,200+ lines** of technical documentation (16 files)
+- Developer's Journal - Updated through Phase 3 (2,515 lines)
 - Developer approach with complete architecture (890+ lines)
 - IaC Feasibility Assessment (588 lines)
 - Phase 1 Deployment Complete (495 lines)
-- Data Quality Testing guide (326 lines)
-- Project Gantt Chart with 4-week timeline (307 lines)
+- Interview Questions & Answers (2,430 lines - comprehensive prep guide)
+- Data Quality Testing guide (665 lines - merged and enhanced)
+- Project Status with Gantt Chart (380+ lines)
 - Terraform deployment guide (297 lines)
 - Data Quality Quick Reference (136 lines)
+- Process Flow Diagrams (596 lines - 10 Mermaid diagrams)
+- AWS Sanity Checks guide (594 lines)
+- Cost Management guide (486 lines)
 
 ## ☁️ Cloud Data Platform Architecture
 
@@ -112,7 +128,29 @@ This project showcases a production-grade AWS data platform with the following l
                                      │   AWS Athena           │
                                      │   (Query Engine)       │
                                      └────────────────────────┘
+                                                  │
+                                                  ▼
+                                     ┌────────────────────────┐
+                                     │   BI Tools             │
+                                     │ - Tableau/PowerBI     │
+                                     │ - QuickSight          │
+                                     └────────────────────────┘
 ```
+
+**Phase 5 Extension (Planned - AI Layer):**
+
+The architecture will extend with an AI-powered interface:
+```
+[Existing Architecture] → Amazon Bedrock Nova Pro (RAG) → Lambda + API Gateway → Next.js Chatbox
+                         ↑
+                   Knowledge Base
+              (OpenSearch Serverless)
+```
+
+Enabling:
+- Natural language queries ("What parts are needed for an oil change?")
+- Real-time analytics ("Top-selling parts this month?")
+- Customer support automation with context from 1.19M orders, 400+ parts, 110 services
 
 ## 🚀 Key Technical Achievements
 
@@ -565,7 +603,7 @@ psql -U scotton -d autocorp -c "
 
 ## 🎯 Project Status
 
-**Current Phase**: Phase 2.5 Complete - Ready for Phase 3 (55% Overall) ✅
+**Current Phase**: Phase 3 Complete (IaC) | Phase 4 Analytics In Progress (80% Overall) ✅
 
 **Phase 1 - Infrastructure Foundation (Nov 22, 2025)** ✅ 100%:
 - ✅ PostgreSQL source database with 7 tables (5,668 records operational)
@@ -608,25 +646,60 @@ psql -U scotton -d autocorp -c "
   - Simulates real-world data issues (2.35x duplication rate)
 - ✅ All data validated and ready for Phase 3 deployment
 
-**Phase 3 - DMS & DataSync (Dec 9-13, 2025)** ⏸️ 0%:
-- Configure PostgreSQL logical replication
-- Deploy DMS replication instance with CDC
-- Create DMS endpoints and table mappings
-- Execute DMS full load (300K orders)
-- Deploy DataSync agent and tasks
-- Transfer CSV files (700K orders)
-- Validate unified Hudi tables (1M total orders)
+**Phase 3 - DMS Infrastructure as Code (Dec 7-16, 2025)** ✅ 100% (IaC):
+- ✅ PostgreSQL logical replication configured (wal_level=logical)
+- ✅ **DMS Terraform module complete** (361 lines across 3 files)
+  - Replication instance: dms.t3.medium with 50GB storage
+  - Source endpoint: PostgreSQL with Secrets Manager integration
+  - Target endpoint: S3 with Parquet format and SNAPPY compression
+  - Table mappings: 7 tables with pg_ prefix transformation
+  - Full load + CDC tasks defined
+- ✅ **DataSync documented** (11KB production deployment guide)
+  - Comprehensive agent setup and configuration
+  - Hybrid approach: S3 CLI for dev, DataSync for production
+- ✅ Ready for one-command deployment: `terraform apply -target=module.dms`
+- 📝 **Deployment decision**: IaC complete, actual deployment deferred (cost optimization: $125/month)
 
-**Phase 4 - Analytics & Query Layer (Dec 16-20, 2025)** ⏸️ 0%:
-- Configure Athena workgroups and table definitions
-- Test queries on Hudi tables
-- Optimize query performance (<30s target)
-- Test time-travel and incremental queries
-- Finalize documentation and create CloudWatch dashboards
+**Phase 4 - Analytics & Query Layer (Dec 16-20, 2025)** 🟡 20%:
+- ✅ **3 Analytics ETL scripts created** (435 lines PySpark)
+  - analytics_sales_order_fact_etl.py (145 lines) - Sales fact table
+  - analytics_sales_order_line_items_etl.py (162 lines) - Denormalized line items
+  - analytics_service_parts_catalog_etl.py (128 lines) - Service catalog view
+- ⏸️ Configure Athena workgroups and table definitions (in progress)
+- ⏸️ Test queries on Hudi tables
+- ⏸️ Optimize query performance (<30s target)
+- ⏸️ Test time-travel and incremental queries
+- ⏸️ Finalize documentation and create CloudWatch dashboards
 
-**Progress**: 55% overall (11 of 20 days complete)  
-**Target Completion**: December 20, 2025  
+**Phase 5 - AI Chatbox with Amazon Bedrock (Future)** 📝 Planned:
+- 📝 **AI-powered chatbox** using Amazon Bedrock Nova Pro
+- 📝 **RAG Implementation** with Bedrock Knowledge Bases
+  - Vector embeddings with Titan Embeddings G1
+  - OpenSearch Serverless for vector storage
+  - Knowledge base: 400+ parts, 110 services, 1,074 service-parts mappings
+- 📝 **Next.js Frontend** with TypeScript + Tailwind CSS
+  - Deployed on AWS Amplify
+  - Real-time chat interface with shadcn/ui components
+- 📝 **Lambda Functions** for chat processing and analytics queries
+- 📝 **API Gateway** REST endpoints for chatbox integration
+- 📝 **Use Cases:**
+  - Customer support ("What parts are needed for an oil change?")
+  - Data analytics ("What are our top-selling parts this month?")
+  - Natural language interface to data lake
+- 📝 **Documentation ready**: 760-line implementation guide (PHASE5_AI_CHATBOX.md)
+- 📝 **Cost estimate**: ~$150-180/month (Bedrock + OpenSearch Serverless)
+
+**Progress**: 80% overall (16 of 20 days complete)  
+**Target Completion**: Phase 4 - December 20, 2025 | Phase 5 - Future Enhancement  
 **Status**: On Track ✅
+
+**Key Achievements:**
+- 🏆 **1,800+ lines** of Terraform + PySpark code written
+- 🏆 **44 AWS resources** defined (35 deployed + 9 DMS pending)
+- 🏆 **10 ETL jobs** implemented (7 operational + 3 analytics)
+- 🏆 **5,200+ lines** of comprehensive documentation
+- 🏆 **Cost-optimized**: ~$1/month current infrastructure
+- 🏆 **Roadmap complete**: Phase 5 AI chatbox fully planned (760 lines)
 
 ## 🔗 Repository
 

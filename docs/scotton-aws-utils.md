@@ -1,5 +1,7 @@
 # Scotton AWS Utils ⚙️
 
+**Last Updated:** October 31, 2025
+
 A comprehensive Python package for AWS service operations, providing a unified interface for S3, Lambda, EC2, IAM, and DynamoDB operations with simplified error handling and best practices built-in.
 
 [Repository](https://github.com/Bytes0211/scotton-aws-utils)

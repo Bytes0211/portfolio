@@ -1,5 +1,7 @@
 # AWS Data Lake Pipeline with Terraform
 
+**Last Updated:** November 17, 2025
+
 ## Project Overview
 
 An event-driven **AWS Data Lake Pipeline** built with Infrastructure as Code principles, demonstrating production-ready architecture for data ingestion, transformation, and consumption. This serverless pipeline processes shopping cart abandonment data through multiple stages using AWS services orchestrated by Terraform.

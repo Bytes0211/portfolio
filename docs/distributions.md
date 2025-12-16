@@ -1,5 +1,7 @@
 # Statistical Distributions Library
 
+**Last Updated:** October 29, 2025
+
 A comprehensive Python library for statistical calculations and distribution analysis, featuring extensive implementations of normal, Poisson, binomial, and t-distributions.
 
 ## Overview

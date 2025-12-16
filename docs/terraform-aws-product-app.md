@@ -1,5 +1,7 @@
 # AWS Product Management Application - Terraform Infrastructure 🏗️
 
+**Last Updated:** October 27, 2025
+
 A complete Infrastructure as Code (IaC) project using Terraform to deploy a full-stack serverless product management application on AWS, demonstrating modern cloud architecture patterns.
 
 ## ✨ Features

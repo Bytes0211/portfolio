@@ -1,5 +1,7 @@
 # Hypothesis Testing 📊
 
+**Last Updated:** November 21, 2025
+
 A comprehensive collection of Jupyter notebooks exploring statistical hypothesis testing concepts, methods, and practical applications using Python.
 
 ## Overview

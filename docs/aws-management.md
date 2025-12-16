@@ -1,5 +1,7 @@
 # AWS Manager ☁️
 
+**Last Updated:** October 27, 2025
+
 A Python-based AWS service management library providing simplified interfaces for AWS Lambda, S3, EC2, and DynamoDB operations.
 
 [Repository](https://github.com/Bytes0211/aws-manager)

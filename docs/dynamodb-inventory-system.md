@@ -1,5 +1,7 @@
 # DynamoDB Inventory Management System 🗄️
 
+**Last Updated:** November 13, 2025
+
 A comprehensive AWS DynamoDB project demonstrating advanced features including Global Secondary Indexes (GSI), Transactions, Batch Operations, and Single Table Design patterns.
 
 [Repository](https://github.com/Bytes0211/inventory-system)
