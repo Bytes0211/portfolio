@@ -17,3 +17,28 @@
 .md-sidebar--primary {
     box-shadow: 0 0 .4rem rgba(0,0,0,.1), 0 .4rem .8rem rgba(0,0,0,.2);
 }
+
+/* Force navigation tabs to display at narrower widths */
+/* Override default breakpoint (1220px) to show tabs at tablet and larger phone sizes */
+@media screen and (min-width: 600px) {
+    .md-tabs {
+        display: block !important;
+    }
+}
+
+/* Adjust tab font size for narrower screens to prevent wrapping */
+@media screen and (min-width: 600px) and (max-width: 959px) {
+    .md-tabs__link {
+        font-size: 0.7rem;
+        padding: 0.8rem 0.6rem;
+    }
+}
+
+/* Make the site title clickable and link to home page */
+.md-header__title {
+    cursor: pointer;
+}
+
+.md-header__button.md-logo {
+    pointer-events: auto;
+}

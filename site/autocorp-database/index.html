@@ -14,7 +14,7 @@
         <link rel="prev" href="../about/">
       
       
-        <link rel="next" href="../basic-pipeline/">
+        <link rel="next" href="../streamforge/">
       
       
       <link rel="icon" href="../assets/favicon.ico">
@@ -917,6 +917,29 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../streamforge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    StreamForge Real-Time Streaming
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1982,6 +2005,9 @@
 
 
 <h1 id="autocorp-cloud-data-lake-pipeline">AutoCorp Cloud Data Lake Pipeline</h1>
+<p><strong>Last Updated:</strong> December 16, 2025<br />
+<strong>Project Status:</strong> Phase 3 Complete (IaC) | Phase 4 Analytics In Progress (80% overall)<br />
+<strong>Duration:</strong> 4 weeks (Nov 18 - Dec 20, 2025)</p>
 <p>An end-to-end <strong>AWS Data Lake Pipeline</strong> implementing modern data lakehouse architecture with CDC replication, serverless ETL, and open table formats. This project demonstrates enterprise-scale data engineering capabilities beyond traditional database management.</p>
 <h2 id="project-overview">🎯 Project Overview</h2>
 <p>AutoCorp is a comprehensive cloud-based data platform that extends from operational database to data lake, data warehouse, and analytics. The system implements AWS-native data lakehouse architecture enabling scalable analytics, real-time querying, and business intelligence across auto parts sales and service data.</p>
@@ -2086,7 +2112,25 @@
 </span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>                                     │   AWS Athena           │
 </span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>                                     │   (Query Engine)       │
 </span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>                                     └────────────────────────┘
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>                                                  │
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>                                                  ▼
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>                                     ┌────────────────────────┐
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>                                     │   BI Tools             │
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>                                     │ - Tableau/PowerBI     │
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>                                     │ - QuickSight          │
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>                                     └────────────────────────┘
 </span></code></pre></div>
+<p><strong>Phase 5 Extension (Planned - AI Layer):</strong></p>
+<p>The architecture will extend with an AI-powered interface:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[Existing Architecture] → Amazon Bedrock Nova Pro (RAG) → Lambda + API Gateway → Next.js Chatbox
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>                         ↑
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>                   Knowledge Base
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>              (OpenSearch Serverless)
+</span></code></pre></div></p>
+<p>Enabling:
+- Natural language queries ("What parts are needed for an oil change?")
+- Real-time analytics ("Top-selling parts this month?")
+- Customer support automation with context from 1.19M orders, 400+ parts, 110 services</p>
 <h2 id="key-technical-achievements">🚀 Key Technical Achievements</h2>
 <h3 id="cdc-replication-real-time-data">CDC Replication &amp; Real-Time Data</h3>
 <ul>
@@ -2103,38 +2147,38 @@
 </ul>
 <h3 id="serverless-etl-with-pyspark">Serverless ETL with PySpark</h3>
 <p><strong>Sample Glue ETL Job for Hudi:</strong>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyspark.sql</span><span class="w"> </span><span class="kn">import</span> <span class="n">SparkSession</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyspark.sql.functions</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Initialize Spark with Hudi</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span> \
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.serializer&quot;</span><span class="p">,</span> <span class="s2">&quot;org.apache.spark.serializer.KryoSerializer&quot;</span><span class="p">)</span> \
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c1"># Read from raw zone</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">&quot;s3://autocorp-datalake/raw/database/sales_order/&quot;</span><span class="p">)</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="c1"># Data quality checks</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="n">df_clean</span> <span class="o">=</span> <span class="n">df</span> \
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>    <span class="o">.</span><span class="n">dropDuplicates</span><span class="p">([</span><span class="s2">&quot;order_id&quot;</span><span class="p">])</span> \
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;total_amount&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> \
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">&quot;etl_timestamp&quot;</span><span class="p">,</span> <span class="n">current_timestamp</span><span class="p">())</span>
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="c1"># Write to Hudi with upsert</span>
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="n">hudi_options</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    <span class="s1">&#39;hoodie.table.name&#39;</span><span class="p">:</span> <span class="s1">&#39;sales_order&#39;</span><span class="p">,</span>
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>    <span class="s1">&#39;hoodie.datasource.write.recordkey.field&#39;</span><span class="p">:</span> <span class="s1">&#39;order_id&#39;</span><span class="p">,</span>
-</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>    <span class="s1">&#39;hoodie.datasource.write.partitionpath.field&#39;</span><span class="p">:</span> <span class="s1">&#39;order_date&#39;</span><span class="p">,</span>
-</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>    <span class="s1">&#39;hoodie.datasource.write.operation&#39;</span><span class="p">:</span> <span class="s1">&#39;upsert&#39;</span><span class="p">,</span>
-</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>    <span class="s1">&#39;hoodie.datasource.write.precombine.field&#39;</span><span class="p">:</span> <span class="s1">&#39;updated_at&#39;</span><span class="p">,</span>
-</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>    <span class="s1">&#39;hoodie.upsert.shuffle.parallelism&#39;</span><span class="p">:</span> <span class="mi">20</span>
-</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="p">}</span>
-</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>
-</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="n">df_clean</span><span class="o">.</span><span class="n">write</span> \
-</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>    <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;hudi&quot;</span><span class="p">)</span> \
-</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>    <span class="o">.</span><span class="n">options</span><span class="p">(</span><span class="o">**</span><span class="n">hudi_options</span><span class="p">)</span> \
-</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>    <span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="s2">&quot;append&quot;</span><span class="p">)</span> \
-</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>    <span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;s3://autocorp-datalake/curated/hudi/sales_order/&quot;</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyspark.sql</span><span class="w"> </span><span class="kn">import</span> <span class="n">SparkSession</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyspark.sql.functions</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Initialize Spark with Hudi</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span> \
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.serializer&quot;</span><span class="p">,</span> <span class="s2">&quot;org.apache.spark.serializer.KryoSerializer&quot;</span><span class="p">)</span> \
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># Read from raw zone</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">&quot;s3://autocorp-datalake/raw/database/sales_order/&quot;</span><span class="p">)</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1"># Data quality checks</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="n">df_clean</span> <span class="o">=</span> <span class="n">df</span> \
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    <span class="o">.</span><span class="n">dropDuplicates</span><span class="p">([</span><span class="s2">&quot;order_id&quot;</span><span class="p">])</span> \
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;total_amount&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> \
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    <span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">&quot;etl_timestamp&quot;</span><span class="p">,</span> <span class="n">current_timestamp</span><span class="p">())</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="c1"># Write to Hudi with upsert</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="n">hudi_options</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>    <span class="s1">&#39;hoodie.table.name&#39;</span><span class="p">:</span> <span class="s1">&#39;sales_order&#39;</span><span class="p">,</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>    <span class="s1">&#39;hoodie.datasource.write.recordkey.field&#39;</span><span class="p">:</span> <span class="s1">&#39;order_id&#39;</span><span class="p">,</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>    <span class="s1">&#39;hoodie.datasource.write.partitionpath.field&#39;</span><span class="p">:</span> <span class="s1">&#39;order_date&#39;</span><span class="p">,</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>    <span class="s1">&#39;hoodie.datasource.write.operation&#39;</span><span class="p">:</span> <span class="s1">&#39;upsert&#39;</span><span class="p">,</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>    <span class="s1">&#39;hoodie.datasource.write.precombine.field&#39;</span><span class="p">:</span> <span class="s1">&#39;updated_at&#39;</span><span class="p">,</span>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>    <span class="s1">&#39;hoodie.upsert.shuffle.parallelism&#39;</span><span class="p">:</span> <span class="mi">20</span>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="p">}</span>
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="n">df_clean</span><span class="o">.</span><span class="n">write</span> \
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>    <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;hudi&quot;</span><span class="p">)</span> \
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>    <span class="o">.</span><span class="n">options</span><span class="p">(</span><span class="o">**</span><span class="n">hudi_options</span><span class="p">)</span> \
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>    <span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="s2">&quot;append&quot;</span><span class="p">)</span> \
+</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>    <span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;s3://autocorp-datalake/curated/hudi/sales_order/&quot;</span><span class="p">)</span>
 </span></code></pre></div></p>
 <h3 id="large-scale-data-handling">Large-Scale Data Handling</h3>
 <ul>
@@ -2153,16 +2197,16 @@
 - <strong>Demonstrates Hudi upserts</strong>: invoice_number used as record key for automatic deduplication
 - <strong>Skills showcase</strong>: Handling messy data at scale using Apache Hudi's ACID capabilities</p>
 <p><strong>Implementation Strategy:</strong>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Hudi configuration for deduplication</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">hudi_options</span> <span class="o">=</span> <span class="p">{</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="s1">&#39;hoodie.table.name&#39;</span><span class="p">:</span> <span class="s1">&#39;sales_order&#39;</span><span class="p">,</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="s1">&#39;hoodie.datasource.write.recordkey.field&#39;</span><span class="p">:</span> <span class="s1">&#39;invoice_number&#39;</span><span class="p">,</span>  <span class="c1"># Primary key</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="s1">&#39;hoodie.datasource.write.precombine.field&#39;</span><span class="p">:</span> <span class="s1">&#39;order_date&#39;</span><span class="p">,</span>     <span class="c1"># For conflict resolution</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="s1">&#39;hoodie.datasource.write.operation&#39;</span><span class="p">:</span> <span class="s1">&#39;upsert&#39;</span><span class="p">,</span>                <span class="c1"># Automatic deduplication</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># Hudi automatically handles duplicates during write</span>
-</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">df</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;hudi&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">options</span><span class="p">(</span><span class="o">**</span><span class="n">hudi_options</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">output_path</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Hudi configuration for deduplication</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">hudi_options</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="s1">&#39;hoodie.table.name&#39;</span><span class="p">:</span> <span class="s1">&#39;sales_order&#39;</span><span class="p">,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="s1">&#39;hoodie.datasource.write.recordkey.field&#39;</span><span class="p">:</span> <span class="s1">&#39;invoice_number&#39;</span><span class="p">,</span>  <span class="c1"># Primary key</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="s1">&#39;hoodie.datasource.write.precombine.field&#39;</span><span class="p">:</span> <span class="s1">&#39;order_date&#39;</span><span class="p">,</span>     <span class="c1"># For conflict resolution</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="s1">&#39;hoodie.datasource.write.operation&#39;</span><span class="p">:</span> <span class="s1">&#39;upsert&#39;</span><span class="p">,</span>                <span class="c1"># Automatic deduplication</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1"># Hudi automatically handles duplicates during write</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="n">df</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;hudi&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">options</span><span class="p">(</span><span class="o">**</span><span class="n">hudi_options</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">output_path</span><span class="p">)</span>
 </span></code></pre></div></p>
 <p><strong>Why This Approach:</strong>
 - <strong>Real-world relevance</strong>: Production pipelines frequently encounter duplicates
@@ -2215,25 +2259,25 @@
 <h2 id="technical-highlights">💡 Technical Highlights</h2>
 <h3 id="database-design-patterns">Database Design Patterns</h3>
 <p><strong>Junction Table Implementation</strong>
-<div class="language-sql highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">service_parts</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="err">├──</span><span class="w"> </span><span class="n">serviceid</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">service</span><span class="p">)</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="err">├──</span><span class="w"> </span><span class="n">sku</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">auto_parts</span><span class="p">)</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="err">└──</span><span class="w"> </span><span class="n">quantity</span><span class="w"> </span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">service_parts</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="err">├──</span><span class="w"> </span><span class="n">serviceid</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">service</span><span class="p">)</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="err">├──</span><span class="w"> </span><span class="n">sku</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">auto_parts</span><span class="p">)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="err">└──</span><span class="w"> </span><span class="n">quantity</span><span class="w"> </span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 </span></code></pre></div>
 Enables many-to-many relationships between services and parts with quantity metadata.</p>
 <p><strong>Flexible Order System</strong>
-<div class="language-sql highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">sales_order</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="err">├──</span><span class="w"> </span><span class="n">order_id</span><span class="w"> </span><span class="p">(</span><span class="n">PK</span><span class="p">)</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="err">├──</span><span class="w"> </span><span class="n">customer_id</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">customers</span><span class="p">)</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="err">├──</span><span class="w"> </span><span class="n">order_type</span><span class="w"> </span><span class="p">(</span><span class="n">Parts</span><span class="o">|</span><span class="n">Service</span><span class="o">|</span><span class="n">Mixed</span><span class="p">)</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="err">├──</span><span class="w"> </span><span class="n">payment_method</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="err">└──</span><span class="w"> </span><span class="n">total_amount</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">sales_order_parts</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">..</span><span class="o">*</span><span class="p">)</span><span class="w">     </span><span class="n">sales_order_services</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">..</span><span class="o">*</span><span class="p">)</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="err">├──</span><span class="w"> </span><span class="n">order_id</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="p">)</span><span class="w">            </span><span class="err">├──</span><span class="w"> </span><span class="n">order_id</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="p">)</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="err">├──</span><span class="w"> </span><span class="n">sku</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="p">)</span><span class="w">                 </span><span class="err">├──</span><span class="w"> </span><span class="n">serviceid</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="p">)</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="err">├──</span><span class="w"> </span><span class="n">quantity</span><span class="w">                 </span><span class="err">├──</span><span class="w"> </span><span class="n">labor_minutes</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="err">└──</span><span class="w"> </span><span class="n">line_total</span><span class="w">               </span><span class="err">└──</span><span class="w"> </span><span class="n">line_total</span>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">sales_order</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="err">├──</span><span class="w"> </span><span class="n">order_id</span><span class="w"> </span><span class="p">(</span><span class="n">PK</span><span class="p">)</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="err">├──</span><span class="w"> </span><span class="n">customer_id</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">customers</span><span class="p">)</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="err">├──</span><span class="w"> </span><span class="n">order_type</span><span class="w"> </span><span class="p">(</span><span class="n">Parts</span><span class="o">|</span><span class="n">Service</span><span class="o">|</span><span class="n">Mixed</span><span class="p">)</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="err">├──</span><span class="w"> </span><span class="n">payment_method</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="err">└──</span><span class="w"> </span><span class="n">total_amount</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="n">sales_order_parts</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">..</span><span class="o">*</span><span class="p">)</span><span class="w">     </span><span class="n">sales_order_services</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">..</span><span class="o">*</span><span class="p">)</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="err">├──</span><span class="w"> </span><span class="n">order_id</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="p">)</span><span class="w">            </span><span class="err">├──</span><span class="w"> </span><span class="n">order_id</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="p">)</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="err">├──</span><span class="w"> </span><span class="n">sku</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="p">)</span><span class="w">                 </span><span class="err">├──</span><span class="w"> </span><span class="n">serviceid</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="p">)</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="err">├──</span><span class="w"> </span><span class="n">quantity</span><span class="w">                 </span><span class="err">├──</span><span class="w"> </span><span class="n">labor_minutes</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="err">└──</span><span class="w"> </span><span class="n">line_total</span><span class="w">               </span><span class="err">└──</span><span class="w"> </span><span class="n">line_total</span>
 </span></code></pre></div></p>
 <h3 id="sql-capabilities-demonstrated">SQL Capabilities Demonstrated</h3>
 <p><strong>Complex Joins</strong>
@@ -2290,44 +2334,44 @@ Enables many-to-many relationships between services and parts with quantity meta
 </ul>
 <h2 id="example-queries">📈 Example Queries</h2>
 <h3 id="get-service-with-required-parts">Get Service with Required Parts</h3>
-<div class="language-sql highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">SELECT</span><span class="w"> </span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">service</span><span class="p">,</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">category</span><span class="p">,</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">labor_cost</span><span class="p">,</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="n">sp</span><span class="p">.</span><span class="n">sku</span><span class="p">,</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="n">sp</span><span class="p">.</span><span class="n">quantity</span><span class="p">,</span>
-</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="n">ap</span><span class="p">.</span><span class="n">description</span><span class="p">,</span>
-</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="n">ap</span><span class="p">.</span><span class="n">price</span>
-</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="k">FROM</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">s</span>
-</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="k">JOIN</span><span class="w"> </span><span class="n">service_parts</span><span class="w"> </span><span class="n">sp</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">serviceid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sp</span><span class="p">.</span><span class="n">serviceid</span>
-</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="k">JOIN</span><span class="w"> </span><span class="n">auto_parts</span><span class="w"> </span><span class="n">ap</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">sp</span><span class="p">.</span><span class="n">sku</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ap</span><span class="p">.</span><span class="n">sku</span>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">serviceid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;48392017&#39;</span><span class="p">;</span>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">SELECT</span><span class="w"> </span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">service</span><span class="p">,</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">category</span><span class="p">,</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">labor_cost</span><span class="p">,</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="n">sp</span><span class="p">.</span><span class="n">sku</span><span class="p">,</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="n">sp</span><span class="p">.</span><span class="n">quantity</span><span class="p">,</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="n">ap</span><span class="p">.</span><span class="n">description</span><span class="p">,</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="n">ap</span><span class="p">.</span><span class="n">price</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="k">FROM</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">s</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="k">JOIN</span><span class="w"> </span><span class="n">service_parts</span><span class="w"> </span><span class="n">sp</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">serviceid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sp</span><span class="p">.</span><span class="n">serviceid</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="k">JOIN</span><span class="w"> </span><span class="n">auto_parts</span><span class="w"> </span><span class="n">ap</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">sp</span><span class="p">.</span><span class="n">sku</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ap</span><span class="p">.</span><span class="n">sku</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">serviceid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;48392017&#39;</span><span class="p">;</span>
 </span></code></pre></div>
 <h3 id="analyze-service-complexity">Analyze Service Complexity</h3>
-<div class="language-sql highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">SELECT</span><span class="w"> </span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">serviceid</span><span class="p">,</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">service</span><span class="p">,</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">category</span><span class="p">,</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="n">sp</span><span class="p">.</span><span class="n">sku</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">parts_count</span><span class="p">,</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">sp</span><span class="p">.</span><span class="n">quantity</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total_parts_needed</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="k">FROM</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">s</span>
-</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">service_parts</span><span class="w"> </span><span class="n">sp</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">serviceid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sp</span><span class="p">.</span><span class="n">serviceid</span>
-</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">serviceid</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">service</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">category</span>
-</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">parts_count</span><span class="w"> </span><span class="k">DESC</span>
-</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">SELECT</span><span class="w"> </span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">serviceid</span><span class="p">,</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">service</span><span class="p">,</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">category</span><span class="p">,</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="n">sp</span><span class="p">.</span><span class="n">sku</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">parts_count</span><span class="p">,</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">sp</span><span class="p">.</span><span class="n">quantity</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total_parts_needed</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="k">FROM</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">s</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">service_parts</span><span class="w"> </span><span class="n">sp</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">serviceid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sp</span><span class="p">.</span><span class="n">serviceid</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">serviceid</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">service</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">category</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">parts_count</span><span class="w"> </span><span class="k">DESC</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 </span></code></pre></div>
 <h3 id="create-complete-order">Create Complete Order</h3>
-<div class="language-sql highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">-- Insert order header</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">sales_order</span><span class="w"> </span><span class="p">(</span><span class="n">customer_id</span><span class="p">,</span><span class="w"> </span><span class="n">order_date</span><span class="p">,</span><span class="w"> </span><span class="n">invoice_number</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">                         </span><span class="n">payment_method</span><span class="p">,</span><span class="w"> </span><span class="n">total_amount</span><span class="p">,</span><span class="w"> </span><span class="n">order_type</span><span class="p">)</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;INV-2025-001&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Credit Card&#39;</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">        </span><span class="mi">145</span><span class="p">.</span><span class="mi">80</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Service&#39;</span><span class="p">)</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="n">RETURNING</span><span class="w"> </span><span class="n">order_id</span><span class="p">;</span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="c1">-- Insert service line item</span>
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">sales_order_services</span><span class="w"> </span><span class="p">(</span><span class="n">order_id</span><span class="p">,</span><span class="w"> </span><span class="n">serviceid</span><span class="p">,</span><span class="w"> </span><span class="n">labor_minutes</span><span class="p">,</span><span class="w"> </span>
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">                                   </span><span class="n">labor_cost</span><span class="p">,</span><span class="w"> </span><span class="n">parts_cost</span><span class="p">,</span><span class="w"> </span><span class="n">line_total</span><span class="p">)</span>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;48392017&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">45</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="mi">135</span><span class="p">.</span><span class="mi">00</span><span class="p">);</span>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">-- Insert order header</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">sales_order</span><span class="w"> </span><span class="p">(</span><span class="n">customer_id</span><span class="p">,</span><span class="w"> </span><span class="n">order_date</span><span class="p">,</span><span class="w"> </span><span class="n">invoice_number</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">                         </span><span class="n">payment_method</span><span class="p">,</span><span class="w"> </span><span class="n">total_amount</span><span class="p">,</span><span class="w"> </span><span class="n">order_type</span><span class="p">)</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;INV-2025-001&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Credit Card&#39;</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">        </span><span class="mi">145</span><span class="p">.</span><span class="mi">80</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Service&#39;</span><span class="p">)</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">RETURNING</span><span class="w"> </span><span class="n">order_id</span><span class="p">;</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="c1">-- Insert service line item</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">sales_order_services</span><span class="w"> </span><span class="p">(</span><span class="n">order_id</span><span class="p">,</span><span class="w"> </span><span class="n">serviceid</span><span class="p">,</span><span class="w"> </span><span class="n">labor_minutes</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">                                   </span><span class="n">labor_cost</span><span class="p">,</span><span class="w"> </span><span class="n">parts_cost</span><span class="p">,</span><span class="w"> </span><span class="n">line_total</span><span class="p">)</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;48392017&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">45</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="mi">135</span><span class="p">.</span><span class="mi">00</span><span class="p">);</span>
 </span></code></pre></div>
 <h2 id="project-files">📦 Project Files</h2>
 <h3 id="comprehensive-documentation-3103-lines">Comprehensive Documentation (3,103+ lines)</h3>
@@ -2372,25 +2416,25 @@ Enables many-to-many relationships between services and parts with quantity meta
 <li>Database <code>autocorp</code> created</li>
 </ul>
 <h3 id="quick-start">Quick Start</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># 1. Create virtual environment</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>.venv/bin/pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="c1"># 2. Create database tables</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>psql<span class="w"> </span>-U<span class="w"> </span>scotton<span class="w"> </span>-d<span class="w"> </span>autocorp<span class="w"> </span>-f<span class="w"> </span>create_auto_parts_table.sql
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>psql<span class="w"> </span>-U<span class="w"> </span>scotton<span class="w"> </span>-d<span class="w"> </span>autocorp<span class="w"> </span>-f<span class="w"> </span>create_service_table.sql
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>psql<span class="w"> </span>-U<span class="w"> </span>scotton<span class="w"> </span>-d<span class="w"> </span>autocorp<span class="w"> </span>-f<span class="w"> </span>create_sales_system.sql
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="c1"># 3. Load data</span>
-</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>.venv/bin/python<span class="w"> </span>upload_customers.py
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># 1. Create virtual environment</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>.venv/bin/pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1"># 2. Create database tables</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>psql<span class="w"> </span>-U<span class="w"> </span>scotton<span class="w"> </span>-d<span class="w"> </span>autocorp<span class="w"> </span>-f<span class="w"> </span>create_auto_parts_table.sql
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>psql<span class="w"> </span>-U<span class="w"> </span>scotton<span class="w"> </span>-d<span class="w"> </span>autocorp<span class="w"> </span>-f<span class="w"> </span>create_service_table.sql
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>psql<span class="w"> </span>-U<span class="w"> </span>scotton<span class="w"> </span>-d<span class="w"> </span>autocorp<span class="w"> </span>-f<span class="w"> </span>create_sales_system.sql
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="c1"># 3. Load data</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>.venv/bin/python<span class="w"> </span>upload_customers.py
 </span></code></pre></div>
 <h3 id="database-status-check">Database Status Check</h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>psql<span class="w"> </span>-U<span class="w"> </span>scotton<span class="w"> </span>-d<span class="w"> </span>autocorp<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="s2">  SELECT &#39;auto_parts&#39; as table_name, COUNT(*) FROM auto_parts </span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="s2">  UNION ALL SELECT &#39;customers&#39;, COUNT(*) FROM customers </span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="s2">  UNION ALL SELECT &#39;service&#39;, COUNT(*) FROM service </span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="s2">  UNION ALL SELECT &#39;service_parts&#39;, COUNT(*) FROM service_parts</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="s2">  ORDER BY table_name;&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>psql<span class="w"> </span>-U<span class="w"> </span>scotton<span class="w"> </span>-d<span class="w"> </span>autocorp<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="s2">  SELECT &#39;auto_parts&#39; as table_name, COUNT(*) FROM auto_parts </span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="s2">  UNION ALL SELECT &#39;customers&#39;, COUNT(*) FROM customers </span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="s2">  UNION ALL SELECT &#39;service&#39;, COUNT(*) FROM service </span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="s2">  UNION ALL SELECT &#39;service_parts&#39;, COUNT(*) FROM service_parts</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="s2">  ORDER BY table_name;&quot;</span>
 </span></code></pre></div>
 <h2 id="skills-demonstrated">💼 Skills Demonstrated</h2>
 <p><strong>Cloud Data Engineering</strong>
@@ -2538,15 +2582,33 @@ Enables many-to-many relationships between services and parts with quantity meta
 - ⏸️ Optimize query performance (&lt;30s target)
 - ⏸️ Test time-travel and incremental queries
 - ⏸️ Finalize documentation and create CloudWatch dashboards</p>
+<p><strong>Phase 5 - AI Chatbox with Amazon Bedrock (Future)</strong> 📝 Planned:
+- 📝 <strong>AI-powered chatbox</strong> using Amazon Bedrock Nova Pro
+- 📝 <strong>RAG Implementation</strong> with Bedrock Knowledge Bases
+  - Vector embeddings with Titan Embeddings G1
+  - OpenSearch Serverless for vector storage
+  - Knowledge base: 400+ parts, 110 services, 1,074 service-parts mappings
+- 📝 <strong>Next.js Frontend</strong> with TypeScript + Tailwind CSS
+  - Deployed on AWS Amplify
+  - Real-time chat interface with shadcn/ui components
+- 📝 <strong>Lambda Functions</strong> for chat processing and analytics queries
+- 📝 <strong>API Gateway</strong> REST endpoints for chatbox integration
+- 📝 <strong>Use Cases:</strong>
+  - Customer support ("What parts are needed for an oil change?")
+  - Data analytics ("What are our top-selling parts this month?")
+  - Natural language interface to data lake
+- 📝 <strong>Documentation ready</strong>: 760-line implementation guide (PHASE5_AI_CHATBOX.md)
+- 📝 <strong>Cost estimate</strong>: ~$150-180/month (Bedrock + OpenSearch Serverless)</p>
 <p><strong>Progress</strong>: 80% overall (16 of 20 days complete)<br />
-<strong>Target Completion</strong>: December 20, 2025<br />
+<strong>Target Completion</strong>: Phase 4 - December 20, 2025 | Phase 5 - Future Enhancement<br />
 <strong>Status</strong>: On Track ✅</p>
 <p><strong>Key Achievements:</strong>
 - 🏆 <strong>1,800+ lines</strong> of Terraform + PySpark code written
 - 🏆 <strong>44 AWS resources</strong> defined (35 deployed + 9 DMS pending)
 - 🏆 <strong>10 ETL jobs</strong> implemented (7 operational + 3 analytics)
 - 🏆 <strong>5,200+ lines</strong> of comprehensive documentation
-- 🏆 <strong>Cost-optimized</strong>: ~$1/month current infrastructure</p>
+- 🏆 <strong>Cost-optimized</strong>: ~$1/month current infrastructure
+- 🏆 <strong>Roadmap complete</strong>: Phase 5 AI chatbox fully planned (760 lines)</p>
 <h2 id="repository">🔗 Repository</h2>
 <p><a href="https://github.com/Bytes0211/autocorp">View AutoCorp Project on GitHub</a></p>
 <hr />
@@ -2607,13 +2669,13 @@ Enables many-to-many relationships between services and parts with quantity meta
         
         
           
-          <a href="../basic-pipeline/" class="md-footer__link md-footer__link--next" aria-label="Next: AWS Data Lake Pipeline">
+          <a href="../streamforge/" class="md-footer__link md-footer__link--next" aria-label="Next: StreamForge Real-Time Streaming">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                AWS Data Lake Pipeline
+                StreamForge Real-Time Streaming
               </div>
             </div>
             <div class="md-footer__button md-icon">

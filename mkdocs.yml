@@ -72,6 +72,7 @@ nav:
   - About: about.md
   - Data Engineering:
     - AutoCorp Cloud Data Lake Pipeline: autocorp-database.md
+    - StreamForge Real-Time Streaming: streamforge.md
     - AWS Data Lake Pipeline: basic-pipeline.md
   - Data Science:
     - Statistical Distributions:

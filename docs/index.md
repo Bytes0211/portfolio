@@ -19,6 +19,16 @@ An end-to-end **AWS Data Lake Pipeline** implementing modern data lakehouse arch
 - **Skills**: Cloud Data Engineering, Infrastructure as Code, AWS Data Services, PySpark ETL, Open Table Formats, Technical Documentation
 - [View Project](autocorp-database.md)
 
+### StreamForge Real-Time Streaming Platform ⚡
+
+A real-time data streaming and processing platform demonstrating modern stream processing architecture with Apache Kafka, Apache Flink, and dual deployment models (local + AWS production).
+
+- **Tech Stack**: Apache Kafka, Apache Flink (Java 11), MongoDB, Docker Compose, Maven, AWS (DynamoDB, Amplify), Terraform
+- **Features**: Event-driven streaming, custom Flink sinks, containerized infrastructure, dual deployment strategy (local/AWS)
+- **Highlights**: Complete Docker orchestration (5 services), custom MongoDB sink with lifecycle management, Maven build with Shade plugin, comprehensive unit tests
+- **Skills**: Stream Processing, Event-Driven Architecture, Apache Kafka, Apache Flink, Java, Docker, Container Orchestration, Real-Time Data Processing
+- [View Project](streamforge.md)
+
 ### AWS Data Lake Pipeline 🔄
 
 An event-driven **AWS Data Lake Pipeline** built with Infrastructure as Code principles, demonstrating production-ready architecture for data ingestion, transformation, and consumption.
@@ -77,11 +87,13 @@ A Complete Infrastructure as Code using Terraform to deploy a full-stack product
 
 End-to-end data pipeline implementations with modern cloud-native technologies
 
+- **Real-Time Stream Processing**: Apache Kafka and Apache Flink for event-driven data pipelines
 - **Data Lakehouse Architecture**: Multi-layer data platforms with raw, processed, and curated zones
 - **CDC Replication**: Real-time data capture with AWS DMS and streaming ingestion
 - **Serverless ETL**: PySpark and Lambda-based data transformation at scale
 - **Open Table Formats**: Apache Hudi for ACID transactions on data lakes
-- **Event-Driven Architecture**: S3 triggers, EventBridge orchestration
+- **Event-Driven Architecture**: S3 triggers, EventBridge orchestration, Kafka messaging
+- **Container Orchestration**: Docker Compose multi-service environments
 - **PostgreSQL Database Design**: Source system design with normalized schemas
 - **SQL Query Optimization**: Complex joins, aggregations, and analytics queries
 
@@ -116,13 +128,26 @@ Learn more about my background, skills, and interests
 ## 🛠️ Tech Stack
 
 **Languages**: Python, Java, SQL, Bash, HCL (Terraform), PySpark  
-**Cloud & Infrastructure**: AWS (DMS, DataSync, Glue, Athena, Lambda, S3, EventBridge, EC2, DynamoDB), Terraform (IaC with 95% automation)  
-**Databases**: PostgreSQL, DynamoDB  
-**Data Engineering**: Apache Hudi, PySpark, Pandas, Event-Driven Architecture, ETL Pipelines, CDC Replication  
-**Infrastructure as Code**: Terraform modules, multi-environment deployment, remote state management  
+**Cloud & Infrastructure**: AWS (DMS, DataSync, Glue, Athena, Lambda, S3, EventBridge, EC2, DynamoDB, Amplify), Terraform (IaC with 95% automation)  
+**Databases**: PostgreSQL, DynamoDB, MongoDB  
+**Data Engineering**: Apache Kafka, Apache Flink, Apache Hudi, PySpark, Pandas, Event-Driven Architecture, Stream Processing, ETL Pipelines, CDC Replication  
+**Infrastructure as Code**: Terraform modules, Docker Compose, multi-environment deployment, remote state management  
+**Build Tools**: Maven, pytest, pip  
 **Tools**: Git, Docker, pytest, AWS CLI, psycopg2, mkdocs
 
 ## 📝 Latest Updates
+
+### StreamForge Real-Time Streaming Platform (Dec 18, 2025)
+
+**Phase 1 Complete** (40% overall progress):
+- ✅ **Complete Docker Infrastructure**: Kafka, Flink (JobManager + TaskManager), MongoDB, Zookeeper orchestration
+- ✅ **Apache Flink Stream Processing**: StreamProcessor.java with Kafka source and custom MongoDB sink
+- ✅ **Custom MongoDB Sink**: RichSinkFunction with connection lifecycle management
+- ✅ **Maven Build System**: Fat JAR packaging with Shade plugin, provided scopes for Flink dependencies
+- ✅ **Unit Testing**: Comprehensive tests for StreamProcessor, MongoDBSink, and schema validation
+- 🎯 **Phase 2 In Progress**: Windowed aggregations, stateful operations, MongoDB schema design
+- **Tech Stack**: Apache Kafka 3.5.1, Apache Flink 1.18.0, MongoDB 7.0, Java 11, Docker Compose
+- **Next Phase**: Advanced stream processing (windowing, keyed state), AWS deployment with Terraform
 
 ### AutoCorp Cloud Data Lake Pipeline (Dec 7, 2025)
 
