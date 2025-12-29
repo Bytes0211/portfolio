@@ -2005,50 +2005,57 @@
 
 
 <h1 id="autocorp-cloud-data-lake-pipeline">AutoCorp Cloud Data Lake Pipeline</h1>
-<p><strong>Last Updated:</strong> December 16, 2025<br />
-<strong>Project Status:</strong> Phase 3 Complete (IaC) | Phase 4 Analytics In Progress (80% overall)<br />
-<strong>Duration:</strong> 4 weeks (Nov 18 - Dec 20, 2025)</p>
+<p><strong>Last Updated:</strong> December 29, 2025<br />
+<strong>Project Status:</strong> Phase 4 Complete ✅ | Phase 5 AI Chatbox In Progress (20%)<br />
+<strong>Duration:</strong> 6 weeks (Nov 18 - Jan 10, 2026)</p>
 <p>An end-to-end <strong>AWS Data Lake Pipeline</strong> implementing modern data lakehouse architecture with CDC replication, serverless ETL, and open table formats. This project demonstrates enterprise-scale data engineering capabilities beyond traditional database management.</p>
 <h2 id="project-overview">🎯 Project Overview</h2>
 <p>AutoCorp is a comprehensive cloud-based data platform that extends from operational database to data lake, data warehouse, and analytics. The system implements AWS-native data lakehouse architecture enabling scalable analytics, real-time querying, and business intelligence across auto parts sales and service data.</p>
-<p><strong>Tech Stack</strong>: AWS (DMS, DataSync, Glue, S3, Athena), Apache Hudi, Terraform, PostgreSQL, PySpark, Python<br />
-<strong>Architecture</strong>: 3-layer data lakehouse (Raw → Processed → Curated)<br />
+<p><strong>Tech Stack</strong>: AWS (DMS, DataSync, Glue, S3, Athena, Bedrock Nova Pro), Apache Hudi, Terraform, PostgreSQL, PySpark, Python, Next.js<br />
+<strong>Architecture</strong>: 3-layer data lakehouse (Raw → Processed → Curated) + AI Layer (RAG with Bedrock)<br />
 <strong>Data Volume</strong>: 1.6M operational records (PostgreSQL), 792K unique orders in CSV (7.27M rows), 1.19M total unique orders
 <strong>Data Latency</strong>: &lt;15 minutes end-to-end (source to queryable)<br />
-<strong>Infrastructure as Code</strong>: Terraform with 95% automation (7 modules, 44 resources defined)
+<strong>Infrastructure as Code</strong>: Terraform with 95% automation (8 modules, 50+ resources defined)
 <strong>ETL Jobs</strong>: 10 total (7 operational + 3 analytics denormalized tables)
 <strong>Data Quality Testing</strong>: Intentional CSV duplicates demonstrate Hudi upsert deduplication (invoice_number as record key)
-<strong>Project Status</strong>: Phase 3 Complete (IaC) | Phase 4 Analytics In Progress (80% overall)</p>
+<strong>Project Status</strong>: Phase 4 Complete ✅ | Phase 5 AI Chatbox In Progress (20% - Bedrock Infrastructure Ready)</p>
 <h2 id="infrastructure-as-code-implementation">🏗️ Infrastructure as Code Implementation</h2>
 <p>The entire AWS infrastructure is deployed using <strong>Terraform with 95% automation coverage</strong>, demonstrating modern Infrastructure as Code practices:</p>
 <p><strong>Terraform Structure:</strong>
-- <strong>7 Reusable Modules</strong>: S3, IAM, Secrets Manager, Glue, DMS, DataSync (skeleton)
+- <strong>8 Reusable Modules</strong>: S3, IAM, Secrets Manager, Glue, Athena, Monitoring, DMS, Bedrock
 - <strong>Multi-Environment Support</strong>: dev/staging/prod configurations<br />
 - <strong>Remote State Management</strong>: S3 + DynamoDB state locking
-- <strong>Infrastructure Resources</strong>: 44 total (35 deployed + 9 DMS defined)
-- <strong>Code Metrics</strong>: ~1,800+ lines of Terraform + PySpark across all modules
-- <strong>Cost-Optimized</strong>: S3 lifecycle policies, right-sized instances (~$1/month current, $125/month if DMS deployed)</p>
-<p><strong>Module Status (as of December 16, 2025):</strong>
+- <strong>Infrastructure Resources</strong>: 50+ total (deployed across Phases 1-4)
+- <strong>Code Metrics</strong>: ~2,500+ lines of Terraform + PySpark across all modules
+- <strong>Cost-Optimized</strong>: S3 lifecycle policies, right-sized instances (~$50-80/month with analytics layer)</p>
+<p><strong>Module Status (as of December 29, 2025):</strong>
 - ✅ S3 Module (DEPLOYED): Data lake buckets, lifecycle policies, encryption
 - ✅ IAM Module (DEPLOYED): Service roles with least privilege
 - ✅ Secrets Module (DEPLOYED): Secure PostgreSQL credential storage
-- ✅ Glue Module (DEPLOYED): Catalog, crawlers, 10 ETL jobs (7 operational + 3 analytics)
-- ✅ DMS Module (IaC COMPLETE): 361 lines, ready for deployment
+- ✅ Glue Module (DEPLOYED): Catalog, 3 crawlers, 10 ETL jobs (7 operational + 3 analytics)
+- ✅ Athena Module (DEPLOYED): Workgroup with 5 named queries, result configuration
+- ✅ Monitoring Module (DEPLOYED): CloudWatch dashboard with 8 widgets, 3 alarms (Glue, Athena, Cost)
+- ✅ DMS Module (IaC COMPLETE): 361 lines, ready for deployment (execution deferred)
   - Replication instance (dms.t3.medium)
   - Source endpoint (PostgreSQL with Secrets Manager integration)
   - Target endpoint (S3 Parquet with SNAPPY compression)
   - Table mappings (7 tables with pg_ prefix transformation)
   - Full load + CDC tasks defined
+- ⚙️ Bedrock Module (IN PROGRESS): OpenSearch Serverless, Knowledge Base with RAG, Titan Embeddings
+  - 1,584 knowledge base documents uploaded to S3
+  - Terraform module complete (240 lines)
 - 📝 DataSync Module (DOCUMENTED): Production deployment guide (11KB), S3 CLI for dev</p>
 <p><strong>Comprehensive Documentation:</strong>
-- <strong>5,200+ lines</strong> of technical documentation (16 files)
-- Developer's Journal - Updated through Phase 3 (2,515 lines)
+- <strong>6,500+ lines</strong> of technical documentation (20+ files)
+- Developer's Journal - Updated through Phase 4 (2,515 lines)
 - Developer approach with complete architecture (890+ lines)
 - IaC Feasibility Assessment (588 lines)
 - Phase 1 Deployment Complete (495 lines)
+- Operations Runbook (614 lines - comprehensive operational guide)
 - Interview Questions &amp; Answers (2,430 lines - comprehensive prep guide)
 - Data Quality Testing guide (665 lines - merged and enhanced)
-- Project Status with Gantt Chart (380+ lines)
+- Project Status with Gantt Chart (585 lines - through Phase 5)
+- Phase 5 AI Chatbox Implementation (760 lines)
 - Terraform deployment guide (297 lines)
 - Data Quality Quick Reference (136 lines)
 - Process Flow Diagrams (596 lines - 10 Mermaid diagrams)

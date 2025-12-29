@@ -1,8 +1,8 @@
 # AutoCorp Cloud Data Lake Pipeline
 
-**Last Updated:** December 16, 2025  
-**Project Status:** Phase 3 Complete (IaC) | Phase 4 Analytics In Progress (80% overall)  
-**Duration:** 4 weeks (Nov 18 - Dec 20, 2025)
+**Last Updated:** December 29, 2025  
+**Project Status:** Phase 4 Complete ✅ | Phase 5 AI Chatbox In Progress (20%)  
+**Duration:** 6 weeks (Nov 18 - Jan 10, 2026)
 
 An end-to-end **AWS Data Lake Pipeline** implementing modern data lakehouse architecture with CDC replication, serverless ETL, and open table formats. This project demonstrates enterprise-scale data engineering capabilities beyond traditional database management.
 
@@ -10,49 +10,56 @@ An end-to-end **AWS Data Lake Pipeline** implementing modern data lakehouse arch
 
 AutoCorp is a comprehensive cloud-based data platform that extends from operational database to data lake, data warehouse, and analytics. The system implements AWS-native data lakehouse architecture enabling scalable analytics, real-time querying, and business intelligence across auto parts sales and service data.
 
-**Tech Stack**: AWS (DMS, DataSync, Glue, S3, Athena), Apache Hudi, Terraform, PostgreSQL, PySpark, Python  
-**Architecture**: 3-layer data lakehouse (Raw → Processed → Curated)  
+**Tech Stack**: AWS (DMS, DataSync, Glue, S3, Athena, Bedrock Nova Pro), Apache Hudi, Terraform, PostgreSQL, PySpark, Python, Next.js  
+**Architecture**: 3-layer data lakehouse (Raw → Processed → Curated) + AI Layer (RAG with Bedrock)  
 **Data Volume**: 1.6M operational records (PostgreSQL), 792K unique orders in CSV (7.27M rows), 1.19M total unique orders
 **Data Latency**: <15 minutes end-to-end (source to queryable)  
-**Infrastructure as Code**: Terraform with 95% automation (7 modules, 44 resources defined)
+**Infrastructure as Code**: Terraform with 95% automation (8 modules, 50+ resources defined)
 **ETL Jobs**: 10 total (7 operational + 3 analytics denormalized tables)
 **Data Quality Testing**: Intentional CSV duplicates demonstrate Hudi upsert deduplication (invoice_number as record key)
-**Project Status**: Phase 3 Complete (IaC) | Phase 4 Analytics In Progress (80% overall)
+**Project Status**: Phase 4 Complete ✅ | Phase 5 AI Chatbox In Progress (20% - Bedrock Infrastructure Ready)
 
 ## 🏗️ Infrastructure as Code Implementation
 
 The entire AWS infrastructure is deployed using **Terraform with 95% automation coverage**, demonstrating modern Infrastructure as Code practices:
 
 **Terraform Structure:**
-- **7 Reusable Modules**: S3, IAM, Secrets Manager, Glue, DMS, DataSync (skeleton)
+- **8 Reusable Modules**: S3, IAM, Secrets Manager, Glue, Athena, Monitoring, DMS, Bedrock
 - **Multi-Environment Support**: dev/staging/prod configurations  
 - **Remote State Management**: S3 + DynamoDB state locking
-- **Infrastructure Resources**: 44 total (35 deployed + 9 DMS defined)
-- **Code Metrics**: ~1,800+ lines of Terraform + PySpark across all modules
-- **Cost-Optimized**: S3 lifecycle policies, right-sized instances (~$1/month current, $125/month if DMS deployed)
+- **Infrastructure Resources**: 50+ total (deployed across Phases 1-4)
+- **Code Metrics**: ~2,500+ lines of Terraform + PySpark across all modules
+- **Cost-Optimized**: S3 lifecycle policies, right-sized instances (~$50-80/month with analytics layer)
 
-**Module Status (as of December 16, 2025):**
+**Module Status (as of December 29, 2025):**
 - ✅ S3 Module (DEPLOYED): Data lake buckets, lifecycle policies, encryption
 - ✅ IAM Module (DEPLOYED): Service roles with least privilege
 - ✅ Secrets Module (DEPLOYED): Secure PostgreSQL credential storage
-- ✅ Glue Module (DEPLOYED): Catalog, crawlers, 10 ETL jobs (7 operational + 3 analytics)
-- ✅ DMS Module (IaC COMPLETE): 361 lines, ready for deployment
+- ✅ Glue Module (DEPLOYED): Catalog, 3 crawlers, 10 ETL jobs (7 operational + 3 analytics)
+- ✅ Athena Module (DEPLOYED): Workgroup with 5 named queries, result configuration
+- ✅ Monitoring Module (DEPLOYED): CloudWatch dashboard with 8 widgets, 3 alarms (Glue, Athena, Cost)
+- ✅ DMS Module (IaC COMPLETE): 361 lines, ready for deployment (execution deferred)
   - Replication instance (dms.t3.medium)
   - Source endpoint (PostgreSQL with Secrets Manager integration)
   - Target endpoint (S3 Parquet with SNAPPY compression)
   - Table mappings (7 tables with pg_ prefix transformation)
   - Full load + CDC tasks defined
+- ⚙️ Bedrock Module (IN PROGRESS): OpenSearch Serverless, Knowledge Base with RAG, Titan Embeddings
+  - 1,584 knowledge base documents uploaded to S3
+  - Terraform module complete (240 lines)
 - 📝 DataSync Module (DOCUMENTED): Production deployment guide (11KB), S3 CLI for dev
 
 **Comprehensive Documentation:**
-- **5,200+ lines** of technical documentation (16 files)
-- Developer's Journal - Updated through Phase 3 (2,515 lines)
+- **6,500+ lines** of technical documentation (20+ files)
+- Developer's Journal - Updated through Phase 4 (2,515 lines)
 - Developer approach with complete architecture (890+ lines)
 - IaC Feasibility Assessment (588 lines)
 - Phase 1 Deployment Complete (495 lines)
+- Operations Runbook (614 lines - comprehensive operational guide)
 - Interview Questions & Answers (2,430 lines - comprehensive prep guide)
 - Data Quality Testing guide (665 lines - merged and enhanced)
-- Project Status with Gantt Chart (380+ lines)
+- Project Status with Gantt Chart (585 lines - through Phase 5)
+- Phase 5 AI Chatbox Implementation (760 lines)
 - Terraform deployment guide (297 lines)
 - Data Quality Quick Reference (136 lines)
 - Process Flow Diagrams (596 lines - 10 Mermaid diagrams)

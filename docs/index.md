@@ -149,19 +149,21 @@ Learn more about my background, skills, and interests
 - **Tech Stack**: Apache Kafka 3.5.1, Apache Flink 1.18.0, MongoDB 7.0, Java 11, Docker Compose
 - **Next Phase**: Advanced stream processing (windowing, keyed state), AWS deployment with Terraform
 
-### AutoCorp Cloud Data Lake Pipeline (Dec 7, 2025)
+### AutoCorp Cloud Data Lake Pipeline (Dec 29, 2025)
 
-**Phase 2 Complete - Ready for Phase 3** (50% overall progress):
-- ✅ **Phase 2 Complete (100%)**: All AWS Glue ETL with Apache Hudi operational
-- ✅ **7 Hudi Tables Tested**: auto_parts, customers, service, service_parts + 3 sales tables ready
-- ✅ **35+ Data Quality Rules**: Comprehensive validation framework implemented
-- ✅ **End-to-End Testing**: <15 minute data latency validated
-- ✅ **2 Glue Crawlers Operational**: Automated schema discovery working
-- 📝 **Phase 2.5 Planned**: 1M sales orders to be generated (300K PostgreSQL + 700K CSV)
-- 🎯 **Next Phase**: DMS CDC Replication & DataSync (Dec 9-13)
-- **Infrastructure**: 35 AWS resources, 95% IaC automation
-- **Documentation**: 4,670+ lines across 13 files
-- **Timeline**: On track for Dec 20 completion (50% complete, 10 of 20 days)
+**Phase 4 Complete ✅ | Phase 5 AI Chatbox Started (20% progress)**:
+- ✅ **Phase 4 Complete (100%)**: Analytics layer with Athena, CloudWatch monitoring, Operations runbook
+- ✅ **Athena Query Layer**: Workgroup with 5 named queries, sub-30s query performance
+- ✅ **CloudWatch Monitoring**: Dashboard with 8 widgets, 3 alarms (Glue, Athena, Cost)
+- ✅ **Operations Runbook**: 614 lines of comprehensive procedures
+- ✅ **3 Analytics ETL Jobs**: Denormalized tables for BI and reporting
+- ⚙️ **Phase 5 Started (Days 1-2 Complete)**: Bedrock infrastructure ready
+- ⚙️ **Knowledge Base**: 1,584 documents uploaded to S3 (400 parts, 110 services, 1,074 mappings)
+- ⚙️ **Bedrock Module**: OpenSearch Serverless, Knowledge Base with RAG, Titan Embeddings (Terraform complete)
+- 🎯 **Next Phase**: Lambda functions with RAG, API Gateway, Next.js frontend (Days 3-10)
+- **Infrastructure**: 50+ AWS resources deployed across 8 Terraform modules
+- **Documentation**: 6,500+ lines across 20+ files
+- **Timeline**: Core pipeline complete (20 days), Phase 5 in progress (2 of 10 days)
 
 ### AWS Data Lake Pipeline (Nov 18, 2025)
 

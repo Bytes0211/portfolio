@@ -8,7 +8,7 @@ This project provides hands-on demonstrations of hypothesis testing techniques c
 
 ## 📓 Notebooks
 
-### [1. Introduction to P-Value](01-intro-to-pvalue.ipynb)
+### [1. Introduction to P-Value](notebooks/ht-01-intro-to-pvalue.ipynb)
 
 **Objective**: Understanding the premise of the p-value concept
 
@@ -27,7 +27,7 @@ This project provides hands-on demonstrations of hypothesis testing techniques c
 
 ---
 
-### [2. One-Tail and Two-Tail Tests for Difference in Means](02-one-two-tail-test-diff-mean.ipynb)
+### [2. One-Tail and Two-Tail Tests for Difference in Means](notebooks/ht-02-one-two-tail-test-diff-mean.ipynb)
 
 **Objective**: Understanding directional vs. non-directional hypothesis tests for means
 
@@ -46,7 +46,7 @@ This project provides hands-on demonstrations of hypothesis testing techniques c
 
 ---
 
-### [3. One-Tail and Two-Tail Tests for Difference of Proportions](03_one_two_tail_test_diff_props.ipynb)
+### [3. One-Tail and Two-Tail Tests for Difference of Proportions](notebooks/ht-03-one-two-tail-test-diff-props.ipynb)
 
 **Objective**: Testing differences between categorical response proportions
 
@@ -66,7 +66,7 @@ This project provides hands-on demonstrations of hypothesis testing techniques c
 
 ---
 
-### [4. Chi-Squared Test](04-chi-squared.ipynb)
+### [4. Chi-Squared Test](notebooks/ht-04-chi-squared.ipynb)
 
 **Objective**: Testing relationships between categorical variables
 
@@ -85,7 +85,7 @@ This project provides hands-on demonstrations of hypothesis testing techniques c
 
 ---
 
-### [5. Hypothesis Testing in Regression](05-regression-hypothesis.ipynb)
+### [5. Hypothesis Testing in Regression](notebooks/ht-05-regression-hypothesis.ipynb)
 
 **Objective**: Understanding hypothesis testing within regression analysis
 
