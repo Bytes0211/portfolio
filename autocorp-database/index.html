@@ -1,0 +1,3114 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://sitename.example/autocorp-database/">
+      
+      
+        <link rel="prev" href="../about/">
+      
+      
+        <link rel="next" href="../streamforge/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>AutoCorp Cloud Data Lake Pipeline - Portfolio</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Merriweather Sans";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#autocorp-cloud-data-lake-pipeline" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Portfolio" class="md-header__button md-logo" aria-label="Portfolio" data-md-component="logo">
+      
+  <img src="../assets/favicon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Portfolio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AutoCorp Cloud Data Lake Pipeline
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Dark Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="blue"  aria-label="Light Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../about/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  About
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Data Engineering
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../distributions/" class="md-tabs__link">
+          
+  
+  
+  Data Science
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../heart-disease/" class="md-tabs__link">
+          
+  
+  
+  Machine Learning
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../aws-management/" class="md-tabs__link">
+          
+  
+  
+  Cloud Computing
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Portfolio" class="md-nav__button md-logo" aria-label="Portfolio" data-md-component="logo">
+      
+  <img src="../assets/favicon.png" alt="logo">
+
+    </a>
+    Portfolio
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Engineering
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data Engineering
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AutoCorp Cloud Data Lake Pipeline
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AutoCorp Cloud Data Lake Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Project Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#infrastructure-as-code-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏗️ Infrastructure as Code Implementation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cloud-data-platform-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ☁️ Cloud Data Platform Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="☁️ Cloud Data Platform Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modern-data-lakehouse-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modern Data Lakehouse Implementation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#architecture-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Architecture Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-technical-achievements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Key Technical Achievements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Key Technical Achievements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cdc-replication-real-time-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CDC Replication &amp; Real-Time Data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-table-formats-apache-hudi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open Table Formats (Apache Hudi)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serverless-etl-with-pyspark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Serverless ETL with PySpark
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#large-scale-data-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Large-Scale Data Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-quality-testing-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Quality Testing Framework
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-database-system-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🗄️ Source Database System (PostgreSQL)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏗️ Database Architecture
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏗️ Database Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#schema-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schema Design
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Schema Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parts-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parts &amp; Services
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customer-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Customer Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sales-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sales System
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-highlights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 Technical Highlights
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 Technical Highlights">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#database-design-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database Design Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql-capabilities-demonstrated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SQL Capabilities Demonstrated
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#service-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Service Categories
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔧 Implementation Details
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Implementation Details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-loading-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Loading Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SQL Scripts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📈 Example Queries
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📈 Example Queries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-service-with-required-parts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Service with Required Parts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analyze-service-complexity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analyze Service Complexity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-complete-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create Complete Order
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📦 Project Files
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📦 Project Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comprehensive-documentation-3103-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comprehensive Documentation (3,103+ lines)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source-data-csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Source Data (CSV)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-scripts-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database Scripts (SQL)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python Scripts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🚀 Setup &amp; Usage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Setup &amp; Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-status-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database Status Check
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skills-demonstrated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💼 Skills Demonstrated
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Data Statistics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Project Status
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔗 Repository
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../streamforge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    StreamForge Real-Time Streaming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS Data Lake Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Science
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data Science
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistical Distributions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Statistical Distributions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_2" id="__nav_4_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fundamentals
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Fundamentals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/dist-01-distribution-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TOC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/dist-02-basic-prob-and-exp-val/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Probability and Expected Value
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/dist-03-std-dev-and-var/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Standard Deviation and Variance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/dist-04-data-point-to-std-dev/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Point to Standard Deviation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_3" id="__nav_4_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Discrete Distributions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Discrete Distributions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/dist-05-binomial-distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Binomial Distributions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/dist-06-geometric-distributions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Geometric Distributions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/dist-07-poisson/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Poisson Distribution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_4" id="__nav_4_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sampling and Transformations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Sampling and Transformations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/dist-08-sample-distro-of-sample-mean/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sample Distribution of Sample Mean
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/dist-09-combinations-of-random-vars/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Combinations of Random Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/dist-10-transforming-random-variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transforming Random Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_5" id="__nav_4_1_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    T-Distribution
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    T-Distribution
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/dist-11-t-distribution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    T-Distribution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/dist-12-student-t-distribution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Student T-Distribution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hypothesis Testing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hypothesis Testing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hypothesis-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/ht-01-intro-to-pvalue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to P-Value
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/ht-02-one-two-tail-test-diff-mean/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    One-Tail and Two-Tail Tests (Means)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/ht-03-one-two-tail-test-diff-props/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    One-Tail and Two-Tail Tests (Proportions)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/ht-04-chi-squared/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chi-Squared Test
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/ht-05-regression-hypothesis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Regression Hypothesis Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Machine Learning
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../heart-disease/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Heart Disease Prediction Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Computing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cloud Computing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws-file-validator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS File Validator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scotton-aws-utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scotton AWS Utils
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terraform-aws-product-app/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terraform AWS Product App
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dynamodb-inventory-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DynamoDB Inventory System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="autocorp-cloud-data-lake-pipeline">AutoCorp Cloud Data Lake Pipeline</h1>
+<p><strong>Last Updated:</strong> December 29, 2025<br />
+<strong>Project Status:</strong> Phase 4 Complete ✅ | Phase 5 AI Chatbox In Progress (20%)<br />
+<strong>Duration:</strong> 6 weeks (Nov 18 - Jan 10, 2026)</p>
+<p>An end-to-end <strong>AWS Data Lake Pipeline</strong> implementing modern data lakehouse architecture with CDC replication, serverless ETL, and open table formats. This project demonstrates enterprise-scale data engineering capabilities beyond traditional database management.</p>
+<h2 id="project-overview">🎯 Project Overview</h2>
+<p>AutoCorp is a comprehensive cloud-based data platform that extends from operational database to data lake, data warehouse, and analytics. The system implements AWS-native data lakehouse architecture enabling scalable analytics, real-time querying, and business intelligence across auto parts sales and service data.</p>
+<p><strong>Tech Stack</strong>: AWS (DMS, DataSync, Glue, S3, Athena, Bedrock Nova Pro), Apache Hudi, Terraform, PostgreSQL, PySpark, Python, Next.js<br />
+<strong>Architecture</strong>: 3-layer data lakehouse (Raw → Processed → Curated) + AI Layer (RAG with Bedrock)<br />
+<strong>Data Volume</strong>: 1.6M operational records (PostgreSQL), 792K unique orders in CSV (7.27M rows), 1.19M total unique orders
+<strong>Data Latency</strong>: &lt;15 minutes end-to-end (source to queryable)<br />
+<strong>Infrastructure as Code</strong>: Terraform with 95% automation (8 modules, 50+ resources defined)
+<strong>ETL Jobs</strong>: 10 total (7 operational + 3 analytics denormalized tables)
+<strong>Data Quality Testing</strong>: Intentional CSV duplicates demonstrate Hudi upsert deduplication (invoice_number as record key)
+<strong>Project Status</strong>: Phase 4 Complete ✅ | Phase 5 AI Chatbox In Progress (20% - Bedrock Infrastructure Ready)</p>
+<h2 id="infrastructure-as-code-implementation">🏗️ Infrastructure as Code Implementation</h2>
+<p>The entire AWS infrastructure is deployed using <strong>Terraform with 95% automation coverage</strong>, demonstrating modern Infrastructure as Code practices:</p>
+<p><strong>Terraform Structure:</strong>
+- <strong>8 Reusable Modules</strong>: S3, IAM, Secrets Manager, Glue, Athena, Monitoring, DMS, Bedrock
+- <strong>Multi-Environment Support</strong>: dev/staging/prod configurations<br />
+- <strong>Remote State Management</strong>: S3 + DynamoDB state locking
+- <strong>Infrastructure Resources</strong>: 50+ total (deployed across Phases 1-4)
+- <strong>Code Metrics</strong>: ~2,500+ lines of Terraform + PySpark across all modules
+- <strong>Cost-Optimized</strong>: S3 lifecycle policies, right-sized instances (~$50-80/month with analytics layer)</p>
+<p><strong>Module Status (as of December 29, 2025):</strong>
+- ✅ S3 Module (DEPLOYED): Data lake buckets, lifecycle policies, encryption
+- ✅ IAM Module (DEPLOYED): Service roles with least privilege
+- ✅ Secrets Module (DEPLOYED): Secure PostgreSQL credential storage
+- ✅ Glue Module (DEPLOYED): Catalog, 3 crawlers, 10 ETL jobs (7 operational + 3 analytics)
+- ✅ Athena Module (DEPLOYED): Workgroup with 5 named queries, result configuration
+- ✅ Monitoring Module (DEPLOYED): CloudWatch dashboard with 8 widgets, 3 alarms (Glue, Athena, Cost)
+- ✅ DMS Module (IaC COMPLETE): 361 lines, ready for deployment (execution deferred)
+  - Replication instance (dms.t3.medium)
+  - Source endpoint (PostgreSQL with Secrets Manager integration)
+  - Target endpoint (S3 Parquet with SNAPPY compression)
+  - Table mappings (7 tables with pg_ prefix transformation)
+  - Full load + CDC tasks defined
+- ⚙️ Bedrock Module (IN PROGRESS): OpenSearch Serverless, Knowledge Base with RAG, Titan Embeddings
+  - 1,584 knowledge base documents uploaded to S3
+  - Terraform module complete (240 lines)
+- 📝 DataSync Module (DOCUMENTED): Production deployment guide (11KB), S3 CLI for dev</p>
+<p><strong>Comprehensive Documentation:</strong>
+- <strong>6,500+ lines</strong> of technical documentation (20+ files)
+- Developer's Journal - Updated through Phase 4 (2,515 lines)
+- Developer approach with complete architecture (890+ lines)
+- IaC Feasibility Assessment (588 lines)
+- Phase 1 Deployment Complete (495 lines)
+- Operations Runbook (614 lines - comprehensive operational guide)
+- Interview Questions &amp; Answers (2,430 lines - comprehensive prep guide)
+- Data Quality Testing guide (665 lines - merged and enhanced)
+- Project Status with Gantt Chart (585 lines - through Phase 5)
+- Phase 5 AI Chatbox Implementation (760 lines)
+- Terraform deployment guide (297 lines)
+- Data Quality Quick Reference (136 lines)
+- Process Flow Diagrams (596 lines - 10 Mermaid diagrams)
+- AWS Sanity Checks guide (594 lines)
+- Cost Management guide (486 lines)</p>
+<h2 id="cloud-data-platform-architecture">☁️ Cloud Data Platform Architecture</h2>
+<h3 id="modern-data-lakehouse-implementation">Modern Data Lakehouse Implementation</h3>
+<p>This project showcases a production-grade AWS data platform with the following layers:</p>
+<p><strong>1. Ingestion Layer</strong>
+- <strong>AWS DMS</strong>: Continuous database extraction with Change Data Capture (CDC) from PostgreSQL
+- <strong>AWS DataSync</strong>: High-performance transfer of large CSV files (multi-GB) from on-premises to cloud</p>
+<p><strong>2. Raw Storage Layer (Data Lake)</strong>
+- <strong>AWS S3</strong>: Scalable object storage with partitioned structure (date-based)
+- Landing zone for all raw data in Parquet format before transformation</p>
+<p><strong>3. Catalog &amp; Metadata Layer</strong>
+- <strong>AWS Glue Data Catalog</strong>: Centralized metadata repository (Hive Metastore compatible)
+- <strong>AWS Glue Crawlers</strong>: Automated schema discovery and catalog synchronization</p>
+<p><strong>4. Processing Layer (ETL)</strong>
+- <strong>AWS Glue ETL Jobs</strong>: Serverless PySpark data cleaning, transformation, quality validation
+- Data deduplication, standardization, and business rule application</p>
+<p><strong>5. Curated Layer (Data Warehouse)</strong>
+- <strong>Apache Hudi Tables</strong>: Open table format providing ACID transactions, upserts, and time-travel
+- Analytics-ready datasets optimized for query performance</p>
+<p><strong>6. Query &amp; Analytics Layer</strong>
+- <strong>AWS Athena</strong>: Serverless SQL query engine directly on S3 data
+- No data movement required, pay-per-query model
+- Compatible with BI tools (Tableau, PowerBI, QuickSight)</p>
+<h3 id="architecture-flow">Architecture Flow</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌─────────────────────┐
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│ Source Systems      │
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├─────────────────────┤
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>│ PostgreSQL DB       │──────► AWS DMS ──────────┐
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>│ - 7 tables          │      (CDC Replication)    │
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>└─────────────────────┘                           │
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>                                                  │
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>┌─────────────────────┐                           ▼
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>│ CSV Files           │              ┌────────────────────────┐
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>├─────────────────────┤              │   S3 Data Lake         │
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>│ customers.csv       │──► DataSync ─►   (Raw Zone)           │
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>│ sales_orders.csv    │              │ - /raw/database/       │
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>└─────────────────────┘              │ - /raw/csv/            │
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>                                     └────────────────────────┘
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>                                                  │
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>                                                  ▼
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>                                     ┌────────────────────────┐
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>                                     │   AWS Glue             │
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>                                     │ - Crawler (catalog)    │
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>                                     │ - ETL Jobs (clean)     │
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>                                     │ - Data Quality Rules   │
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>                                     └────────────────────────┘
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>                                                  │
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>                                                  ▼
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>                                     ┌────────────────────────┐
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>                                     │   S3 Data Lake         │
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>                                     │   (Curated Zone)       │
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>                                     │ - Apache Hudi tables   │
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>                                     └────────────────────────┘
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>                                                  │
+</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>                                                  ▼
+</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>                                     ┌────────────────────────┐
+</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>                                     │   AWS Athena           │
+</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>                                     │   (Query Engine)       │
+</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>                                     └────────────────────────┘
+</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>                                                  │
+</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>                                                  ▼
+</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>                                     ┌────────────────────────┐
+</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>                                     │   BI Tools             │
+</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>                                     │ - Tableau/PowerBI     │
+</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>                                     │ - QuickSight          │
+</span><span id="__span-0-42"><a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>                                     └────────────────────────┘
+</span></code></pre></div>
+<p><strong>Phase 5 Extension (Planned - AI Layer):</strong></p>
+<p>The architecture will extend with an AI-powered interface:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>[Existing Architecture] → Amazon Bedrock Nova Pro (RAG) → Lambda + API Gateway → Next.js Chatbox
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>                         ↑
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>                   Knowledge Base
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>              (OpenSearch Serverless)
+</span></code></pre></div></p>
+<p>Enabling:
+- Natural language queries ("What parts are needed for an oil change?")
+- Real-time analytics ("Top-selling parts this month?")
+- Customer support automation with context from 1.19M orders, 400+ parts, 110 services</p>
+<h2 id="key-technical-achievements">🚀 Key Technical Achievements</h2>
+<h3 id="cdc-replication-real-time-data">CDC Replication &amp; Real-Time Data</h3>
+<ul>
+<li><strong>Change Data Capture</strong>: PostgreSQL changes replicated to S3 with &lt;5 minute lag</li>
+<li><strong>Continuous Sync</strong>: DMS tasks maintain real-time data synchronization</li>
+<li><strong>End-to-End Latency</strong>: &lt;15 minutes from source database to queryable analytics layer</li>
+</ul>
+<h3 id="open-table-formats-apache-hudi">Open Table Formats (Apache Hudi)</h3>
+<ul>
+<li><strong>ACID Transactions</strong>: Hudi provides atomicity, consistency, isolation, durability on S3</li>
+<li><strong>Upsert Operations</strong>: Efficient merge-on-read for incremental updates</li>
+<li><strong>Time-Travel Queries</strong>: Query historical data as of specific timestamps</li>
+<li><strong>Incremental Processing</strong>: Process only changed records, not full table scans</li>
+</ul>
+<h3 id="serverless-etl-with-pyspark">Serverless ETL with PySpark</h3>
+<p><strong>Sample Glue ETL Job for Hudi:</strong>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyspark.sql</span><span class="w"> </span><span class="kn">import</span> <span class="n">SparkSession</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pyspark.sql.functions</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Initialize Spark with Hudi</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span> \
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.serializer&quot;</span><span class="p">,</span> <span class="s2">&quot;org.apache.spark.serializer.KryoSerializer&quot;</span><span class="p">)</span> \
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c1"># Read from raw zone</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="s2">&quot;s3://autocorp-datalake/raw/database/sales_order/&quot;</span><span class="p">)</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1"># Data quality checks</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="n">df_clean</span> <span class="o">=</span> <span class="n">df</span> \
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    <span class="o">.</span><span class="n">dropDuplicates</span><span class="p">([</span><span class="s2">&quot;order_id&quot;</span><span class="p">])</span> \
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">col</span><span class="p">(</span><span class="s2">&quot;total_amount&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> \
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    <span class="o">.</span><span class="n">withColumn</span><span class="p">(</span><span class="s2">&quot;etl_timestamp&quot;</span><span class="p">,</span> <span class="n">current_timestamp</span><span class="p">())</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="c1"># Write to Hudi with upsert</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="n">hudi_options</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>    <span class="s1">&#39;hoodie.table.name&#39;</span><span class="p">:</span> <span class="s1">&#39;sales_order&#39;</span><span class="p">,</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>    <span class="s1">&#39;hoodie.datasource.write.recordkey.field&#39;</span><span class="p">:</span> <span class="s1">&#39;order_id&#39;</span><span class="p">,</span>
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>    <span class="s1">&#39;hoodie.datasource.write.partitionpath.field&#39;</span><span class="p">:</span> <span class="s1">&#39;order_date&#39;</span><span class="p">,</span>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>    <span class="s1">&#39;hoodie.datasource.write.operation&#39;</span><span class="p">:</span> <span class="s1">&#39;upsert&#39;</span><span class="p">,</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>    <span class="s1">&#39;hoodie.datasource.write.precombine.field&#39;</span><span class="p">:</span> <span class="s1">&#39;updated_at&#39;</span><span class="p">,</span>
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>    <span class="s1">&#39;hoodie.upsert.shuffle.parallelism&#39;</span><span class="p">:</span> <span class="mi">20</span>
+</span><span id="__span-2-26"><a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="p">}</span>
+</span><span id="__span-2-27"><a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>
+</span><span id="__span-2-28"><a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="n">df_clean</span><span class="o">.</span><span class="n">write</span> \
+</span><span id="__span-2-29"><a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>    <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;hudi&quot;</span><span class="p">)</span> \
+</span><span id="__span-2-30"><a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>    <span class="o">.</span><span class="n">options</span><span class="p">(</span><span class="o">**</span><span class="n">hudi_options</span><span class="p">)</span> \
+</span><span id="__span-2-31"><a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>    <span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="s2">&quot;append&quot;</span><span class="p">)</span> \
+</span><span id="__span-2-32"><a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>    <span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;s3://autocorp-datalake/curated/hudi/sales_order/&quot;</span><span class="p">)</span>
+</span></code></pre></div></p>
+<h3 id="large-scale-data-handling">Large-Scale Data Handling</h3>
+<ul>
+<li><strong>PostgreSQL Data</strong>: 397,146 orders (1.6M total rows) for DMS CDC testing</li>
+<li><strong>CSV Processing</strong>: 791,532 unique orders (1.86M rows with intentional duplicates, 7.27M total)</li>
+<li><strong>Partitioning Strategy</strong>: Date-based partitions for optimal query performance</li>
+<li><strong>Compression</strong>: Parquet format with SNAPPY compression for storage efficiency</li>
+<li><strong>Scalability</strong>: Architecture handles multi-GB file sizes and 1.19M unique orders</li>
+<li><strong>Data Quality</strong>: CSV duplicates demonstrate Hudi deduplication capabilities</li>
+</ul>
+<h3 id="data-quality-testing-framework">Data Quality Testing Framework</h3>
+<p>Real-world data quality issue simulation demonstrating ETL deduplication capabilities:</p>
+<p><strong>Duplicate Record Handling:</strong>
+- <strong>CSV files contain intentional duplicates</strong>: 791,532 unique orders appearing as 1,864,774 total rows
+- <strong>Simulates real-world scenario</strong>: Source systems often have duplicate records from multiple extracts
+- <strong>Demonstrates Hudi upserts</strong>: invoice_number used as record key for automatic deduplication
+- <strong>Skills showcase</strong>: Handling messy data at scale using Apache Hudi's ACID capabilities</p>
+<p><strong>Implementation Strategy:</strong>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Hudi configuration for deduplication</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">hudi_options</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="s1">&#39;hoodie.table.name&#39;</span><span class="p">:</span> <span class="s1">&#39;sales_order&#39;</span><span class="p">,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="s1">&#39;hoodie.datasource.write.recordkey.field&#39;</span><span class="p">:</span> <span class="s1">&#39;invoice_number&#39;</span><span class="p">,</span>  <span class="c1"># Primary key</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="s1">&#39;hoodie.datasource.write.precombine.field&#39;</span><span class="p">:</span> <span class="s1">&#39;order_date&#39;</span><span class="p">,</span>     <span class="c1"># For conflict resolution</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="s1">&#39;hoodie.datasource.write.operation&#39;</span><span class="p">:</span> <span class="s1">&#39;upsert&#39;</span><span class="p">,</span>                <span class="c1"># Automatic deduplication</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="c1"># Hudi automatically handles duplicates during write</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="n">df</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;hudi&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">options</span><span class="p">(</span><span class="o">**</span><span class="n">hudi_options</span><span class="p">)</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">output_path</span><span class="p">)</span>
+</span></code></pre></div></p>
+<p><strong>Why This Approach:</strong>
+- <strong>Real-world relevance</strong>: Production pipelines frequently encounter duplicates
+- <strong>Defensive programming</strong>: Shows understanding of data quality issues
+- <strong>Hudi value demonstration</strong>: Highlights why Hudi was chosen over plain Parquet
+- <strong>Interview talking point</strong>: Concrete example of handling data quality at scale</p>
+<p><strong>Data Volume:</strong>
+- PostgreSQL: 397,146 orders (for DMS CDC testing)
+- CSV files: 791,532 unique orders, 1,864,774 total rows (2.35x duplication rate)
+- Combined: 1,188,678 total unique orders across both sources</p>
+<h2 id="source-database-system-postgresql">🗄️ Source Database System (PostgreSQL)</h2>
+<p>The pipeline begins with a production PostgreSQL database that serves as the operational data source:</p>
+<p><strong>Database</strong>: <code>autocorp</code><br />
+<strong>Total Tables</strong>: 7<br />
+<strong>Data Volume</strong>: 1,605,804 records across all tables (PostgreSQL operational database)</p>
+<h2 id="database-architecture">🏗️ Database Architecture</h2>
+<h3 id="schema-design">Schema Design</h3>
+<p>The system implements a normalized relational design with the following core components:</p>
+<h4 id="parts-services"><strong>Parts &amp; Services</strong></h4>
+<ul>
+<li><code>auto_parts</code> (400 parts) - Complete parts inventory with SKU, description, category, pricing</li>
+<li><code>service</code> (110 services) - Service catalog spanning 11 categories with labor rates and durations</li>
+<li><code>service_parts</code> (1,074 mappings) - Many-to-many relationship tracking parts required for each service</li>
+</ul>
+<h4 id="customer-management"><strong>Customer Management</strong></h4>
+<ul>
+<li><code>customers</code> (1,149 customers) - Customer information with contact details and geographic distribution</li>
+</ul>
+<h4 id="sales-system"><strong>Sales System</strong></h4>
+<ul>
+<li><code>sales_order</code> - Order headers with customer reference, payment method, totals, and order type</li>
+<li><code>sales_order_parts</code> - Line items for parts sales</li>
+<li><code>sales_order_services</code> - Line items for service sales</li>
+</ul>
+<h3 id="key-features">Key Features</h3>
+<p><strong>Unified Sales Model</strong>
+- Single invoice can contain parts, services, or both
+- Three order types: <code>Parts</code>, <code>Service</code>, <code>Mixed</code>
+- Automatic order type classification based on line item composition</p>
+<p><strong>Service-Parts Integration</strong>
+- Each service linked to required parts via junction table
+- Quantity tracking for part-service relationships
+- Average of 9.8 parts per service
+- Complex service example: Service ID <code>92038482</code> requires 27 different parts</p>
+<p><strong>Data Integrity</strong>
+- Foreign key constraints throughout
+- Email uniqueness in customer table
+- Referential integrity between orders and customers
+- Proper normalization with no data redundancy</p>
+<h2 id="technical-highlights">💡 Technical Highlights</h2>
+<h3 id="database-design-patterns">Database Design Patterns</h3>
+<p><strong>Junction Table Implementation</strong>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">service_parts</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="err">├──</span><span class="w"> </span><span class="n">serviceid</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">service</span><span class="p">)</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="err">├──</span><span class="w"> </span><span class="n">sku</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">auto_parts</span><span class="p">)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="err">└──</span><span class="w"> </span><span class="n">quantity</span><span class="w"> </span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</span></code></pre></div>
+Enables many-to-many relationships between services and parts with quantity metadata.</p>
+<p><strong>Flexible Order System</strong>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">sales_order</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="err">├──</span><span class="w"> </span><span class="n">order_id</span><span class="w"> </span><span class="p">(</span><span class="n">PK</span><span class="p">)</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="err">├──</span><span class="w"> </span><span class="n">customer_id</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">customers</span><span class="p">)</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="err">├──</span><span class="w"> </span><span class="n">order_type</span><span class="w"> </span><span class="p">(</span><span class="n">Parts</span><span class="o">|</span><span class="n">Service</span><span class="o">|</span><span class="n">Mixed</span><span class="p">)</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="err">├──</span><span class="w"> </span><span class="n">payment_method</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="err">└──</span><span class="w"> </span><span class="n">total_amount</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="n">sales_order_parts</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">..</span><span class="o">*</span><span class="p">)</span><span class="w">     </span><span class="n">sales_order_services</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">..</span><span class="o">*</span><span class="p">)</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="err">├──</span><span class="w"> </span><span class="n">order_id</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="p">)</span><span class="w">            </span><span class="err">├──</span><span class="w"> </span><span class="n">order_id</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="p">)</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="err">├──</span><span class="w"> </span><span class="n">sku</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="p">)</span><span class="w">                 </span><span class="err">├──</span><span class="w"> </span><span class="n">serviceid</span><span class="w"> </span><span class="p">(</span><span class="n">FK</span><span class="p">)</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="err">├──</span><span class="w"> </span><span class="n">quantity</span><span class="w">                 </span><span class="err">├──</span><span class="w"> </span><span class="n">labor_minutes</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="err">└──</span><span class="w"> </span><span class="n">line_total</span><span class="w">               </span><span class="err">└──</span><span class="w"> </span><span class="n">line_total</span>
+</span></code></pre></div></p>
+<h3 id="sql-capabilities-demonstrated">SQL Capabilities Demonstrated</h3>
+<p><strong>Complex Joins</strong>
+- Multi-table joins across services, parts, and orders
+- Junction table navigation
+- Aggregations with GROUP BY and HAVING clauses</p>
+<p><strong>Data Analysis Queries</strong>
+- Service complexity analysis (parts per service)
+- Geographic customer distribution
+- Order analytics and reporting
+- Inventory management queries</p>
+<p><strong>Transactions</strong>
+- Multi-table inserts for complete orders
+- ACID compliance for order creation
+- Rollback capabilities for data integrity</p>
+<h2 id="service-categories">📊 Service Categories</h2>
+<p>The system includes 110 services across 11 automotive categories:</p>
+<ul>
+<li>Engine &amp; Powertrain</li>
+<li>Transmission &amp; Drivetrain  </li>
+<li>Tires &amp; Wheels</li>
+<li>Brakes</li>
+<li>Cooling System</li>
+<li>Electrical System</li>
+<li>HVAC</li>
+<li>Suspension &amp; Steering</li>
+<li>General Preventive Maintenance</li>
+<li>Exhaust &amp; Emissions</li>
+<li>Fluids &amp; Filters</li>
+</ul>
+<h2 id="implementation-details">🔧 Implementation Details</h2>
+<h3 id="data-loading-strategy">Data Loading Strategy</h3>
+<p><strong>Customer Data Sampling</strong>
+- Source: 1.2M customer records in CSV
+- Loaded: 1,149 customers via random sampling
+- Python script handles duplicate detection and progress reporting
+- Geographic diversity: 59 different states</p>
+<p><strong>Parts &amp; Services</strong>
+- 400 parts with complete SKU, category, and pricing information
+- 110 services with labor rates and duration estimates
+- 1,074 service-to-parts mappings establishing part requirements</p>
+<h3 id="python-integration">Python Integration</h3>
+<p><strong><code>upload_customers.py</code></strong> - Production-ready data loader
+- Random sampling from large datasets
+- Duplicate email handling
+- Progress reporting
+- Error handling and rollback
+- Connection pooling</p>
+<h3 id="sql-scripts">SQL Scripts</h3>
+<ul>
+<li><code>create_auto_parts_table.sql</code> - Parts table schema</li>
+<li><code>create_service_table.sql</code> - Service catalog schema  </li>
+<li><code>create_sales_system.sql</code> - Complete order system with views</li>
+</ul>
+<h2 id="example-queries">📈 Example Queries</h2>
+<h3 id="get-service-with-required-parts">Get Service with Required Parts</h3>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">SELECT</span><span class="w"> </span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">service</span><span class="p">,</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">category</span><span class="p">,</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">labor_cost</span><span class="p">,</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="n">sp</span><span class="p">.</span><span class="n">sku</span><span class="p">,</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="n">sp</span><span class="p">.</span><span class="n">quantity</span><span class="p">,</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="n">ap</span><span class="p">.</span><span class="n">description</span><span class="p">,</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="n">ap</span><span class="p">.</span><span class="n">price</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="k">FROM</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">s</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="k">JOIN</span><span class="w"> </span><span class="n">service_parts</span><span class="w"> </span><span class="n">sp</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">serviceid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sp</span><span class="p">.</span><span class="n">serviceid</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="k">JOIN</span><span class="w"> </span><span class="n">auto_parts</span><span class="w"> </span><span class="n">ap</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">sp</span><span class="p">.</span><span class="n">sku</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ap</span><span class="p">.</span><span class="n">sku</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">serviceid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;48392017&#39;</span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="analyze-service-complexity">Analyze Service Complexity</h3>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">SELECT</span><span class="w"> </span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">serviceid</span><span class="p">,</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">service</span><span class="p">,</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="n">s</span><span class="p">.</span><span class="n">category</span><span class="p">,</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="k">COUNT</span><span class="p">(</span><span class="n">sp</span><span class="p">.</span><span class="n">sku</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">parts_count</span><span class="p">,</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="k">SUM</span><span class="p">(</span><span class="n">sp</span><span class="p">.</span><span class="n">quantity</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">total_parts_needed</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="k">FROM</span><span class="w"> </span><span class="n">service</span><span class="w"> </span><span class="n">s</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="k">LEFT</span><span class="w"> </span><span class="k">JOIN</span><span class="w"> </span><span class="n">service_parts</span><span class="w"> </span><span class="n">sp</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">serviceid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sp</span><span class="p">.</span><span class="n">serviceid</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">serviceid</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">service</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">category</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">parts_count</span><span class="w"> </span><span class="k">DESC</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+</span></code></pre></div>
+<h3 id="create-complete-order">Create Complete Order</h3>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">-- Insert order header</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">sales_order</span><span class="w"> </span><span class="p">(</span><span class="n">customer_id</span><span class="p">,</span><span class="w"> </span><span class="n">order_date</span><span class="p">,</span><span class="w"> </span><span class="n">invoice_number</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">                         </span><span class="n">payment_method</span><span class="p">,</span><span class="w"> </span><span class="n">total_amount</span><span class="p">,</span><span class="w"> </span><span class="n">order_type</span><span class="p">)</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;INV-2025-001&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Credit Card&#39;</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">        </span><span class="mi">145</span><span class="p">.</span><span class="mi">80</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Service&#39;</span><span class="p">)</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">RETURNING</span><span class="w"> </span><span class="n">order_id</span><span class="p">;</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="c1">-- Insert service line item</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">sales_order_services</span><span class="w"> </span><span class="p">(</span><span class="n">order_id</span><span class="p">,</span><span class="w"> </span><span class="n">serviceid</span><span class="p">,</span><span class="w"> </span><span class="n">labor_minutes</span><span class="p">,</span><span class="w"> </span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">                                   </span><span class="n">labor_cost</span><span class="p">,</span><span class="w"> </span><span class="n">parts_cost</span><span class="p">,</span><span class="w"> </span><span class="n">line_total</span><span class="p">)</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;48392017&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="mi">45</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="mi">135</span><span class="p">.</span><span class="mi">00</span><span class="p">);</span>
+</span></code></pre></div>
+<h2 id="project-files">📦 Project Files</h2>
+<h3 id="comprehensive-documentation-3103-lines">Comprehensive Documentation (3,103+ lines)</h3>
+<p><strong>Architecture &amp; Design:</strong>
+- <code>developer-approach.md</code> (854 lines) - Complete technical architecture
+- <code>IAC_FEASIBILITY_ASSESSMENT.md</code> (588 lines) - Terraform feasibility analysis
+- <code>PROJECT_GANTT_CHART.md</code> (307 lines) - 4-week timeline with Gantt chart
+- <code>README.md</code> (479 lines) - Cloud data platform overview</p>
+<p><strong>Infrastructure:</strong>
+- <code>terraform/README.md</code> (297 lines) - Deployment guide
+- <code>terraform/</code> directory - 6 modules, 25 files, complete IaC structure</p>
+<p><strong>Database &amp; SQL:</strong>
+- <code>DATABASE_STATUS.md</code> - Complete schema and statistics
+- <code>SALES_SYSTEM_USAGE.md</code> - Usage guide with 10+ query examples</p>
+<h3 id="source-data-csv">Source Data (CSV)</h3>
+<ul>
+<li><code>auto-parts.csv</code> - Parts inventory (400 records)</li>
+<li><code>auto-service.csv</code> - Service catalog (110 records)</li>
+<li><code>service-parts.csv</code> - Service-parts mappings (1,074 records)</li>
+<li><code>customers.csv</code> - Customer data source (1.2M records)</li>
+</ul>
+<h3 id="database-scripts-sql">Database Scripts (SQL)</h3>
+<ul>
+<li>Table creation scripts for all entities</li>
+<li>Complete sales system implementation</li>
+<li>View definitions for reporting</li>
+</ul>
+<h3 id="python-scripts">Python Scripts</h3>
+<ul>
+<li><code>upload_customers.py</code> - Random customer data loader with progress reporting</li>
+<li><code>generate_sales_orders.py</code> - Production-scale data generator</li>
+<li>PostgreSQL: 397,146 orders for DMS CDC testing</li>
+<li>CSV: 791,532 unique orders (1.86M rows with intentional duplicates)</li>
+<li>Demonstrates hybrid data sources (streaming + batch)</li>
+<li>Data quality feature: CSV duplicates for Hudi deduplication testing</li>
+</ul>
+<h2 id="setup-usage">🚀 Setup &amp; Usage</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<ul>
+<li>PostgreSQL installed and running</li>
+<li>Python 3.12+ with venv support</li>
+<li>Database <code>autocorp</code> created</li>
+</ul>
+<h3 id="quick-start">Quick Start</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># 1. Create virtual environment</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>.venv/bin/pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1"># 2. Create database tables</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>psql<span class="w"> </span>-U<span class="w"> </span>scotton<span class="w"> </span>-d<span class="w"> </span>autocorp<span class="w"> </span>-f<span class="w"> </span>create_auto_parts_table.sql
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>psql<span class="w"> </span>-U<span class="w"> </span>scotton<span class="w"> </span>-d<span class="w"> </span>autocorp<span class="w"> </span>-f<span class="w"> </span>create_service_table.sql
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>psql<span class="w"> </span>-U<span class="w"> </span>scotton<span class="w"> </span>-d<span class="w"> </span>autocorp<span class="w"> </span>-f<span class="w"> </span>create_sales_system.sql
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="c1"># 3. Load data</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>.venv/bin/python<span class="w"> </span>upload_customers.py
+</span></code></pre></div>
+<h3 id="database-status-check">Database Status Check</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>psql<span class="w"> </span>-U<span class="w"> </span>scotton<span class="w"> </span>-d<span class="w"> </span>autocorp<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="s2">  SELECT &#39;auto_parts&#39; as table_name, COUNT(*) FROM auto_parts </span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="s2">  UNION ALL SELECT &#39;customers&#39;, COUNT(*) FROM customers </span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="s2">  UNION ALL SELECT &#39;service&#39;, COUNT(*) FROM service </span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="s2">  UNION ALL SELECT &#39;service_parts&#39;, COUNT(*) FROM service_parts</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="s2">  ORDER BY table_name;&quot;</span>
+</span></code></pre></div>
+<h2 id="skills-demonstrated">💼 Skills Demonstrated</h2>
+<p><strong>Cloud Data Engineering</strong>
+- AWS data lakehouse architecture design and implementation
+- CDC (Change Data Capture) replication with AWS DMS
+- Serverless ETL with AWS Glue and PySpark
+- Open table formats (Apache Hudi) for ACID transactions on data lakes
+- Data lake design patterns (Raw → Processed → Curated)</p>
+<p><strong>Infrastructure as Code (Terraform)</strong>
+- Complete AWS infrastructure automation (95% coverage)
+- Multi-environment deployment (dev/staging/prod)
+- Remote state management with S3 + DynamoDB locking
+- Modular design with 6 reusable Terraform modules
+- Cost optimization and security best practices</p>
+<p><strong>AWS Services</strong>
+- <strong>AWS DMS</strong>: Database migration and continuous replication
+- <strong>AWS DataSync</strong>: High-performance file transfer
+- <strong>AWS Glue</strong>: Data catalog, crawlers, ETL jobs
+- <strong>AWS S3</strong>: Data lake storage with lifecycle policies
+- <strong>AWS Athena</strong>: Serverless SQL query engine</p>
+<p><strong>Data Processing</strong>
+- PySpark for distributed data processing
+- Data quality validation and deduplication
+- Incremental processing with Hudi upserts
+- Large-scale CSV file handling (multi-GB)
+- Partitioning strategies for query optimization</p>
+<p><strong>Data Quality &amp; Testing</strong>
+- Real-world duplicate record handling with Hudi upserts
+- CSV duplicates (2.35x rate) demonstrate ETL deduplication at scale
+- invoice_number as Hudi record key for automatic duplicate removal
+- Simulates production data quality issues
+- Showcases Apache Hudi's ACID capabilities on data lakes</p>
+<p><strong>Database Design</strong>
+- Relational schema design and normalization
+- Junction tables for many-to-many relationships
+- Foreign key constraints and referential integrity
+- Index optimization for query performance</p>
+<p><strong>SQL Proficiency</strong>
+- Complex multi-table joins
+- Aggregate functions and grouping
+- Subqueries and CTEs
+- Transaction management
+- Athena/Presto SQL for data lake queries</p>
+<p><strong>Python &amp; SQL Integration</strong>
+- psycopg2 for database connectivity
+- Parameterized queries for security
+- Error handling and rollbacks
+- Progress reporting and logging</p>
+<p><strong>Documentation &amp; Project Management</strong>
+- Comprehensive technical documentation (4,670+ lines across 13 files)
+- Architecture decision records (ADRs)
+- Project timeline with Gantt charts
+- Risk assessment and mitigation strategies
+- Implementation roadmap with 4-week plan
+- Data quality testing documentation (462 lines)</p>
+<h2 id="data-statistics">📊 Data Statistics</h2>
+<p><strong>Operational Database (PostgreSQL):</strong>
+- <strong>Total records</strong>: 1,605,804 across all tables
+- <strong>Sales orders</strong>: 397,146 orders
+- <strong>Parts line items</strong>: 853,591 rows
+- <strong>Service line items</strong>: 355,067 rows
+- <strong>Parts catalog</strong>: 400 parts
+- <strong>Service catalog</strong>: 110 services across 11 categories
+- <strong>Service-parts mappings</strong>: 1,074 relationships
+- <strong>Customer base</strong>: 1,149 active customers
+- <strong>Average parts per service</strong>: 9.8 parts
+- <strong>Most complex service</strong>: 27 parts required
+- <strong>Geographic distribution</strong>: 59 states represented</p>
+<p><strong>Documentation:</strong>
+- <strong>Total documentation</strong>: 4,670+ lines across 13 files
+- <strong>Technical depth</strong>: 890+ line developer approach document
+- <strong>IaC coverage</strong>: 95% automation with Terraform
+- <strong>Project planning</strong>: 4-week Gantt chart with 380 lines
+- <strong>Data quality testing</strong>: 462 lines across 2 comprehensive guides
+- <strong>Implementation journal</strong>: 911 lines documenting Phase 2</p>
+<p><strong>CSV Test Data (For DataSync):</strong>
+- <strong>Unique orders</strong>: 791,532 unique orders
+- <strong>Total rows with duplicates</strong>: 1,864,774 rows (sales_orders.csv)
+- <strong>Parts line items</strong>: 4,877,041 rows
+- <strong>Service line items</strong>: 529,488 rows
+- <strong>Total CSV data</strong>: 7,271,303 rows across 3 files
+- <strong>Duplication rate</strong>: 2.35x (intentional for ETL testing)
+- <strong>Data quality feature</strong>: Demonstrates Hudi upsert deduplication
+- <strong>Combined dataset</strong>: 1,188,678 total unique orders (PostgreSQL + CSV)</p>
+<h2 id="project-status">🎯 Project Status</h2>
+<p><strong>Current Phase</strong>: Phase 3 Complete (IaC) | Phase 4 Analytics In Progress (80% Overall) ✅</p>
+<p><strong>Phase 1 - Infrastructure Foundation (Nov 22, 2025)</strong> ✅ 100%:
+- ✅ PostgreSQL source database with 7 tables (5,668 records operational)
+- ✅ Complete Terraform IaC deployment (35 AWS resources)
+  - S3 data lake with lifecycle policies
+  - IAM roles (Glue, DMS, DataSync)
+  - Secrets Manager for credentials
+  - Glue Data Catalog database
+  - 2 Glue Crawlers (raw-database, raw-csv)
+- ✅ Remote state management (S3 + DynamoDB)
+- ✅ Complete infrastructure documentation (495 lines)</p>
+<p><strong>Phase 2 - Glue ETL with Apache Hudi (Dec 7, 2025)</strong> ✅ 100%:
+- ✅ <strong>7 Production PySpark ETL scripts</strong> (535 lines total)
+  - sales_order, customers, auto_parts, service
+  - service_parts, sales_order_parts, sales_order_services
+- ✅ <strong>7 AWS Glue jobs deployed</strong> via Terraform
+  - Glue 4.0 with Apache Hudi connector
+  - G.1X workers (2 per job)
+  - Job bookmarking and CloudWatch logging enabled
+- ✅ <strong>All 7 Hudi tables tested and validated</strong>
+  - auto_parts (400 records)
+  - customers (1,149 records)
+  - service (110 records)
+  - service_parts (1,074 records)
+  - 3 sales tables ready for 1M orders
+- ✅ <strong>2 Glue Crawlers operational</strong> (raw-database, raw-csv)
+- ✅ <strong>35+ Data quality validation rules</strong> implemented across all ETL jobs
+- ✅ <strong>End-to-end pipeline testing complete</strong> (&lt;15 minute latency validated)
+- ✅ <strong>Test data processed</strong> (2,733 records via Hudi)
+- ✅ <strong>Developer's Journal</strong> (911 lines documenting Phase 2 implementation)</p>
+<p><strong>Phase 2.5 - Data Preparation (Dec 7, 2025)</strong> ✅ 100%:
+- ✅ <strong>Generated 1.19M unique orders</strong> for Phase 3 testing
+  - PostgreSQL: 397,146 orders (1.6M total rows) for DMS CDC testing
+  - CSV files: 791,532 unique orders (1.86M rows with intentional duplicates, 7.27M total)
+- ✅ Demonstrates <strong>hybrid architecture</strong> (streaming + batch ingestion)
+- ✅ <strong>Data quality testing feature</strong>: CSV duplicates showcase Hudi deduplication
+  - invoice_number as record key for automatic duplicate removal
+  - Simulates real-world data issues (2.35x duplication rate)
+- ✅ All data validated and ready for Phase 3 deployment</p>
+<p><strong>Phase 3 - DMS Infrastructure as Code (Dec 7-16, 2025)</strong> ✅ 100% (IaC):
+- ✅ PostgreSQL logical replication configured (wal_level=logical)
+- ✅ <strong>DMS Terraform module complete</strong> (361 lines across 3 files)
+  - Replication instance: dms.t3.medium with 50GB storage
+  - Source endpoint: PostgreSQL with Secrets Manager integration
+  - Target endpoint: S3 with Parquet format and SNAPPY compression
+  - Table mappings: 7 tables with pg_ prefix transformation
+  - Full load + CDC tasks defined
+- ✅ <strong>DataSync documented</strong> (11KB production deployment guide)
+  - Comprehensive agent setup and configuration
+  - Hybrid approach: S3 CLI for dev, DataSync for production
+- ✅ Ready for one-command deployment: <code>terraform apply -target=module.dms</code>
+- 📝 <strong>Deployment decision</strong>: IaC complete, actual deployment deferred (cost optimization: $125/month)</p>
+<p><strong>Phase 4 - Analytics &amp; Query Layer (Dec 16-20, 2025)</strong> 🟡 20%:
+- ✅ <strong>3 Analytics ETL scripts created</strong> (435 lines PySpark)
+  - analytics_sales_order_fact_etl.py (145 lines) - Sales fact table
+  - analytics_sales_order_line_items_etl.py (162 lines) - Denormalized line items
+  - analytics_service_parts_catalog_etl.py (128 lines) - Service catalog view
+- ⏸️ Configure Athena workgroups and table definitions (in progress)
+- ⏸️ Test queries on Hudi tables
+- ⏸️ Optimize query performance (&lt;30s target)
+- ⏸️ Test time-travel and incremental queries
+- ⏸️ Finalize documentation and create CloudWatch dashboards</p>
+<p><strong>Phase 5 - AI Chatbox with Amazon Bedrock (Future)</strong> 📝 Planned:
+- 📝 <strong>AI-powered chatbox</strong> using Amazon Bedrock Nova Pro
+- 📝 <strong>RAG Implementation</strong> with Bedrock Knowledge Bases
+  - Vector embeddings with Titan Embeddings G1
+  - OpenSearch Serverless for vector storage
+  - Knowledge base: 400+ parts, 110 services, 1,074 service-parts mappings
+- 📝 <strong>Next.js Frontend</strong> with TypeScript + Tailwind CSS
+  - Deployed on AWS Amplify
+  - Real-time chat interface with shadcn/ui components
+- 📝 <strong>Lambda Functions</strong> for chat processing and analytics queries
+- 📝 <strong>API Gateway</strong> REST endpoints for chatbox integration
+- 📝 <strong>Use Cases:</strong>
+  - Customer support ("What parts are needed for an oil change?")
+  - Data analytics ("What are our top-selling parts this month?")
+  - Natural language interface to data lake
+- 📝 <strong>Documentation ready</strong>: 760-line implementation guide (PHASE5_AI_CHATBOX.md)
+- 📝 <strong>Cost estimate</strong>: ~$150-180/month (Bedrock + OpenSearch Serverless)</p>
+<p><strong>Progress</strong>: 80% overall (16 of 20 days complete)<br />
+<strong>Target Completion</strong>: Phase 4 - December 20, 2025 | Phase 5 - Future Enhancement<br />
+<strong>Status</strong>: On Track ✅</p>
+<p><strong>Key Achievements:</strong>
+- 🏆 <strong>1,800+ lines</strong> of Terraform + PySpark code written
+- 🏆 <strong>44 AWS resources</strong> defined (35 deployed + 9 DMS pending)
+- 🏆 <strong>10 ETL jobs</strong> implemented (7 operational + 3 analytics)
+- 🏆 <strong>5,200+ lines</strong> of comprehensive documentation
+- 🏆 <strong>Cost-optimized</strong>: ~$1/month current infrastructure
+- 🏆 <strong>Roadmap complete</strong>: Phase 5 AI chatbox fully planned (760 lines)</p>
+<h2 id="repository">🔗 Repository</h2>
+<p><a href="https://github.com/Bytes0211/autocorp">View AutoCorp Project on GitHub</a></p>
+<hr />
+<p><strong>Project Type</strong>: Cloud Data Engineering / Data Lakehouse Architecture<br />
+<strong>Complexity</strong>: Enterprise-Scale<br />
+<strong>Status</strong>: Architecture Complete, Implementation In Progress</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../about/" class="md-footer__link md-footer__link--prev" aria-label="Previous: About">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                About
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../streamforge/" class="md-footer__link md-footer__link--next" aria-label="Next: StreamForge Real-Time Streaming">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                StreamForge Real-Time Streaming
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2018 - 2025 Steven Cotton
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="/about/" target="_blank" rel="noopener" title="About" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="m55.7 199.7 30.9 30.9c6 6 14.1 9.4 22.6 9.4h21.5c8.5 0 16.6 3.4 22.6 9.4l29.3 29.3c6 6 9.4 14.1 9.4 22.6v37.5c0 8.5 3.4 16.6 9.4 22.6l13.3 13.3c6 6 9.4 14.1 9.4 22.6V416c0 17.7 14.3 32 32 32s32-14.3 32-32v-2.7c0-8.5 3.4-16.6 9.4-22.6l45.3-45.3c6-6 9.4-14.1 9.4-22.6v-34.7c0-17.7-14.3-32-32-32h-82.7c-8.5 0-16.6-3.4-22.6-9.4l-16-16c-4.2-4.2-6.6-10-6.6-16 0-12.5 10.1-22.6 22.6-22.6h34.7c12.5 0 22.6-10.1 22.6-22.6 0-6-2.4-11.8-6.6-16l-19.7-19.7c-3.9-3.8-5.9-8.7-5.9-13.8s2-10 5.7-13.7L263 89c5.8-5.8 9.1-13.7 9.1-21.9 0-7.2-2.4-13.7-6.4-18.9-3.2-.1-6.4-.2-9.6-.2-95.4 0-175.7 64.2-200.3 151.7zM464 256c0-34.6-8.4-67.2-23.4-95.8-6.4.9-12.7 3.9-17.9 9.1l-13.4 13.4c-6 6-9.4 14.1-9.4 22.6V240c0 17.7 14.3 32 32 32H456c2.5 0 5-.3 7.3-.8.4-5 .5-10.1.5-15.2zM0 256a256 256 0 1 1 512 0 256 256 0 1 1-512 0"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener" title="Privacy Policy" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M256 0c4.6 0 9.2 1 13.4 2.9l188.4 79.9c22 9.3 38.4 31 38.3 57.2-.5 99.2-41.3 280.7-213.6 363.2-16.7 8-36.1 8-52.8 0C57.3 420.7 16.6 239.2 16.1 140c-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.9 1 251.4 0 256 0m0 66.8v378.1c138-66.8 175.1-214.8 176-303.4L256 66.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:stevenwcotton@gmail.com" target="_blank" rel="noopener" title="Email" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4l208 156a48 48 0 0 0 57.6 0l208-156c12.1-9.1 19.2-23.3 19.2-38.4 0-26.5-21.5-48-48-48zM0 196v188c0 35.3 28.7 64 64 64h384c35.3 0 64-28.7 64-64V196L313.6 344.8c-34.1 25.6-81.1 25.6-115.2 0z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.linkedin.com/in/steven-cotton-7948157" target="_blank" rel="noopener" title="LinkedIn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://bsky.app/profile/stevenwcotton.bsky.social" target="_blank" rel="noopener" title="Bluesky" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M407.8 294.7c-3.3-.4-6.7-.8-10-1.3 3.4.4 6.7.9 10 1.3M288 227.1c-26.1-50.7-97.1-145.2-163.1-191.8C61.6-9.4 37.5-1.7 21.6 5.5 3.3 13.8 0 41.9 0 58.4S9.1 194 15 213.9c19.5 65.7 89.1 87.9 153.2 80.7 3.3-.5 6.6-.9 10-1.4-3.3.5-6.6 1-10 1.4-93.9 14-177.3 48.2-67.9 169.9C220.6 589.1 265.1 437.8 288 361.1c22.9 76.7 49.2 222.5 185.6 103.4 102.4-103.4 28.1-156-65.8-169.9-3.3-.4-6.7-.8-10-1.3 3.4.4 6.7.9 10 1.3 64.1 7.1 133.6-15.1 153.2-80.7C566.9 194 576 75 576 58.4s-3.3-44.7-21.6-52.9c-15.8-7.1-40-14.9-103.2 29.8C385.1 81.9 314.1 176.4 288 227.1"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.footer", "navigation.top", "search.highlight", "search.suggest", "toc.integrate", "content.code.annotate", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>
